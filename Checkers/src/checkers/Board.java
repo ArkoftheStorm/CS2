@@ -18,7 +18,7 @@ public class Board {
         while (r<NUM_ROWS){
             c = 0;
             while (c<NUM_COLUMNS){
-                if(c%8 == 0)
+                if(c%2 == 0)
                     g.setColor(Color.black);
                 else
                     g.setColor(Color.red);
