@@ -15,16 +15,27 @@ public class Board {
         ydelta = Window.getHeight2()/NUM_ROWS;
         int c=0;
         int r=0;
+        boolean nRow = false;
+        Color prevColor = null;
         while (r<NUM_ROWS){
             c = 0;
             while (c<NUM_COLUMNS){
-                if(c%2 == 0)
-                    g.setColor(Color.black);
-                else
-                    g.setColor(Color.red);
+                if(nRow){
+                    nRow =false;
+                    g.setColor(prevColor);
+                }
+                else{
+                    if(prevColor == Color.red)
+                        prevColor = Color.black;
+                    else
+                        prevColor = Color.red;
+                    g.setColor(prevColor);
+                }
+                    
                 g.fillRect(Window.getX(c*xdelta), Window.getY(r*ydelta), xdelta, ydelta);
                 c++;
             }
+            nRow = true;
             r++;
         }
         g.setColor(Color.white);
