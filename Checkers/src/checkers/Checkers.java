@@ -32,19 +32,19 @@ public class Checkers extends JFrame implements Runnable {
         });
             
 
-    addMouseMotionListener(new MouseMotionAdapter() {
-      public void mouseDragged(MouseEvent e) {
-
-        repaint();
-      }
-    });
-
-    addMouseMotionListener(new MouseMotionAdapter() {
-      public void mouseMoved(MouseEvent e) {
-
-        repaint();
-      }
-    });
+//    addMouseMotionListener(new MouseMotionAdapter() {
+//      public void mouseDragged(MouseEvent e) {
+//
+//        repaint();
+//      }
+//    });
+//
+//    addMouseMotionListener(new MouseMotionAdapter() {
+//      public void mouseMoved(MouseEvent e) {
+//
+//        repaint();
+//      }
+//    });
 
         addKeyListener(new KeyAdapter() {
 
@@ -80,7 +80,25 @@ public class Checkers extends JFrame implements Runnable {
             g.setRenderingHint(RenderingHints.KEY_ANTIALIASING,
                     RenderingHints.VALUE_ANTIALIAS_ON);
         }
+//fill background
+        
+        g.setColor(Color.cyan);
+        g.fillRect(0, 0, Window.xsize, Window.ysize);
 
+        int x[] = {Window.getX(0), Window.getX(Window.getWidth2()), Window.getX(Window.getWidth2()), Window.getX(0), Window.getX(0)};
+        int y[] = {Window.getY(0), Window.getY(0), Window.getY(Window.getHeight2()), Window.getY(Window.getHeight2()), Window.getY(0)};
+//fill border
+        g.setColor(Color.white);
+        g.fillPolygon(x, y, 4);
+// draw border
+        g.setColor(Color.red);
+        g.drawPolyline(x, y, 5);
+
+        if (animateFirstTime) {
+            gOld.drawImage(image, 0, 0, null);
+            return;
+        }
+        Board.Draw(g);
         gOld.drawImage(image, 0, 0, null);
     }
 
