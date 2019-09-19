@@ -9,6 +9,6 @@ package checkers;
  *
  * @author 373001502
  */
-public class Action {
+public class Window {
     
 }
