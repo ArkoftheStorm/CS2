@@ -5,6 +5,8 @@
  */
 package checkers;
 
+import java.io.File;
+
 /**
  *
  * @author 373001502
@@ -45,4 +47,6 @@ public class Window {
 //        return (ysize - 2 * YBORDER - WINDOW_BORDER - YTITLE);
         return (ysize - (BOTTOM_BORDER + TOP_BORDER) - WINDOW_BORDER - YTITLE);
     }
+    
 }
+
