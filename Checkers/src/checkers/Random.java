@@ -4,7 +4,7 @@ import java.awt.*;
 
 public class Random {
     public static void Draw(Graphics2D g) {
-        g.setColor(Color.red);
-        g.drawRect(900, 900, Board.getXdelta(), Board.getYdelta());
+        g.setColor(Color.cyan);
+        g.drawRect(500, 400, 500, 500);
     }
 }
