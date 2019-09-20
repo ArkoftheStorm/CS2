@@ -49,10 +49,19 @@ public class Checkers extends JFrame implements Runnable {
         addKeyListener(new KeyAdapter() {
 
             public void keyPressed(KeyEvent e) {
+                if (e.VK_SPACE == e.getKeyCode()) {
+                    
+                }
+                
+ 
                 if (e.VK_UP == e.getKeyCode()) {
+                    
                 } else if (e.VK_DOWN == e.getKeyCode()) {
+                    
                 } else if (e.VK_LEFT == e.getKeyCode()) {
+                    
                 } else if (e.VK_RIGHT == e.getKeyCode()) {
+                    
                 } else if (e.VK_ESCAPE == e.getKeyCode()) {
                     reset();
                 }
@@ -95,13 +104,17 @@ public class Checkers extends JFrame implements Runnable {
         g.drawPolyline(x, y, 5);
 
 //      System.out.println("checker time");
-   
-          
+
+
+//  draw methods/classes
+        Menu.draw(g);
+
         
         if (animateFirstTime) {
             gOld.drawImage(image, 0, 0, null);
             return;
         }
+        Random.Draw(g);
         Board.Draw(g);
         gOld.drawImage(image, 0, 0, null);
     }
@@ -122,8 +135,11 @@ public class Checkers extends JFrame implements Runnable {
     }
     
 /////////////////////////////////////////////////////////////////////////
-    public void reset() {
-        menu = false;
+    public void reset() { 
+       
+        Menu.Reset();
+        
+        
     }
 /////////////////////////////////////////////////////////////////////////
     public void animate() {
