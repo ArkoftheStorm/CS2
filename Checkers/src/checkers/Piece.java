@@ -43,4 +43,3 @@ public static void draw (Graphics2D g, int column, int row, int xdelta, int ydel
         }
     }
 }
-}
