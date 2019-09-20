@@ -49,20 +49,8 @@ public class Board {
             g.drawLine(Window.getX(0)+zi*Window.getWidth2()/NUM_COLUMNS ,Window.getY(0) ,
             Window.getX(0)+zi*Window.getWidth2()/NUM_COLUMNS,Window.getY(Window.getHeight2())  );
         }
-////////////////
-//   for(int zrow =0; zrow< NUM_ROWS;zrow++)
-//      for(int zcol =0; zcol< NUM_COLUMNS;zcol++)
-//      if(board[zrow][zcol] != null)
-      {
-    Piece.draw(g, r, c, xdelta, ydelta);  
-      }
-////////////////
-    }
-    
 
-    
-    
-    
+    }
     public static int getNumRows(){
         return NUM_ROWS;
     }
