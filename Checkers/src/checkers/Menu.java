@@ -23,8 +23,11 @@ public class Menu {
     }
      public static void draw(Graphics g){
       
-         
-         
+      if(menuShow == true)   
+      {
+        g.setColor(Color.cyan);   
+        g.fillRect(0, 0, 1000, 1000);
+      }
          
          
      }

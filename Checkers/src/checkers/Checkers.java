@@ -52,7 +52,9 @@ public class Checkers extends JFrame implements Runnable {
                 if (e.VK_SPACE == e.getKeyCode()) {
                     
                 }
-                
+                else if (e.VK_PERIOD == e.getKeyCode()){
+                    Menu.menuShow = false;
+                }
  
                 if (e.VK_UP == e.getKeyCode()) {
                     
@@ -106,13 +108,14 @@ public class Checkers extends JFrame implements Runnable {
 //      System.out.println("checker time");
 
 //  draw methods/classes
-        Menu.draw(g);
+        
         
         if (animateFirstTime) {
             gOld.drawImage(image, 0, 0, null);
             return;
         }
         Board.Draw(g);
+        Menu.draw(g);
         gOld.drawImage(image, 0, 0, null);
     }
 
