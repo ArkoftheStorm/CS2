@@ -14,16 +14,23 @@ Piece(Color _color)
     color = _color;
 }
 
-public Color getColor()
-{
-    return (color);
-}
-public void draw (Graphics2D g, int column, int row, int xdelta, int ydelta)
-{
-                   g.setColor(color);
-                g.fillOval(Window.getX(column*xdelta),
-                Window.getY(row*ydelta),
+//public Color getColor()
+//{
+//    return (color);
+//}
+public static void draw (Graphics2D g, int column, int row, int xdelta, int ydelta)
 
+{
+    
+      for(int zrow =0; zrow< Board.getNumRows();zrow++)
+      for(int zcol =0; zcol<  Board.getNumColumns();zcol++)
+      if(board[zrow][zcol] == null)
+      {
+       
+         
+                 g.setColor(Color.red);
+                g.fillOval(Window.getX(zcol*xdelta),
+                Window.getY(zrow*ydelta),
                 xdelta,
                 ydelta);
                 
