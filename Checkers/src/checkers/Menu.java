@@ -22,10 +22,11 @@ public class Menu {
         menuShow = true;
     }
      public static void draw(Graphics g){
-      
+      Color menuColor = new Color(91, 195, 255);
+         
       if(menuShow == true)   
       {
-        g.setColor(Color.cyan);   
+        g.setColor(menuColor);   
         g.fillRect(0, 0, 1000, 1000);
       }
          

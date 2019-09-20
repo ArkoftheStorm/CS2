@@ -8,7 +8,7 @@ import java.awt.Graphics2D;
 
 public class Piece {
          private Color color; 
-   
+         private static Piece board[][] = new Piece[Board.getNumRows()][Board.getNumColumns()];
 Piece(Color _color)   
 {
     color = _color;
@@ -24,8 +24,9 @@ public static void draw (Graphics2D g, int column, int row, int xdelta, int ydel
     
       for(int zrow =0; zrow< Board.getNumRows();zrow++)
       for(int zcol =0; zcol<  Board.getNumColumns();zcol++)
-      if(board[zrow][zcol] == null)
-      {
+     
+         if(board[zrow][zcol] == null)
+         {
        
          
                  g.setColor(Color.red);
@@ -34,5 +35,7 @@ public static void draw (Graphics2D g, int column, int row, int xdelta, int ydel
                 xdelta,
                 ydelta);
                 
-}
+
+        }
+    }
 }
