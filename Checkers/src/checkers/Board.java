@@ -6,8 +6,8 @@ import java.awt.Graphics2D;
 
 
 public class Board {
-    public final static int NUM_ROWS = 8;
-    public final static int NUM_COLUMNS = 8;
+    private final static int NUM_ROWS = 8;
+    private final static int NUM_COLUMNS = 8;
     private static int xdelta = Window.getWidth2()/NUM_COLUMNS;
     private static int ydelta = Window.getHeight2()/NUM_ROWS;
     public static void Draw(Graphics2D g) {
@@ -50,5 +50,11 @@ public class Board {
             Window.getX(0)+zi*Window.getWidth2()/NUM_COLUMNS,Window.getY(Window.getHeight2())  );
         }
 
+    }
+    public static int getNumRows(){
+        return NUM_ROWS;
+    }
+    public static int getNumColumns(){
+        return NUM_COLUMNS;
     }
 }
