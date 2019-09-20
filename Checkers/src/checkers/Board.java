@@ -64,4 +64,12 @@ public class Board {
     public static int getYdelta(){
         return ydelta;
     }
+//     public static Color prevColor(){
+//      //  return   prevColor;
+//    }
+//    
+    
+    
+    
+    
 }
