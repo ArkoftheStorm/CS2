@@ -10,6 +10,7 @@ public class Board {
     private final static int NUM_COLUMNS = 8;
     private static int xdelta = Window.getWidth2()/NUM_COLUMNS;
     private static int ydelta = Window.getHeight2()/NUM_ROWS;
+    
     public static void Draw(Graphics2D g) {
         int c;
         int r=0;

@@ -13,10 +13,10 @@ Piece(Color _color)
 {
     color = _color;
 }
-public Color getColor()
-{
-    return (color);
-}
+//public Color getColor()
+//{
+//    return (color);
+//}
 public void draw (Graphics2D g, int column, int row, int xdelta, int ydelta)
 {
                    g.setColor(color);
