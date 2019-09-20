@@ -24,10 +24,17 @@ public class Menu {
      public static void draw(Graphics g){
       Color menuColor = new Color(91, 195, 255);
          
+      
+     
+      
       if(menuShow == true)   
-      {
+      {             
         g.setColor(menuColor);   
-        g.fillRect(0, 0, 1000, 1000);
+        g.fillRect(0, 0, 1000000, 1000000);
+        
+        g.setColor(Color.black);
+        g.setFont(new Font("Segoe UI Semibold",Font.BOLD,125));
+        g.drawString("CHECKERS",100,190); 
       }
          
          
