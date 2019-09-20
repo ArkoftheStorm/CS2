@@ -94,6 +94,8 @@ public class Checkers extends JFrame implements Runnable {
         g.setColor(Color.red);
         g.drawPolyline(x, y, 5);
 
+//      System.out.println("checker time");
+        
         if (animateFirstTime) {
             gOld.drawImage(image, 0, 0, null);
             return;
