@@ -11,9 +11,7 @@ public class Board {
     private static int xdelta = Window.getWidth2()/NUM_COLUMNS;
     private static int ydelta = Window.getHeight2()/NUM_ROWS;
     public static void Draw(Graphics2D g) {
-        xdelta = Window.getWidth2()/NUM_COLUMNS;
-        ydelta = Window.getHeight2()/NUM_ROWS;
-        int c=0;
+        int c;
         int r=0;
         boolean nRow = false;
         Color prevColor = null;
@@ -56,5 +54,11 @@ public class Board {
     }
     public static int getNumColumns(){
         return NUM_COLUMNS;
+    }
+    public static int getXdelta(){
+        return xdelta;
+    }
+    public static int getYdelta(){
+        return ydelta;
     }
 }
