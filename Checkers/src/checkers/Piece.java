@@ -7,17 +7,17 @@ import java.awt.Graphics2D;
 
 
 public class Piece {
-private Color color; 
-private static Piece board[][] = new Piece[Board.getNumRows()][Board.getNumColumns()];
+         private Color color; 
+   
 Piece(Color _color)   
 {
     color = _color;
 }
-//public Color getColor()
-//{
-//    return (color);
-//}
 
+public Color getColor()
+{
+    return (color);
+}
 public void draw (Graphics2D g, int column, int row, int xdelta, int ydelta)
 {
                    g.setColor(color);
@@ -26,6 +26,6 @@ public void draw (Graphics2D g, int column, int row, int xdelta, int ydelta)
 
                 xdelta,
                 ydelta);
-      } 
+                
 }
 }

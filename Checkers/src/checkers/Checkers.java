@@ -106,8 +106,10 @@ public class Checkers extends JFrame implements Runnable {
 //      System.out.println("checker time");
 
 
+
 //  draw methods/classes
         Menu.draw(g);
+
 
         
         if (animateFirstTime) {
