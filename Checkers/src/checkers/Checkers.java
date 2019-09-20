@@ -107,13 +107,18 @@ public class Checkers extends JFrame implements Runnable {
 
 //      System.out.println("checker time");
 
+
 //  draw methods/classes
-        
+
+        Menu.draw(g);
+
+
         
         if (animateFirstTime) {
             gOld.drawImage(image, 0, 0, null);
             return;
         }
+        Random.Draw(g);
         Board.Draw(g);
         Menu.draw(g);
         gOld.drawImage(image, 0, 0, null);

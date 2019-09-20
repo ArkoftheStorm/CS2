@@ -10,9 +10,10 @@ public class Board {
     private final static int NUM_COLUMNS = 8;
     private static int xdelta = Window.getWidth2()/NUM_COLUMNS;
     private static int ydelta = Window.getHeight2()/NUM_ROWS;
-    
     public static void Draw(Graphics2D g) {
-        int c;
+        xdelta = Window.getWidth2()/NUM_COLUMNS;
+        ydelta = Window.getHeight2()/NUM_ROWS;
+        int c=0;
         int r=0;
         boolean nRow = false;
         Color prevColor = null;
@@ -48,18 +49,24 @@ public class Board {
             g.drawLine(Window.getX(0)+zi*Window.getWidth2()/NUM_COLUMNS ,Window.getY(0) ,
             Window.getX(0)+zi*Window.getWidth2()/NUM_COLUMNS,Window.getY(Window.getHeight2())  );
         }
-
+////////////////
+//   for(int zrow =0; zrow< NUM_ROWS;zrow++)
+//      for(int zcol =0; zcol< NUM_COLUMNS;zcol++)
+//      if(board[zrow][zcol] != null)
+      {
+    Piece.draw(g, r, c, xdelta, ydelta);  
+      }
+////////////////
     }
+    
+
+    
+    
+    
     public static int getNumRows(){
         return NUM_ROWS;
     }
     public static int getNumColumns(){
         return NUM_COLUMNS;
-    }
-    public static int getXdelta(){
-        return xdelta;
-    }
-    public static int getYdelta(){
-        return ydelta;
     }
 }
