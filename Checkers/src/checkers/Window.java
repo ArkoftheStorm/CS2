@@ -12,7 +12,7 @@ package checkers;
 public class Window {
     private static final int TOP_BORDER = 20;
     private static final int BOTTOM_BORDER = 20;
-    private static final int XBORDER = 20;
+    private static final int XBORDER = 100;
     private static final int YTITLE = 30;
     private static final int WINDOW_BORDER = 8;
     static final int WINDOW_WIDTH = 2*(WINDOW_BORDER + XBORDER) + 600;
