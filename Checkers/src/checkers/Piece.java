@@ -22,6 +22,7 @@ public class Piece {
 
         for (int zrow = 0; zrow < Board.getNumRows(); zrow++) {
             for (int zcol = 0; zcol < Board.getNumColumns(); zcol++) {
+
                 if (Board.getColor(zrow, zcol) == Color.black) {
                     if (board[zrow][zcol] == null) {
 
@@ -32,6 +33,7 @@ public class Piece {
                                 ydelta);
 
                     }
+
                 }
             }
         }
