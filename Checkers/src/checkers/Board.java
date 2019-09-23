@@ -26,32 +26,15 @@ public class Board {
                 } else {
                     if (prevColor == Color.red) {
                         prevColor = Color.black;
-
-
-
-                   //     board[r][c].color = prevColor;
+                        board[r][c] = prevColor;
                     }
                     else if(prevColor == Color.black){
                         prevColor = Color.red;
-                    //    board[r][c].color = prevColor;
-
-//                        board[r][c].color = prevColor;
+                        board[r][c] = prevColor;
                     }
                     else{
                         board[r][c] = prevColor;
                     } 
-		    else {
-
-                        prevColor = Color.red;
-//                        board[r][c].color = prevColor;
-
-                        board[r][c] = prevColor;
-   //                 } else {
-   //                     prevColor = Color.red;
-    //                    board[r][c] = prevColor;
-
-
-                    }
                     g.setColor(prevColor);
                 }
 
