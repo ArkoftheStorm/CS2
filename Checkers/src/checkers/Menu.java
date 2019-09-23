@@ -30,11 +30,11 @@ public class Menu {
       if(menuShow == true)   
       {             
         g.setColor(menuColor);   
-        g.fillRect(0, 0, 1000000, 1000000);
+        g.fillRect(0, 0, Window.xsize, Window.ysize);
         
         g.setColor(Color.black);
         g.setFont(new Font("Segoe UI Semibold",Font.BOLD,125));
-        g.drawString("CHECKERS",100,190); 
+        g.drawString("CHECKERS",Window.getWidth2()/5,Window.getHeight2()/5); 
       }
          
          

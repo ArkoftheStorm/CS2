@@ -30,7 +30,7 @@ public class Board {
 
                    //     board[r][c].color = prevColor;
                     }
-                    else{
+                    else if(prevColor == Color.black){
                         prevColor = Color.red;
                     //    board[r][c].color = prevColor;
 
