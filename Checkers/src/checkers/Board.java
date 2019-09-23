@@ -16,14 +16,14 @@ public class Board {
         int c = 0;
         int r = 0;
         boolean nRow = false;
-        Color prevColor = null;
+        Color prevColor = Color.red;
         while (r < NUM_ROWS) {
             c = 0;
             while (c < NUM_COLUMNS) {
                 if (nRow) {
                     nRow = false;
-                    g.setColor(prevColor);
-                } else {
+                } 
+                else {
                     if (prevColor == Color.red) {
                         prevColor = Color.black;
                         board[r][c] = prevColor;
@@ -33,9 +33,10 @@ public class Board {
                         board[r][c] = prevColor;
                     }
 
-                    g.setColor(prevColor);
+                    
                 }
-
+                g.setColor(prevColor);
+                
                 g.fillRect(Window.getX(c * xdelta), Window.getY(r * ydelta), xdelta, ydelta);
                 c++;
             }
