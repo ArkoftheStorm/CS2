@@ -11,7 +11,7 @@ public class Board {
     private static int xdelta = Window.getWidth2()/NUM_COLUMNS;
     private static int ydelta = Window.getHeight2()/NUM_ROWS;
     private static Board board[][] = new Board[NUM_ROWS][NUM_COLUMNS];
-    Color color;
+    Color color = null;
     public static void Draw(Graphics2D g) {
         int c=0;
         int r=0;
@@ -27,11 +27,19 @@ public class Board {
                 else{
                     if(prevColor == Color.red){
                         prevColor = Color.black;
+
                    //     board[r][c].color = prevColor;
                     }
                     else{
                         prevColor = Color.red;
                     //    board[r][c].color = prevColor;
+
+//                        board[r][c].color = prevColor;
+                    }
+                    else{
+                        prevColor = Color.red;
+//                        board[r][c].color = prevColor;
+
                     }
                     g.setColor(prevColor);
                 }
@@ -70,7 +78,9 @@ public class Board {
     public static int getYdelta(){
         return ydelta;
     }
+
     public static Board getBoard(int r, int c){
         return board[r][c];
     }
+
 }
