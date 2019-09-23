@@ -1,4 +1,3 @@
-
 package checkers;
 
 import java.awt.*;
@@ -6,11 +5,13 @@ import java.awt.event.*;
 import javax.swing.*;
 
 public class Checkers extends JFrame implements Runnable {
+
     boolean animateFirstTime = true;
     Image image;
     Graphics2D g;
-    Color brown = new Color(193,154,107);
+    Color brown = new Color(193, 154, 107);
     static boolean menu;
+
     public static void main(String[] args) {
         Checkers frame = new Checkers();
         frame.setSize(Window.WINDOW_WIDTH, Window.WINDOW_HEIGHT);
@@ -22,7 +23,7 @@ public class Checkers extends JFrame implements Runnable {
         addMouseListener(new MouseAdapter() {
             public void mousePressed(MouseEvent e) {
 
-                if (e.BUTTON1 == e.getButton() ) {
+                if (e.BUTTON1 == e.getButton()) {
                 }
 
                 if (e.BUTTON3 == e.getButton()) {
@@ -30,7 +31,6 @@ public class Checkers extends JFrame implements Runnable {
                 repaint();
             }
         });
-            
 
 //    addMouseMotionListener(new MouseMotionAdapter() {
 //      public void mouseDragged(MouseEvent e) {
@@ -45,25 +45,23 @@ public class Checkers extends JFrame implements Runnable {
 //        repaint();
 //      }
 //    });
-
         addKeyListener(new KeyAdapter() {
 
             public void keyPressed(KeyEvent e) {
                 if (e.VK_SPACE == e.getKeyCode()) {
-                    
-                }
-                else if (e.VK_PERIOD == e.getKeyCode()){
+
+                } else if (e.VK_PERIOD == e.getKeyCode()) {
                     Menu.menuShow = false;
                 }
- 
+
                 if (e.VK_UP == e.getKeyCode()) {
-                    
+
                 } else if (e.VK_DOWN == e.getKeyCode()) {
-                    
+
                 } else if (e.VK_LEFT == e.getKeyCode()) {
-                    
+
                 } else if (e.VK_RIGHT == e.getKeyCode()) {
-                    
+
                 } else if (e.VK_ESCAPE == e.getKeyCode()) {
                     reset();
                 }
@@ -75,13 +73,16 @@ public class Checkers extends JFrame implements Runnable {
     }
     Thread relaxer;
 ////////////////////////////////////////////////////////////////////////////
+
     public void init() {
         requestFocus();
     }
 ////////////////////////////////////////////////////////////////////////////
+
     public void destroy() {
     }
 ////////////////////////////////////////////////////////////////////////////
+
     public void paint(Graphics gOld) {
         if (image == null || Window.xsize != getSize().width || Window.ysize != getSize().height) {
             Window.xsize = getSize().width;
@@ -92,7 +93,7 @@ public class Checkers extends JFrame implements Runnable {
                     RenderingHints.VALUE_ANTIALIAS_ON);
         }
 //fill background
-        
+
         g.setColor(brown);
         g.fillRect(0, 0, Window.xsize, Window.ysize);
 
@@ -106,19 +107,12 @@ public class Checkers extends JFrame implements Runnable {
         g.drawPolyline(x, y, 5);
 
 //      System.out.println("checker time");
-
-
-
 //  draw methods/classes
-
-
-
-        
         if (animateFirstTime) {
             gOld.drawImage(image, 0, 0, null);
             return;
         }
-        
+
         Board.Draw(g);
         Random.Draw(g);
         Menu.draw(g);
@@ -139,15 +133,15 @@ public class Checkers extends JFrame implements Runnable {
             }
         }
     }
-    
+
 /////////////////////////////////////////////////////////////////////////
-    public void reset() { 
-       
+    public void reset() {
+
         Menu.Reset();
-        
-        
+
     }
 /////////////////////////////////////////////////////////////////////////
+
     public void animate() {
 
         if (animateFirstTime) {
@@ -170,6 +164,7 @@ public class Checkers extends JFrame implements Runnable {
         }
     }
 ////////////////////////////////////////////////////////////////////////////
+
     public void stop() {
         if (relaxer.isAlive()) {
             relaxer.stop();
@@ -178,7 +173,3 @@ public class Checkers extends JFrame implements Runnable {
     }
 
 }
-
-
-
-

@@ -1,4 +1,3 @@
-
 package checkers;
 
 import java.awt.*;
@@ -10,17 +9,20 @@ import java.awt.Font;
 import java.awt.Graphics2D;
 
 public class Menu {
+
     static boolean menuShow;
     static int but1;
     static int but2;
     static int but3;
-    Menu(){
-        
+
+    Menu() {
+
     }
-    public static void Reset()
-    {
+
+    public static void Reset() {
         menuShow = true;
     }
+
      public static void draw(Graphics g){
       Color menuColor = new Color(91, 195, 255);
 
@@ -39,4 +41,6 @@ public class Menu {
          
      }
     
+
+
 }

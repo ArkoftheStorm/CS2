@@ -28,6 +28,7 @@ public class Board {
                         prevColor = Color.black;
 
 
+
                    //     board[r][c].color = prevColor;
                     }
                     else if(prevColor == Color.black){
@@ -37,6 +38,10 @@ public class Board {
 //                        board[r][c].color = prevColor;
                     }
                     else{
+                        board[r][c] = prevColor;
+                    } 
+		    else {
+
                         prevColor = Color.red;
 //                        board[r][c].color = prevColor;
 
@@ -47,7 +52,7 @@ public class Board {
 
 
                     }
-                    g.setColor(prevColor);
+                    g.setColor(Color.BLACK);
                 }
 
                 g.fillRect(Window.getX(c * xdelta), Window.getY(r * ydelta), xdelta, ydelta);
