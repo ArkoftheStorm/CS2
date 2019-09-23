@@ -8,4 +8,7 @@ public class Random {
         g.setColor(Color.yellow);
         g.fillRect(Window.getX(Window.getWidth2() + 10), Window.getY(0), Board.getXdelta(), Board.getYdelta());
     }
+    public static void Roll(Graphics2D g) {
+        
+    }
 }
