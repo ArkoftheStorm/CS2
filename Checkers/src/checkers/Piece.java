@@ -24,7 +24,7 @@ public class Piece {
             for (int zcol = 0; zcol < Board.getNumColumns(); zcol++) {
 
                 if (Board.getColor(zrow, zcol) == Color.black) {
-                    if (board[zrow][zcol] == null) {
+                   if (board[zrow][zcol] == null) {
 
                         g.setColor(Color.red);
                         g.fillOval(Window.getX(zcol * xdelta),

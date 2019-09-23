@@ -33,7 +33,7 @@ public class Board {
                         board[r][c] = prevColor;
 
                     }
-                    g.setColor(prevColor);
+                    g.setColor(Color.BLACK);
                 }
 
                 g.fillRect(Window.getX(c * xdelta), Window.getY(r * ydelta), xdelta, ydelta);
