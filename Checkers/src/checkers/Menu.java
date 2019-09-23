@@ -23,24 +23,44 @@ public class Menu {
         menuShow = true;
     }
 
-     public static void draw(Graphics g){
-      Color menuColor = new Color(91, 195, 255);
+    public static void ClickButton(int xpixel, int ypixel) {
 
-      if(menuShow == false)   
-         return;      
-      
-      
-        g.setColor(menuColor);   
+        if (menuShow == true) {
+//            if (xpixel == Window.getWidth2()/3 - 3 && ypixel == Window.getHeight2()/2 - 3) 
+//            {
+                
+                System.out.println(""+xpixel+ypixel);
+                menuShow = false;
+//            }
+        }
+    }
+
+    public static void draw(Graphics g) {
+        Color menuColor = new Color(91, 195, 255);
+
+        if (menuShow == false) {
+            return;
+        }
+
+        g.setColor(menuColor);
         g.fillRect(0, 0, Window.xsize, Window.ysize);
-        
-        g.setColor(Color.black);
-        g.setFont(new Font("Segoe UI Semibold",Font.BOLD,125));
-        g.drawString("CHECKERS",Window.getWidth2()/5,Window.getHeight2()/4); 
-      
-        g.fillRect(0, 0, Window.getWidth2()/2,Window.getHeight2()/4);
-         
-     }
-    
 
+//"PLAY" BUTTON        
+        g.setColor(Color.red);
+        g.fillRect(Window.getWidth2() / 3 - 3, Window.getHeight2() / 2 - 3, 406, 57);
+
+        g.setColor(Color.black);
+        g.fillRect(Window.getWidth2() / 3, Window.getHeight2() / 2, 400, 50);
+
+        g.setColor(Color.red);
+        g.setFont(new Font("Segoe UI Semibold", Font.BOLD, 55));
+        g.drawString("PLAY", Window.getWidth2() / 3 + 130, Window.getHeight2() / 2 + 45);
+
+//"CHECKERS"
+        g.setColor(Color.black);
+        g.setFont(new Font("Segoe UI Semibold", Font.BOLD, 125));
+        g.drawString("CHECKERS", Window.getWidth2() / 5, Window.getHeight2() / 4);
+
+    }
 
 }
