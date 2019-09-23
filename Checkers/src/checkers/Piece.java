@@ -24,6 +24,8 @@ public class Piece {
             for (int zcol = 0; zcol < Board.getNumColumns(); zcol++) {
 
                 if (Board.getColor(zrow, zcol) == Color.black) {
+                    
+                    if(zrow <3 || 4<zrow){
                    if (board[zrow][zcol] == null) {
 
                         g.setColor(Color.red);
@@ -33,7 +35,7 @@ public class Piece {
                                 ydelta);
 
                     }
-
+                    }
                 }
             }
         }
