@@ -27,11 +27,13 @@ public class Board {
                 else{
                     if(prevColor == Color.red){
                         prevColor = Color.black;
+
                         board[r][c] = prevColor;
                     }
                     else{
                         prevColor = Color.red;
                         board[r][c] = prevColor;
+
                     }
                     g.setColor(prevColor);
                 }
