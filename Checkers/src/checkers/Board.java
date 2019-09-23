@@ -71,7 +71,7 @@ public class Board {
         return ydelta;
     }
 
-    public static Color getBoard(int r, int c){
+    public static Color getColor(int r, int c){
         return board[r][c];
     }
 
