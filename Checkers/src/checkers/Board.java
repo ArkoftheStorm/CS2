@@ -24,15 +24,18 @@ public class Board {
             while (c < NUM_COLUMNS) {
                 if (nRow) {
                     nRow = false;
+                    Piece.board[r][c] = new Piece (prevColor);
                 } 
                 else {
                     if (prevColor == Color.red) {
                         prevColor = Color.black;
                         board[r][c] = prevColor;
+                        Piece.board[r][c] = new Piece (prevColor);
                     }
                     else if(prevColor == Color.black){
                         prevColor = Color.red;
                         board[r][c] = prevColor;
+                        Piece.board[r][c] = new Piece (prevColor);
                     }
 
                     
@@ -40,6 +43,7 @@ public class Board {
                 g.setColor(prevColor);
                 
                 g.fillRect(Window.getX(c * xdelta), Window.getY(r * ydelta), xdelta, ydelta);
+                Piece.getPiece(r,c).draw(g,r,c, xdelta, ydelta);
                 c++;
             }
             nRow = true;
@@ -54,7 +58,7 @@ public class Board {
             g.drawLine(Window.getX(0) + zi * Window.getWidth2() / NUM_COLUMNS, Window.getY(0),
                     Window.getX(0) + zi * Window.getWidth2() / NUM_COLUMNS, Window.getY(Window.getHeight2()));
         }
-        Piece.draw(g, r, c, xdelta, ydelta);
+        
 
     }
 
