@@ -16,7 +16,7 @@ public class Board {
         int c = 0;
         int r = 0;
         boolean nRow = false;
-        Color prevColor = null;
+        Color prevColor = Color.RED;
         while (r < NUM_ROWS) {
             c = 0;
             while (c < NUM_COLUMNS) {

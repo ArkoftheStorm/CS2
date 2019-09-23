@@ -27,8 +27,11 @@ public class Piece {
                     
                     if(zrow <3 || 4<zrow){
                    if (board[zrow][zcol] == null) {
-
+                         if (4<zrow)
                         g.setColor(Color.red);
+                         else if(zrow<3)
+                        g.setColor(Color.blue);
+                        
                         g.fillOval(Window.getX(zcol * xdelta),
                                 Window.getY(zrow * ydelta),
                                 xdelta,
