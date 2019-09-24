@@ -26,11 +26,16 @@ public class Menu {
     public static void ClickButton(int xpixel, int ypixel) {
 
         if (menuShow == true) {
-//          if(xpixel > Window.getX(Window.getWidth2() + 10) && ypixel > Window.getY(0) && xpixel < Window.getX(Window.getWidth2() + 10) + Board.getXdelta() && ypixel < Window.getY(0) + Board.getYdelta()){
-//                
-//                System.out.println(""+xpixel+ypixel);
-//                menuShow = false;
-//          }
+          if(xpixel > Window.getX(Window.getWidth2() / 3 - 115)  
+                  && xpixel < Window.getX(Window.getWidth2() / 2 + 150) + Board.getXdelta() 
+                  && ypixel > Window.getY(Window.getHeight2() / 3 + 40)
+                  && ypixel < Window.getY(Window.getHeight2() / 3 + 70) + Board.getYdelta()){
+                
+                
+              
+                System.out.println(""+xpixel+ypixel);
+                menuShow = false;
+          }
         }
     }
 
@@ -60,6 +65,7 @@ public class Menu {
         g.setFont(new Font("Segoe UI Semibold", Font.BOLD, 125));
         g.drawString("CHECKERS", Window.getWidth2() / 5, Window.getHeight2() / 4);
 
+    
     }
 
 }
