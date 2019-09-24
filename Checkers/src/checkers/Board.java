@@ -1,6 +1,5 @@
 package checkers;
 
-import static checkers.Piece.board;
 import java.awt.Color;
 import java.awt.Graphics2D;
 
@@ -71,20 +70,7 @@ public class Board {
                     Window.getX(0) + zi * Window.getWidth2() / NUM_COLUMNS, Window.getY(Window.getHeight2()));
         }
         
-      for (int zrow = 0; zrow < Board.getNumRows(); zrow++) {
-            for (int zcol = 0; zcol < Board.getNumColumns(); zcol++) {
 
-                if (Board.getColor(r, c) == Color.black) {
-
-                   if (zrow < 3 || 4 < zrow) {
-                        if (board[zrow][zcol] != null) {
-                          pieces[zrow][ zcol] = new Piece(Color.red);    
-
-                        }
-                    }
-                }
-            }
-        }
    }
 
     public static int getNumRows() {
