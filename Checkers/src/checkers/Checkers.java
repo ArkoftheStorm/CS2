@@ -25,6 +25,9 @@ public class Checkers extends JFrame implements Runnable {
 
                 if (e.BUTTON1 == e.getButton()) {
                 }
+                
+                       Menu.ClickButton(e.getX(),e.getY());
+                       
                     if(e.getX() > Window.getX(Window.getWidth2() + 10) &&
                             e.getY() > Window.getY(0) &&
                             e.getX() < Window.getX(Window.getWidth2() + 10) + Board.getXdelta() &&
