@@ -88,9 +88,9 @@ public class Menu {
             
             g.setFont(new Font("Segoe UI Semibold", Font.BOLD, 25));
             g.drawString("Step 1: Decide who is player 1 and who is player 2. ", Window.getWidth2() / 5 - 44, Window.getHeight2() / 4 + 50);
-            g.drawString("Step 2: Decide who is player 1 and who is player 2. ", Window.getWidth2() / 5 - 44, Window.getHeight2() / 4 + 100);
-            g.drawString("Step 3: Decide who is player 1 and who is player 2. ", Window.getWidth2() / 5 - 44, Window.getHeight2() / 4 + 150);
-            g.drawString("Step 4: Decide who is player 1 and who is player 2. ", Window.getWidth2() / 5 - 44, Window.getHeight2() / 4 + 200);
+            g.drawString("Step 2: Player 1 goes first. They are the bottom. ", Window.getWidth2() / 5 - 44, Window.getHeight2() / 4 + 100);
+            g.drawString("Step 2.5: Player 2 goes second. They are the top. ", Window.getWidth2() / 5 - 44, Window.getHeight2() / 4 + 150);
+            g.drawString("Step 3: Click on the space where you want to move. (Diagonal) ", Window.getWidth2() / 5 - 44, Window.getHeight2() / 4 + 200);
 
         }
 
