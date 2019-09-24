@@ -28,6 +28,7 @@ public class Checkers extends JFrame implements Runnable {
                 }
                 
                        Menu.ClickButton(e.getX(),e.getY());
+                       Piece.Animate(e.getX(),e.getY());
                        
                     if(e.getX() > Window.getX(Window.getWidth2() + 10) &&
                             e.getY() > Window.getY(0) &&
