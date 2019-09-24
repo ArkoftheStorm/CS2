@@ -70,12 +70,27 @@ public class Menu {
             g.setColor(Color.black);
             g.setFont(new Font("Segoe UI Semibold", Font.BOLD, 125));
             g.drawString("CHECKERS", Window.getWidth2() / 5 - 15, Window.getHeight2() / 4);
+            g.setFont(new Font("Segoe UI Semibold", Font.BOLD, 20));
+            g.drawString("Made By: Caden Y, Luke H, and Joshua H ", Window.getWidth2() / 8 - 50, Window.getHeight2() + 50);
         }
         if (helpShow == true) {
-
-           
+//HOW TO PLAY MENU
             g.setColor(menuColor);
             g.fillRect(0, 0, Window.xsize, Window.ysize);
+           
+            g.setColor(Color.black);
+            g.fillRect(Window.getWidth2() / 5 - 44, Window.getHeight2() / 4 , 660, 10);
+            
+            g.setColor(Color.black);
+            
+            g.setFont(new Font("Segoe UI Semibold", Font.BOLD, 100));
+            g.drawString("HOW TO PLAY", Window.getWidth2() / 5 - 50, Window.getHeight2() / 4);
+            
+            g.setFont(new Font("Segoe UI Semibold", Font.BOLD, 25));
+            g.drawString("Step 1: Decide who is player 1 and who is player 2. ", Window.getWidth2() / 5 - 44, Window.getHeight2() / 4 + 50);
+            g.drawString("Step 2: Decide who is player 1 and who is player 2. ", Window.getWidth2() / 5 - 44, Window.getHeight2() / 4 + 100);
+            g.drawString("Step 3: Decide who is player 1 and who is player 2. ", Window.getWidth2() / 5 - 44, Window.getHeight2() / 4 + 150);
+            g.drawString("Step 4: Decide who is player 1 and who is player 2. ", Window.getWidth2() / 5 - 44, Window.getHeight2() / 4 + 200);
 
         }
 
