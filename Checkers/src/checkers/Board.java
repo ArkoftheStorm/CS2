@@ -1,6 +1,5 @@
 package checkers;
 
-
 import java.awt.Color;
 import java.awt.Graphics2D;
 
@@ -71,7 +70,7 @@ public class Board {
                     Window.getX(0) + zi * Window.getWidth2() / NUM_COLUMNS, Window.getY(Window.getHeight2()));
         }
         
-      
+
    }
 
     public static int getNumRows() {
