@@ -1,3 +1,4 @@
+
 package checkers;
 
 import java.awt.*;
@@ -10,6 +11,7 @@ public class Checkers extends JFrame implements Runnable {
     Image image;
     Graphics2D g;
     Color brown = new Color(193, 154, 107);
+    int x;
     static boolean menu;
 
     public static void main(String[] args) {
@@ -25,6 +27,9 @@ public class Checkers extends JFrame implements Runnable {
 
                 if (e.BUTTON1 == e.getButton()) {
                 }
+                
+                       Menu.ClickButton(e.getX(),e.getY());
+                       
                     if(e.getX() > Window.getX(Window.getWidth2() + 10) &&
                             e.getY() > Window.getY(0) &&
                             e.getX() < Window.getX(Window.getWidth2() + 10) + Board.getXdelta() &&

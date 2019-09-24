@@ -26,12 +26,11 @@ public class Menu {
     public static void ClickButton(int xpixel, int ypixel) {
 
         if (menuShow == true) {
-//            if (xpixel == Window.getWidth2()/3 - 3 && ypixel == Window.getHeight2()/2 - 3) 
-//            {
-                
-                System.out.println(""+xpixel+ypixel);
-                menuShow = false;
-//            }
+//          if(xpixel > Window.getX(Window.getWidth2() + 10) && ypixel > Window.getY(0) && xpixel < Window.getX(Window.getWidth2() + 10) + Board.getXdelta() && ypixel < Window.getY(0) + Board.getYdelta()){
+//                
+//                System.out.println(""+xpixel+ypixel);
+//                menuShow = false;
+//          }
         }
     }
 
