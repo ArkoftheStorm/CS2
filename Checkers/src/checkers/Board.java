@@ -11,9 +11,12 @@ public class Board {
     private static int xdelta = Window.getWidth2() / NUM_COLUMNS;
     private static int ydelta = Window.getHeight2() / NUM_ROWS;
     private static Color board[][] = new Color[NUM_ROWS][NUM_COLUMNS];
-    private static Piece pieces[][] = new Piece[NUM_ROWS][NUM_COLUMNS];
-    Color color = null;
 
+    private static Color p1 = Color.red;
+    private static Color p2 = Color.blue;
+    static Piece Pieces[][] = new Piece[NUM_ROWS][NUM_COLUMNS];
+
+    Color color = null;
     public static void Draw(Graphics2D g) {
         int c = 0;
         int r = 0;
@@ -26,26 +29,33 @@ public class Board {
             while (c < NUM_COLUMNS) {
                 if (nRow) {
                     nRow = false;
-                    Piece.board[r][c] = new Piece (prevColor);
+                    if(prevColor == Color.black)
+                        if(r > 4)
+                            Pieces[r][c] = new Piece (p1,r,c);
+                    else
+                        if(r < 3)   
+                            Pieces[r][c] = new Piece (p2,r,c);
                 } 
                 else {
                     if (prevColor == Color.red) {
                         prevColor = Color.black;
                         board[r][c] = prevColor;
-                        Piece.board[r][c] = new Piece (prevColor);
+                        if(r > 4)
+                            Pieces[r][c] = new Piece (p1,r,c);
                     }
                     else if(prevColor == Color.black){
                         prevColor = Color.red;
-                       board[r][c] = prevColor;
-                        Piece.board[r][c] = new Piece (prevColor);
-                    }
 
-                    
+                        board[r][c] = prevColor;
+                        if(r < 3)
+                            Pieces[r][c] = new Piece (p2,r,c);
+
+                    }
                 }
                 g.setColor(prevColor);
-                
                 g.fillRect(Window.getX(c * xdelta), Window.getY(r * ydelta), xdelta, ydelta);
-                Piece.getPiece(r,c).draw(g,r,c, xdelta, ydelta);
+                if(Pieces[r][c] != null)
+                    Pieces[r][c].draw(g);
                 c++;
             }
             nRow = true;

@@ -7,12 +7,14 @@ import java.awt.Graphics2D;
 public class Piece {
 
     private Color color;
+    private int row;
+    private int col;
+    
 
-    static Piece board[][] = new Piece[Board.getNumRows()][Board.getNumColumns()];
+    Piece(Color _color, int _row, int _col) {
+        for (int zrow = 0; zrow < Board.getNumRows(); zrow++) {
+            for (int zcol = 0; zcol < Board.getNumColumns(); zcol++) {
 
-    Piece(Color _color) {
-        for (int zcol = 0; zcol < Board.getNumColumns(); zcol++) {
-           for (int zrow = 0; zrow < Board.getNumRows(); zrow++)  {
                  if (4 < zrow) {
                     color = Color.red;
                 } else if (zrow < 3) {
@@ -20,7 +22,8 @@ public class Piece {
                 }
             }
         }
-
+        row = _row;
+        col = _col;
         color = _color;
     }
 
@@ -28,18 +31,27 @@ public Color getColor()
 {
     return (color);
 }
-    public void draw(Graphics2D g, int column, int row, int xdelta, int ydelta) {
+    public void draw(Graphics2D g) {
+            if (row < 3 || 4 < row) {
+                if (Board.Pieces[row][col] != null) {
+                    g.setColor(color);
+                    g.fillOval(Window.getX(col * Board.getXdelta()),
+                            Window.getY(row * Board.getYdelta()),
+                            Board.getXdelta(),
+                            Board.getYdelta());
 
-                             g.setColor(color);
-                            g.fillOval(Window.getX(column * xdelta),
-                                    Window.getY(row * ydelta),
-                                    xdelta,
-                                    ydelta);
+
+                }
+            }
+
 
     }
     
-      public static Piece getPiece(int r, int c) {
-        return board[r][c];
+//    public static Piece getPiece(int r, int c) {
+//        return Pieces[r][c];
+//    }
+    public int getRow(){
+        return row;
     }
 
 }
