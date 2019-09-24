@@ -39,16 +39,16 @@ public class Board {
                     if (prevColor == Color.red) {
                         prevColor = Color.black;
                         board[r][c] = prevColor;
-                        if(r > 4)
+                            if(r < 3)
+                            Pieces[r][c] = new Piece (p2,r,c);
+                         else  if(r > 4)
                             Pieces[r][c] = new Piece (p1,r,c);
                     }
                     else if(prevColor == Color.black){
                         prevColor = Color.red;
 
                         board[r][c] = prevColor;
-                        if(r < 3)
-                            Pieces[r][c] = new Piece (p2,r,c);
-
+                    
                     }
                 }
                 g.setColor(prevColor);
