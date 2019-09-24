@@ -40,7 +40,7 @@ public class Menu {
         Color menuColor = new Color(255, 140, 138);
 
         if (menuShow == true) {
-
+            
             g.setColor(menuColor);
             g.fillRect(0, 0, Window.xsize, Window.ysize);
 
@@ -73,6 +73,7 @@ public class Menu {
         }
         if (helpShow == true) {
 
+           
             g.setColor(menuColor);
             g.fillRect(0, 0, Window.xsize, Window.ysize);
 
