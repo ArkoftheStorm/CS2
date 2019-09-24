@@ -11,8 +11,8 @@ public class Piece {
     static Piece board[][] = new Piece[Board.getNumRows()][Board.getNumColumns()];
 
     Piece(Color _color) {
-        for (int zrow = 0; zrow < Board.getNumRows(); zrow++) {
-            for (int zcol = 0; zcol < Board.getNumColumns(); zcol++) {
+        for (int zcol = 0; zcol < Board.getNumColumns(); zcol++) {
+           for (int zrow = 0; zrow < Board.getNumRows(); zrow++)  {
                  if (4 < zrow) {
                     color = Color.red;
                 } else if (zrow < 3) {
@@ -30,24 +30,11 @@ public Color getColor()
 }
     public void draw(Graphics2D g, int column, int row, int xdelta, int ydelta) {
 
-        for (int zrow = 0; zrow < Board.getNumRows(); zrow++) {
-            for (int zcol = 0; zcol < Board.getNumColumns(); zcol++) {
-
-                if (Board.getColor(zrow, zcol) == Color.black) {
-
-                    if (zrow < 3 || 4 < zrow) {
-                        if (board[zrow][zcol] != null) {
                              g.setColor(color);
-                            g.fillOval(Window.getX(zcol * xdelta),
-                                    Window.getY(zrow * ydelta),
+                            g.fillOval(Window.getX(column * xdelta),
+                                    Window.getY(row * ydelta),
                                     xdelta,
                                     ydelta);
-
-                        }
-                    }
-                }
-            }
-        }
 
     }
     
