@@ -13,7 +13,7 @@ public class Piece {
     Piece(Color _color) {
         for (int zrow = 0; zrow < Board.getNumRows(); zrow++) {
             for (int zcol = 0; zcol < Board.getNumColumns(); zcol++) {
-                if (4 < zrow) {
+                 if (4 < zrow) {
                     color = Color.red;
                 } else if (zrow < 3) {
                     color = Color.blue;
