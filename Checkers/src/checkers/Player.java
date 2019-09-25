@@ -7,6 +7,7 @@ public class Player {
     private static Player currentTurn;
     private static Player players[] = new Player[2];
     private Color color;
+    int changeCount;
 
     public static void Reset() {
 
@@ -36,6 +37,9 @@ public class Player {
 
     public Color getColor() {
         return (color);
+    }
+    public static Player getPlayer(int p){
+        return players[p];
     }
 
 }
