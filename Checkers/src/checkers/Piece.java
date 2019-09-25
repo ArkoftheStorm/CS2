@@ -42,7 +42,19 @@ public class Piece {
 
         int zrow = (xpixel - Window.getX(0)) / xdelta;
         int zcol = (ypixel - Window.getY(0)) / ydelta;
-System.out.println(zrow+"   " +zcol);
+        
+        int r = zrow;
+        int c= zcol;
+//System.out.println(zrow+"   " +zcol);
+
+    //  if(Menu.menuGone== true){
+        if(Board.board[zrow][zcol] == Color.BLACK )
+         {
+           Board.Pieces[r][c] = new Piece(Color.red,r,c);
+           System.out.println(r+"   " +c);
+           
+         }
+     // }
     }
 
     public void draw(Graphics2D g) {

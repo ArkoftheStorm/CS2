@@ -1,6 +1,7 @@
 
 package checkers;
 
+import static checkers.Menu.backToMenu;
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
@@ -35,6 +36,8 @@ public class Checkers extends JFrame implements Runnable {
                             e.getX() < Window.getX(Window.getWidth2() + 10) + Board.getXdelta() &&
                             e.getY() < Window.getY(0) + Board.getYdelta())
                         Random.Roll(g);
+                    
+                    
                     
                 if (e.BUTTON3 == e.getButton()) {
                 }
@@ -146,8 +149,11 @@ public class Checkers extends JFrame implements Runnable {
 
 /////////////////////////////////////////////////////////////////////////
     public void reset() {
-
+        
         Menu.Reset();
+        
+        
+        
 
     }
 /////////////////////////////////////////////////////////////////////////

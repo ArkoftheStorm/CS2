@@ -9,7 +9,7 @@ public class Board {
     private final static int NUM_COLUMNS = 8;
     private static int xdelta = Window.getWidth2() / NUM_COLUMNS;
     private static int ydelta = Window.getHeight2() / NUM_ROWS;
-    private static Color board[][] = new Color[NUM_ROWS][NUM_COLUMNS];
+  static Color board[][] = new Color[NUM_ROWS][NUM_COLUMNS];
 
     private static Color p1 = Color.red;
     private static Color p2 = Color.blue;
@@ -17,6 +17,8 @@ public class Board {
 
     Color color = null;
     public static void Draw(Graphics2D g) {
+        xdelta = Window.getWidth2() / NUM_COLUMNS;
+        ydelta = Window.getHeight2() / NUM_ROWS;
         int c = 0;
         int r = 0;
         boolean nRow = false;
