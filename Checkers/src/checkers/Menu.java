@@ -13,8 +13,9 @@ public class Menu {
     static boolean menuShow;
     static boolean helpShow = false;
     static boolean helpClick = false;
-
-    Menu() {
+    static boolean menuGone = false;
+    Menu() 
+    {
 
     }
 
@@ -22,16 +23,24 @@ public class Menu {
         menuShow = true;
         helpShow = false;
         helpClick = false;
+        menuGone = false;
     }
 
     public static void ClickButton(int xpixel, int ypixel) {
 
         if (menuShow == true) {
             if (xpixel > Window.getX(Window.getWidth2() / 3 - 115) && xpixel < Window.getX(Window.getWidth2() / 2 + 120) + Board.getXdelta() && ypixel > Window.getY(Window.getHeight2() / 3 + 33) && ypixel < Window.getY(Window.getHeight2() / 3 + 33) + Board.getYdelta()) {
-                System.out.println("" + xpixel + ypixel);
+                System.out.println("Play = " + xpixel + ypixel);
                 menuShow = false;
-            } else if (xpixel > Window.getX(Window.getWidth2() / 3 - 115) && xpixel < Window.getX(Window.getWidth2() / 2 + 120) + Board.getXdelta() && ypixel > Window.getY(Window.getHeight2() / 3 + 130) && ypixel < Window.getY(Window.getHeight2() / 3 + 130) + Board.getYdelta()) {
+                menuGone = true;
+            } 
+            else if (xpixel > Window.getX(Window.getWidth2() / 3 - 115) && xpixel < Window.getX(Window.getWidth2() / 2 + 120) + Board.getXdelta() && ypixel > Window.getY(Window.getHeight2() / 3 + 130) && ypixel < Window.getY(Window.getHeight2() / 3 + 130) + Board.getYdelta()) {
                 System.out.println("Help = " + xpixel + ypixel);
+                helpShow = true;
+                menuShow = false;
+            }
+             else if (xpixel > Window.getX(Window.getWidth2() / 3 - 115) && xpixel < Window.getX(Window.getWidth2() / 2 + 120) + Board.getXdelta() && ypixel > Window.getY(Window.getHeight2() / 2 + 283) && ypixel < Window.getY(Window.getHeight2() / 3 + 130) + Board.getYdelta()) {
+                System.out.println("Back = " + xpixel + ypixel);
                 helpShow = true;
                 menuShow = false;
             }
