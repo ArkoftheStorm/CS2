@@ -17,6 +17,8 @@ public class Board {
 
     Color color = null;
     public static void Draw(Graphics2D g) {
+        xdelta = Window.getWidth2() / NUM_COLUMNS;
+        ydelta = Window.getHeight2() / NUM_ROWS;
         int c = 0;
         int r = 0;
         boolean nRow = false;
