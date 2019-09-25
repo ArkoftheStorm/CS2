@@ -12,6 +12,7 @@ public class Menu {
 
     static boolean menuShow;
     static boolean helpShow = false;
+    static boolean helpClick = false;
 
     Menu() {
 
@@ -20,6 +21,7 @@ public class Menu {
     public static void Reset() {
         menuShow = true;
         helpShow = false;
+        helpClick = false;
     }
 
     public static void ClickButton(int xpixel, int ypixel) {
@@ -79,7 +81,7 @@ public class Menu {
             g.fillRect(0, 0, Window.xsize, Window.ysize);
            
             g.setColor(Color.black);
-            g.fillRect(Window.getWidth2() / 5 - 44, Window.getHeight2() / 4 , 660, 10);
+            g.fillRect(Window.getWidth2() / 5 - 44, Window.getHeight2() / 4 + 5 , 656, 10);
             
             g.setColor(Color.black);
             
@@ -89,9 +91,31 @@ public class Menu {
             g.setFont(new Font("Segoe UI Semibold", Font.BOLD, 25));
             g.drawString("Step 1: Decide who is player 1 and who is player 2. ", Window.getWidth2() / 5 - 44, Window.getHeight2() / 4 + 50);
             g.drawString("Step 2: Player 1 goes first. They are the bottom. ", Window.getWidth2() / 5 - 44, Window.getHeight2() / 4 + 100);
-            g.drawString("Step 2.5: Player 2 goes second. They are the top. ", Window.getWidth2() / 5 - 44, Window.getHeight2() / 4 + 150);
-            g.drawString("Step 3: Click on the space where you want to move. (Diagonal) ", Window.getWidth2() / 5 - 44, Window.getHeight2() / 4 + 200);
+            g.drawString("Player 2 goes second. They are the top. ", Window.getWidth2() / 5 - 44, Window.getHeight2() / 4 + 130);
+            g.drawString("Step 3: Click on the space where you want to move (Diagonal). ", Window.getWidth2() / 5 - 44, Window.getHeight2() / 4 + 180);
+            g.drawString("Step 4: If there is a piece at a spot you can move to, ", Window.getWidth2() / 5 - 44, Window.getHeight2() / 4 + 230);
+            g.drawString("and there is a empty spot diagonal to them in the way that you are ", Window.getWidth2() / 5 - 44, Window.getHeight2() / 4 + 260);
+            g.drawString("moving, you can hop over them. This eliminates thier piece. ", Window.getWidth2() / 5 - 44, Window.getHeight2() / 4 + 290);
+            g.drawString("Step 5: Get one of your pieces to the end to make it a king. ", Window.getWidth2() / 5 - 44, Window.getHeight2() / 4 + 330);
+            g.drawString("Kings can move in all directions (Diagonal). ", Window.getWidth2() / 5 - 44, Window.getHeight2() / 4 + 360);
+            
+            g.setFont(new Font("Segoe UI Semibold", Font.BOLD, 30));
+            g.drawString("How to Win: Eliminate all of the enemy pieces! ", Window.getWidth2() / 5 - 44, Window.getHeight2() / 4 + 410);
+        
+//"BACK" BUTTON
+           
+            g.setColor(Color.red);
+            g.fillRect(Window.getWidth2() / 3 - 3, Window.getHeight2() / 2 + 280, 406, 57);
 
+            g.setColor(Color.black);
+            g.fillRect(Window.getWidth2() / 3, Window.getHeight2() / 2 + 283, 400, 50);
+
+            g.setColor(Color.red);
+            g.setFont(new Font("Segoe UI Semibold", Font.BOLD, 53));
+            g.drawString("BACK TO MENU", Window.getWidth2() / 3 + 8, Window.getHeight2() / 2 + 327);
+        
+        
+        
         }
 
     }
