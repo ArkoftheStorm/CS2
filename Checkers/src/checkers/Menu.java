@@ -12,7 +12,7 @@ public class Menu {
 
     static boolean menuShow;
     static boolean helpShow = false;
-
+    static boolean backToMenu;
     static boolean menuGone = false;
 
     Menu() {
@@ -22,10 +22,18 @@ public class Menu {
     public static void Reset() {
         menuShow = true;
         helpShow = false;
-
+        backToMenu = false;
         menuGone = false;
+        
     }
-
+    
+     public static boolean checkClickMenu(){
+         if(backToMenu == true)
+             return(true);
+         else
+             return(false);
+     }
+    
     public static void ClickButton(int xpixel, int ypixel) {
 
         if (menuShow == true) {
@@ -39,6 +47,14 @@ public class Menu {
                 helpShow = true;
             }
         }
+        if (menuShow == false) {
+            if (xpixel > Window.getX(Window.getWidth2() + 10) && xpixel < Window.getX(Window.getWidth2() + 10) + Board.getXdelta() && ypixel > Window.getY(Window.getHeight2() / 2 - 3) && ypixel < Window.getY(Window.getHeight2() / 2 - 3) + Board.getYdelta()) {
+                System.out.println("Back To Menu = " + xpixel + ypixel);
+                Reset();
+               
+            }
+        }
+
         if (helpShow == true) {
             if (xpixel > Window.getX(Window.getWidth2() / 3 - 115) && xpixel < Window.getX(Window.getWidth2() / 2 + 120) + Board.getXdelta() && ypixel > Window.getY(Window.getHeight2() / 3 + 311) && ypixel < Window.getY(Window.getHeight2() / 3 + 313) + Board.getYdelta()) {
                 System.out.println("Back = " + xpixel + ypixel);
@@ -51,6 +67,20 @@ public class Menu {
 
     public static void draw(Graphics g) {
         Color menuColor = new Color(255, 140, 138);
+
+//"BACK TO MENU" BUTTON
+        if (menuShow == false) {
+
+            g.setColor(Color.red);
+            g.fillRect(Window.getX(Window.getWidth2() + 8), Window.getY(Window.getHeight2() / 2 - 3), Board.getXdelta() + 5, Board.getYdelta() + 6);
+            g.setColor(Color.black);
+            g.fillRect(Window.getX(Window.getWidth2() + 10), Window.getY(Window.getHeight2() / 2), Board.getXdelta(), Board.getYdelta());
+
+            g.setColor(Color.red);
+            g.setFont(new Font("times new roman", Font.BOLD, 24));
+            g.drawString("Menu", Window.getWidth2() + 126, Window.getHeight2() / 2 + 90);
+
+        }
 
         if (menuShow == true) {
 
