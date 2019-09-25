@@ -6,7 +6,8 @@ public class Player {
 
     private static Player currentTurn;
     private static Player players[] = new Player[2];
-    public int changeCount;
+    private boolean extraTurn;
+    private int changeCount;
 
     public static void Reset() {
 
@@ -15,8 +16,8 @@ public class Player {
             players[1] = new Player(0);
         }
         currentTurn = players[0];
-        getPlayer(0).changeCount = 0;
-        getPlayer(1).changeCount = 0;
+        players[0].changeCount = 0;
+        players[1].changeCount = 0;
     }
 
     public static Player GetCurrentPlayer() {
@@ -24,6 +25,11 @@ public class Player {
     }
 
     public static void SwitchTurn() {
+        if(getCurrentPlayer().extraTurn){
+            getCurrentPlayer().extraTurn = false;
+            return;
+        }
+            
         currentTurn
                 = (currentTurn == players[1])
                         ? players[0]
@@ -40,5 +46,18 @@ public class Player {
     public static Player getPlayer(int p){
         return players[p];
     }
+    public static Player getCurrentPlayer(){
+        return(currentTurn);
+    }
+    public int getChangeCount(){
+        return(changeCount);
+        }
+    public void incChangeCount(){
+        changeCount++;
+    }
+    public void extraTurn(){
+        extraTurn = true;
+    }
+    
 
 }

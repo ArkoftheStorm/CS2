@@ -13,7 +13,7 @@ public class Board {
 
     private static Color p1 = Color.red;
     private static Color p2 = Color.blue;
-    static Piece Pieces[][] = new Piece[NUM_ROWS][NUM_COLUMNS];
+    public static Piece Pieces[][] = new Piece[NUM_ROWS][NUM_COLUMNS];
 
     Color color = null;
     public static void Draw(Graphics2D g) {
