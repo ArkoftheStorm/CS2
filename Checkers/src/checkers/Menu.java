@@ -27,13 +27,6 @@ public class Menu {
         
     }
     
-     public static boolean checkClickMenu(){
-         if(backToMenu == true)
-             return(true);
-         else
-             return(false);
-     }
-    
     public static void ClickButton(int xpixel, int ypixel) {
 
         if (menuShow == true) {
