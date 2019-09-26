@@ -11,8 +11,6 @@ public class Board {
     private static int ydelta = Window.getHeight2() / NUM_ROWS;
   static Color board[][] = new Color[NUM_ROWS][NUM_COLUMNS];
 
-    private static Color p1 = Color.red;
-    private static Color p2 = Color.blue;
     public static Piece Pieces[][] = new Piece[NUM_ROWS][NUM_COLUMNS];
 
     Color color = null;
@@ -32,19 +30,19 @@ public class Board {
                     nRow = false;
                     if(prevColor == Color.black)
                         if(r > 4 && Menu.menuShow)
-                            Pieces[r][c] = new Piece (p1,r,c);
+                            Pieces[r][c] = new Piece (Player.getPlayer(0).getColor(),r,c);
                     else
                         if(r < 3 && Menu.menuShow)   
-                            Pieces[r][c] = new Piece (p2,r,c);
+                            Pieces[r][c] = new Piece (Player.getPlayer(1).getColor(),r,c);
                 } 
                 else {
                     if (prevColor == Color.red) {
                         prevColor = Color.black;
                         board[r][c] = prevColor;
                         if(r < 3 && Menu.menuShow)
-                            Pieces[r][c] = new Piece (p2,r,c);
+                            Pieces[r][c] = new Piece (Player.getPlayer(1).getColor(),r,c);
                          else  if(r > 4 && Menu.menuShow)
-                            Pieces[r][c] = new Piece (p1,r,c);
+                            Pieces[r][c] = new Piece (Player.getPlayer(0).getColor(),r,c);
                     }
                     else if(prevColor == Color.black){
                         prevColor = Color.red;

@@ -3,7 +3,7 @@ package checkers;
 import java.awt.*;
 
 public class Random {
-
+    private static int bombBorder = 1;
     public static void Draw(Graphics2D g) {
         if(Menu.menuShow || Menu.helpShow)
             return;
@@ -25,12 +25,12 @@ public class Random {
         else if (roll == 2){
             int row = (int)(Math.random()*Board.getNumRows());
             int col = (int)(Math.random()*Board.getNumColumns());
-            while(row - 2 < 0 || row + 2 >= Board.getNumRows())
+            while(row - bombBorder < 0 || row + bombBorder >= Board.getNumRows())
                 row = (int)(Math.random()*Board.getNumRows());
-            while(col - 2 < 0 || col + 2 >= Board.getNumColumns())
+            while(col - bombBorder < 0 || col + bombBorder >= Board.getNumColumns())
                 col = (int)(Math.random()*Board.getNumColumns());
-            for(int r = row - 2; r <= row + 2; r++){
-                for(int c = col - 2; c <= col + 2; c++){
+            for(int r = row - bombBorder; r <= row + bombBorder; r++){
+                for(int c = col - bombBorder; c <= col + bombBorder; c++){
                     Board.Pieces[r][c] = null;
                 }
             }
