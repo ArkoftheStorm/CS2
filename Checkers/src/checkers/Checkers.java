@@ -40,6 +40,7 @@ public class Checkers extends JFrame implements Runnable {
                     
                     
                 if (e.BUTTON3 == e.getButton()) {
+                    Board.switchPiece(e.getX(), e.getY());
                 }
                 repaint();
             }
