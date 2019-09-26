@@ -13,7 +13,8 @@ public class Checkers extends JFrame implements Runnable {
     Graphics2D g;
     Color brown = new Color(193, 154, 107);
     static boolean menu;
-   
+    Image explosion;
+    
     public static void main(String[] args) {
         Checkers frame = new Checkers();
         frame.setSize(Window.WINDOW_WIDTH, Window.WINDOW_HEIGHT);
@@ -119,20 +120,39 @@ public class Checkers extends JFrame implements Runnable {
 // draw border
         g.setColor(Color.red);
         g.drawPolyline(x, y, 5);
-
+        
+        
+        
 //      System.out.println("checker time");
 //  draw methods/classes
         if (animateFirstTime) {
             gOld.drawImage(image, 0, 0, null);
             return;
         }
-
+        
         Board.Draw(g);
         Random.Draw(g);
         Menu.draw(g);
+        
+       
+        
         gOld.drawImage(image, 0, 0, null);
     }
+ public void drawImage(Image image,int xpos,int ypos,double rot,double xscale,
+            double yscale) {
+        int width = image.getWidth(this);
+        int height = image.getHeight(this);
+        g.translate(xpos,ypos);
+        g.rotate(rot  * Math.PI/180.0);
+        g.scale( xscale , yscale );
 
+        g.drawImage(image,-width/2,-height/2,
+        width,height,this);
+
+        g.scale( 1.0/xscale,1.0/yscale );
+        g.rotate(-rot  * Math.PI/180.0);
+        g.translate(-xpos,-ypos);
+    }
 ////////////////////////////////////////////////////////////////////////////
 // needed for     implement runnable
     public void run() {
@@ -167,11 +187,16 @@ public class Checkers extends JFrame implements Runnable {
                 Window.xsize = getSize().width;
                 Window.ysize = getSize().height;
             }
-
+            explosion = Toolkit.getDefaultToolkit().getImage("./explody_boi.jpg");
             reset();
             if(Menu.menuShow){
                 Player.Reset();
             }
+            
+            
+            
+            
+            
         }
     }
 

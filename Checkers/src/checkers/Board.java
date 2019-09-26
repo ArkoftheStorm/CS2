@@ -2,6 +2,7 @@ package checkers;
 
 import java.awt.Color;
 import java.awt.Graphics2D;
+import java.awt.Image;
 
 public class Board {
 
@@ -20,6 +21,7 @@ public class Board {
         int c = 0;
         int r = 0;
         boolean nRow = false;
+        Image explosion;
 
         Color prevColor = Color.red;
 
