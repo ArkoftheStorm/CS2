@@ -13,7 +13,7 @@ public class Board {
 
     private static Color p1 = Color.red;
     private static Color p2 = Color.blue;
-    static Piece Pieces[][] = new Piece[NUM_ROWS][NUM_COLUMNS];
+    public static Piece Pieces[][] = new Piece[NUM_ROWS][NUM_COLUMNS];
 
     Color color = null;
     public static void Draw(Graphics2D g) {
@@ -31,25 +31,25 @@ public class Board {
                 if (nRow) {
                     nRow = false;
                     if(prevColor == Color.black)
-                        if(r > 4)
+                        if(r > 4 && Menu.menuShow)
                             Pieces[r][c] = new Piece (p1,r,c);
                     else
-                        if(r < 3)   
+                        if(r < 3 && Menu.menuShow)   
                             Pieces[r][c] = new Piece (p2,r,c);
                 } 
                 else {
                     if (prevColor == Color.red) {
                         prevColor = Color.black;
                         board[r][c] = prevColor;
-                            if(r < 3)
+                        if(r < 3 && Menu.menuShow)
                             Pieces[r][c] = new Piece (p2,r,c);
-                         else  if(r > 4)
+                         else  if(r > 4 && Menu.menuShow)
                             Pieces[r][c] = new Piece (p1,r,c);
                     }
                     else if(prevColor == Color.black){
                         prevColor = Color.red;
-
-                        board[r][c] = prevColor;
+                        if(Menu.menuShow)
+                            board[r][c] = prevColor;
                     
                     }
                 }

@@ -13,7 +13,7 @@ public class Checkers extends JFrame implements Runnable {
     Graphics2D g;
     Color brown = new Color(193, 154, 107);
     static boolean menu;
-
+   
     public static void main(String[] args) {
         Checkers frame = new Checkers();
         frame.setSize(Window.WINDOW_WIDTH, Window.WINDOW_HEIGHT);
@@ -168,7 +168,9 @@ public class Checkers extends JFrame implements Runnable {
             }
 
             reset();
-
+            if(Menu.menuShow){
+                Player.Reset();
+            }
         }
     }
 
