@@ -43,9 +43,7 @@ public class Player {
         changeCount = 0;
     }
 
-//    public Color getColor() {
-//        return (color);
-//    }
+
     public Color getColor(){
         return color;
     }

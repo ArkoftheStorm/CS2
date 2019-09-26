@@ -48,7 +48,7 @@ public class Piece {
 //System.out.println(zrow+"   " +zcol);
 
     //  if(Menu.menuGone== true){
-        if(Board.board[zrow][zcol] == Color.BLACK )
+        if(Board.getColor(zrow, zcol) == Color.BLACK )
          {
              
          // Board.Pieces[r][c] = new Piece(Player.GetCurrentPlayer().getColor(),r,c);
