@@ -8,16 +8,19 @@ public class Player {
     private static Player players[] = new Player[2];
     private boolean extraTurn;
     private int changeCount;
-
+    private Color color;
     public static void Reset() {
 
         if (players[0] == null) {
             players[0] = new Player(0);
             players[1] = new Player(0);
+            
         }
         currentTurn = players[0];
         players[0].changeCount = 0;
         players[1].changeCount = 0;
+        players[0].color = Color.red;
+        players[1].color = Color.blue;
     }
 
     public static Player GetCurrentPlayer() {
@@ -43,6 +46,9 @@ public class Player {
 //    public Color getColor() {
 //        return (color);
 //    }
+    public Color getColor(){
+        return color;
+    }
     public static Player getPlayer(int p){
         return players[p];
     }
