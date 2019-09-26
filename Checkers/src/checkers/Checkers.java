@@ -41,6 +41,7 @@ public class Checkers extends JFrame implements Runnable {
                     
                     
                 if (e.BUTTON3 == e.getButton()) {
+                    Board.switchPiece(e.getX(), e.getY());
                 }
                 repaint();
             }
@@ -128,7 +129,7 @@ public class Checkers extends JFrame implements Runnable {
             gOld.drawImage(image, 0, 0, null);
             return;
         }
-
+        
         Board.Draw(g);
         Random.Draw(g);
         Menu.draw(g);

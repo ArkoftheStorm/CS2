@@ -44,22 +44,29 @@ public class Piece {
         int zcol = (ypixel - Window.getY(0)) / ydelta;
         
         int r = zrow;
-        int c= zcol;
+        int c = zcol;
 //System.out.println(zrow+"   " +zcol);
 
     //  if(Menu.menuGone== true){
-        if(Board.board[zrow][zcol] == Color.BLACK )
+        if(Board.getColor(zrow, zcol) == Color.BLACK )
          {
+
            Board.Pieces[r][c] = new Piece(Color.red,r,c);
            System.out.println(r+"   " +c);
            System.out.println("The Color is ");
            
+
+             
+         // Board.Pieces[r][c] = new Piece(Player.GetCurrentPlayer().getColor(),r,c);
+        
+
          }
      // }
     }
 
     public void draw(Graphics2D g) {
         if (row < 3 || 4 < row) {
+            
             if (Board.Pieces[row][col] != null) {
                 g.setColor(color);
                 g.fillOval(Window.getX(col * Board.getXdelta()),

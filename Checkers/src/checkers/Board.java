@@ -9,7 +9,7 @@ public class Board {
     private final static int NUM_COLUMNS = 8;
     private static int xdelta = Window.getWidth2() / NUM_COLUMNS;
     private static int ydelta = Window.getHeight2() / NUM_ROWS;
-  static Color board[][] = new Color[NUM_ROWS][NUM_COLUMNS];
+    private static Color board[][] = new Color[NUM_ROWS][NUM_COLUMNS];
 
     public static Piece Pieces[][] = new Piece[NUM_ROWS][NUM_COLUMNS];
 
@@ -72,6 +72,12 @@ public class Board {
         
 
    }
+    public static void switchPiece(int xPixel, int yPixel){
+        if(Player.GetCurrentPlayer().getColor() == Player.getPlayer(0).getColor()){
+//            Pieces[r][c]
+        }
+            
+    }
 
     public static int getNumRows() {
         return NUM_ROWS;
