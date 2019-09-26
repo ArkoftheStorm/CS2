@@ -85,5 +85,11 @@ public class Piece {
     public int getRow() {
         return row;
     }
+    public void switchColor(){
+        if(color == Color.red)
+            color = Color.blue;
+        else
+            color = Color.red;
+    }
 
 }
