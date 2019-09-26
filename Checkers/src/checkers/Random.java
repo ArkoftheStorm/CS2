@@ -14,15 +14,15 @@ public class Random {
         g.drawString("P2 Changes: " + Player.getPlayer(1).getChangeCount(), Window.getWidth2(), Window.getY(Window.getHeight2())+18);
     }
     public static void Roll(Graphics2D g) {
-        int roll = (int)(Math.random()*3+1);
+        int roll = (int)(Math.random()*3);
         Player.SwitchTurn();
-        if(roll == 1){
+        if(roll == 0){
             Player.GetCurrentPlayer().incChangeCount();
         }
-        else if(roll == 2){
+        else if(roll == 1){
             Player.GetCurrentPlayer().extraTurn();
         }
-        else if (roll == 3){
+        else if (roll == 2){
             int row = (int)(Math.random()*Board.getNumRows());
             int col = (int)(Math.random()*Board.getNumColumns());
             while(row - 2 < 0 || row + 2 >= Board.getNumRows())

@@ -168,8 +168,9 @@ public class Checkers extends JFrame implements Runnable {
             }
 
             reset();
-            if(Menu.menuShow)
+            if(Menu.menuShow){
                 Player.Reset();
+            }
         }
     }
 
