@@ -15,7 +15,6 @@ public class Piece {
             for (int zcol = 0; zcol < Board.getNumColumns(); zcol++) {
 
                 if (4 < zrow) {
-                    color = Color.red;
                 } else if (zrow < 3) {
                     color = Color.blue;
                 }
