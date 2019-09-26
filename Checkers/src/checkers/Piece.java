@@ -50,9 +50,9 @@ public class Piece {
     //  if(Menu.menuGone== true){
         if(Board.board[zrow][zcol] == Color.BLACK )
          {
-         //  Board.Pieces[r][c] = new Piece(Color.red,r,c);
-           System.out.println(r+"   " +c);
-           System.out.println("   " +Player.getCurrentPlayer().getColor());
+             
+         // Board.Pieces[r][c] = new Piece(Player.GetCurrentPlayer().getColor(),r,c);
+        
          }
      // }
     }

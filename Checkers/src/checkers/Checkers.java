@@ -125,7 +125,7 @@ public class Checkers extends JFrame implements Runnable {
             gOld.drawImage(image, 0, 0, null);
             return;
         }
-
+        
         Board.Draw(g);
         Random.Draw(g);
         Menu.draw(g);
