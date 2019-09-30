@@ -1,3 +1,4 @@
+
 package checkers;
 
 import java.awt.Color;
@@ -80,7 +81,7 @@ public class Board {
         int _col = (xPixel/xdelta) - 1;
         int _row = (yPixel/ydelta);
         if(Pieces[_row][_col] != null && _row < NUM_ROWS && _col < NUM_COLUMNS)
-            Pieces[_row][_col].switchColor();
+            Pieces[_row][_row].switchColor();
         Player.GetCurrentPlayer().decChangeCount();
     }
 
@@ -105,3 +106,4 @@ public class Board {
     }
 
 }
+
