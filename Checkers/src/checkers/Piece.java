@@ -1,3 +1,4 @@
+
 package checkers;
 
 import java.awt.Color;
@@ -15,7 +16,6 @@ public class Piece {
             for (int zcol = 0; zcol < Board.getNumColumns(); zcol++) {
 
                 if (4 < zrow) {
-                    color = Color.red;
                 } else if (zrow < 3) {
                     color = Color.blue;
                 }
@@ -50,8 +50,25 @@ public class Piece {
 //        int c = zcol;
 //System.out.println(zrow+"   " +zcol);
 
-    
-    }  
+
+    //  if(Menu.menuGone== true){
+        if(Board.getColor(zrow, zcol) == Color.BLACK )
+         {
+
+           Board.Pieces[r][c] = new Piece(Color.red,r,c);
+           System.out.println(r+"   " +c);
+           System.out.println("The Color is ");
+           
+
+             
+         // Board.Pieces[r][c] = new Piece(Player.GetCurrentPlayer().getColor(),r,c);
+        
+
+         }
+     // }
+    }
+
+
     public void draw(Graphics2D g) {
          
 //        if (row < 3 || 4 < row) {
@@ -79,5 +96,12 @@ public class Piece {
     public int getRow() {
         return row;
     }
+    public void switchColor(){
+        if(color == Color.red)
+            color = Color.blue;
+        else
+            color = Color.red;
+    }
 
 }
+

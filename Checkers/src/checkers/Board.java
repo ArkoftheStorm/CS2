@@ -1,7 +1,9 @@
+
 package checkers;
 
 import java.awt.Color;
 import java.awt.Graphics2D;
+import java.awt.Image;
 
 public class Board {
 
@@ -9,8 +11,8 @@ public class Board {
     private final static int NUM_COLUMNS = 8;
     private static int xdelta = Window.getWidth2() / NUM_COLUMNS;
     private static int ydelta = Window.getHeight2() / NUM_ROWS;
-    static Color board[][] = new Color[NUM_ROWS][NUM_COLUMNS];
-    static int piecemove =0;
+    private static Color board[][] = new Color[NUM_ROWS][NUM_COLUMNS];
+
     public static Piece Pieces[][] = new Piece[NUM_ROWS][NUM_COLUMNS];
 
     Color color = null;
@@ -20,6 +22,7 @@ public class Board {
         int c = 0;
         int r = 0;
         boolean nRow = false;
+        Image explosion;
 
         Color prevColor = Color.red;
 
@@ -73,33 +76,15 @@ public class Board {
 
    }
     public static void switchPiece(int xPixel, int yPixel){
-        if(Player.GetCurrentPlayer().getColor() == Player.getPlayer(0).getColor()){
-//            Pieces[r][c]
-        }
-            
+        if(Player.GetCurrentPlayer().getChangeCount() <= 0)
+            return;
+        int _col = (xPixel/xdelta) - 1;
+        int _row = (yPixel/ydelta);
+        if(Pieces[_row][_col] != null && _row < NUM_ROWS && _col < NUM_COLUMNS)
+            Pieces[_row][_row].switchColor();
+        Player.GetCurrentPlayer().decChangeCount();
     }
-    public static void selectpiece(int xPixel, int yPixel){
-    if(Menu.menuShow)
-        return;
-  
-    int _col = (xPixel/xdelta)-1;
-    int _row= (yPixel/ydelta)-1;
-    System.out.println(_row+"   " +_col);
-           if(Board.getColor(_row, _col) == Color.BLACK )
-            {
-                if(piecemove == 0)
-                {
-             if(Board.Pieces[_row][_col].getColor()== Player.GetCurrentPlayer().getColor())     
-                  Pieces[_row][_col].yellow = true;
-                     piecemove ++;
-            // Board.Pieces[r][c] = new Piece(Player.GetCurrentPlayer().getColor(),r,c);
- 
-            }
 
-              
-            }
-    
-    }
     public static int getNumRows() {
         return NUM_ROWS;
     }
@@ -121,3 +106,4 @@ public class Board {
     }
 
 }
+

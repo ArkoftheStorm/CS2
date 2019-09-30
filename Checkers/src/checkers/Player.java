@@ -62,6 +62,8 @@ public class Player {
     public void extraTurn(){
         extraTurn = true;
     }
-    
+    public void decChangeCount(){
+        changeCount--;
+    }
 
 }
