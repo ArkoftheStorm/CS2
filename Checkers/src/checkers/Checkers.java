@@ -29,9 +29,11 @@ public class Checkers extends JFrame implements Runnable {
 
                 if (e.BUTTON1 == e.getButton()) {
                 }
-
+                boolean menu = Menu.menuShow;
 
                 Menu.ClickButton(e.getX(), e.getY());
+                if(menu)
+                    return;
                 Piece.Animate(e.getX(), e.getY());
                 Board.selectpiece(e.getX(),e.getY());
                 
@@ -146,9 +148,9 @@ public class Checkers extends JFrame implements Runnable {
 
        
     
-            if (10 % 9 == 1) 
+            if (timeCount % 10 == 1) 
             {
-                g.drawImage(explosion, 50, 50, 100, 100, this);
+                g.drawImage(explosion, 50, 50,200, 200, this);
             }
         
 
@@ -207,16 +209,16 @@ public class Checkers extends JFrame implements Runnable {
                 Window.ysize = getSize().height;
             }
             explosion = Toolkit.getDefaultToolkit().getImage("./explody_boi.GIF");
+//             explosion = Toolkit.getDefaultToolkit().getImage("./explody_boi.GIF");
             reset();
             if (Menu.menuShow) {
                 Player.Reset();
                 
             }
+        }
+
 
             timeCount++;
-//             explosion = Toolkit.getDefaultToolkit().getImage("./explody_boi.GIF");
-
-        }
     }
 
 ////////////////////////////////////////////////////////////////////////////

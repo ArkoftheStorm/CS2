@@ -85,25 +85,25 @@ public class Board {
         Player.GetCurrentPlayer().decChangeCount();
     }
     public static void selectpiece(int xPixel, int yPixel){
-    if(Menu.menuShow)
-        return;
-  
-    int _col = (xPixel/xdelta)-1;
-    int _row= (yPixel/ydelta)-1;
-    System.out.println(_row+"   " +_col);
-           if(Board.getColor(_row, _col) == Color.BLACK )
-            {
-                if(piecemove == 0)
-                {
-                    if(Board.Pieces[_row][_col].getColor()== Player.GetCurrentPlayer().getColor())     
-                      Pieces[_row][_col].yellow = true;
-                         piecemove ++;
-                // Board.Pieces[r][c] = new Piece(Player.GetCurrentPlayer().getColor(),r,c);
- 
-                }
+        if(Menu.menuShow)
+            return;
 
-              
-            }
+        int _col = (xPixel/xdelta)-1;
+        int _row= (yPixel/ydelta)-1;
+        System.out.println(_row+"   " +_col);
+               if(Board.getColor(_row, _col) != null && Board.getColor(_row, _col) == Color.BLACK)
+                {
+                    if(piecemove == 0)
+                    {
+                        if(Board.Pieces[_row][_col].getColor()== Player.GetCurrentPlayer().getColor())     
+                          Pieces[_row][_col].yellow = true;
+                             piecemove ++;
+                    // Board.Pieces[r][c] = new Piece(Player.GetCurrentPlayer().getColor(),r,c);
+
+                    }
+
+
+                }
     
     }
 
@@ -124,7 +124,9 @@ public class Board {
     }
 
     public static Color getColor(int r, int c) {
-        return board[r][c];
+        if(r<NUM_ROWS && c<NUM_COLUMNS && c>0 && r>0)
+            return board[r][c];
+        return null;
     }
 
 }
