@@ -56,7 +56,9 @@ public class Piece {
          {
 
            Board.Pieces[zrow][zcol] = new Piece(Color.red,zrow,zcol);
-//           System.out.println(r+"   " +c);
+
+           System.out.println(zrow+"   " +zcol);
+
            System.out.println("The Color is ");
            
 
