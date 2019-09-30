@@ -4,6 +4,8 @@ import java.awt.*;
 
 public class Random {
     private static int bombBorder = 1;
+    private static int bombRow;
+    private static int bombCol;
     public static void Draw(Graphics2D g) {
         if(Menu.menuShow || Menu.helpShow)
             return;
@@ -12,6 +14,7 @@ public class Random {
         g.setFont (new Font("times new roman",Font.BOLD,18));
         g.drawString("P1 Changes: " + Player.getPlayer(0).getChangeCount(), Window.getWidth2()/64, Window.getY(Window.getHeight2())+18);
         g.drawString("P2 Changes: " + Player.getPlayer(1).getChangeCount(), Window.getWidth2(), Window.getY(Window.getHeight2())+18);
+            
     }
     public static void Roll(Graphics2D g) {
         int roll = (int)(Math.random()*3);
@@ -32,6 +35,8 @@ public class Random {
             for(int r = row - bombBorder; r <= row + bombBorder; r++){
                 for(int c = col - bombBorder; c <= col + bombBorder; c++){
                     Board.Pieces[r][c] = null;
+                    bombRow = r;
+                    bombCol = c;
                 }
             }
         }
