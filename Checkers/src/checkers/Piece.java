@@ -43,8 +43,9 @@ public class Piece {
         int ydelta = Window.getHeight2() / Board.getNumRows();
         int xdelta = Window.getWidth2() /  Board.getNumColumns();
 
-        int zrow = (xpixel - Window.getX(0)) / ydelta;
-        int zcol = (ypixel - Window.getY(0)) / xdelta;
+        int zcol = (xpixel-Window.getX(0))/xdelta;
+        int zrow = (ypixel-Window.getY(0))/ydelta;
+
         
 //        int r = zrow;
 //        int c = zcol;
