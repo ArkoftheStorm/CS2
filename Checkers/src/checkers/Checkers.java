@@ -10,6 +10,7 @@ public class Checkers extends JFrame implements Runnable {
 
     boolean animateFirstTime = true;
     Image image;
+    Image explosion;
     Graphics2D g;
     Color brown = new Color(193, 154, 107);
     static boolean menu;
@@ -29,7 +30,7 @@ public class Checkers extends JFrame implements Runnable {
                 }
                 
                        Menu.ClickButton(e.getX(),e.getY());
-                       Piece.Animate(e.getX(),e.getY());
+                       Board.selectpiece(e.getX(),e.getY());
                        
                     if(e.getX() > Window.getX(Window.getWidth2() + 10) &&
                             e.getY() > Window.getY(0) &&
@@ -99,6 +100,14 @@ public class Checkers extends JFrame implements Runnable {
 
     public void paint(Graphics gOld) {
         if (image == null || Window.xsize != getSize().width || Window.ysize != getSize().height) {
+            Window.xsize = getSize().width;
+            Window.ysize = getSize().height;
+            image = createImage(Window.xsize, Window.ysize);
+            g = (Graphics2D) image.getGraphics();
+            g.setRenderingHint(RenderingHints.KEY_ANTIALIASING,
+                    RenderingHints.VALUE_ANTIALIAS_ON);
+        }
+            if (explosion == null || Window.xsize != getSize().width || Window.ysize != getSize().height) {
             Window.xsize = getSize().width;
             Window.ysize = getSize().height;
             image = createImage(Window.xsize, Window.ysize);
