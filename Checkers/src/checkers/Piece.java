@@ -55,8 +55,8 @@ public class Piece {
         if(Board.getColor(zrow, zcol) == Color.BLACK )
          {
 
-           Board.Pieces[r][c] = new Piece(Color.red,r,c);
-           System.out.println(r+"   " +c);
+           Board.Pieces[zrow][zcol] = new Piece(Color.red,zrow,zcol);
+           System.out.println(zrow+"   " +zcol);
            System.out.println("The Color is ");
            
 
