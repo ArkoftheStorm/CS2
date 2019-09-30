@@ -13,7 +13,7 @@ public class Checkers extends JFrame implements Runnable {
     Graphics2D g;
     Color brown = new Color(193, 154, 107);
     static boolean menu;
-    Image explosion;
+    //Image explosion;
     int timeCount;
 
     public static void main(String[] args) {

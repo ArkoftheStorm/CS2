@@ -43,8 +43,8 @@ public class Piece {
         int ydelta = Window.getHeight2() / Board.getNumRows();
         int xdelta = Window.getWidth2() /  Board.getNumColumns();
 
-        int zrow = (xpixel - Window.getX(0)) / xdelta;
-        int zcol = (ypixel - Window.getY(0)) / ydelta;
+        int zrow = (xpixel - Window.getX(0)) / ydelta;
+        int zcol = (ypixel - Window.getY(0)) / xdelta;
         
 //        int r = zrow;
 //        int c = zcol;
@@ -55,8 +55,8 @@ public class Piece {
         if(Board.getColor(zrow, zcol) == Color.BLACK )
          {
 
-           Board.Pieces[r][c] = new Piece(Color.red,r,c);
-           System.out.println(r+"   " +c);
+           Board.Pieces[zrow][zcol] = new Piece(Color.red,zrow,zcol);
+//           System.out.println(r+"   " +c);
            System.out.println("The Color is ");
            
 
