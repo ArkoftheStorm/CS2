@@ -34,7 +34,37 @@ public class Piece {
     }
 
     public static void Animate(int xpixel, int ypixel) {
-        if ((xpixel - Window.getX(0)) < 0 || (xpixel - Window.getX(0)) > Window.getWidth2()) {
+            if ((xpixel - Window.getX(0)) < 0 || (xpixel - Window.getX(0)) > Window.getWidth2()) {
+            return;
+        }
+        if ((ypixel - Window.getY(0)) < 0 || (ypixel - Window.getY(0)) > Window.getHeight2()) {
+            return;
+        }
+        int ydelta = Window.getHeight2() / Board.getNumRows();
+        int xdelta = Window.getWidth2() /  Board.getNumColumns();
+
+        int zcol = (xpixel-Window.getX(0))/xdelta;
+        int zrow = (ypixel-Window.getY(0))/ydelta;
+        if(Menu.menuShow)
+            return;
+        int makepiece = 1;     
+        
+     
+        if(makepiece == 1)
+        {
+            Board.selectpiece(xpixel, ypixel);
+            makepiece++;
+          System.out.println("make piece is   " +makepiece);  
+        }
+        if(makepiece ==2)
+        Piece.Addpiece(xpixel, ypixel);
+      /// Player.SwitchTurn();
+        if(makepiece == 2)
+       makepiece = 0; 
+    }
+
+    public static void Addpiece(int xpixel, int ypixel){
+               if ((xpixel - Window.getX(0)) < 0 || (xpixel - Window.getX(0)) > Window.getWidth2()) {
             return;
         }
         if ((ypixel - Window.getY(0)) < 0 || (ypixel - Window.getY(0)) > Window.getHeight2()) {
@@ -55,12 +85,12 @@ public class Piece {
     //  if(Menu.menuGone== true){
         if(Board.getColor(zrow, zcol) == Color.BLACK )
          {
-
-           Board.Pieces[zrow][zcol] = new Piece(Color.red,zrow,zcol);
+          
+          Board.Pieces[zrow][zcol] = new Piece(Player.getCurrentPlayer().getColor(),zrow,zcol);
 
            System.out.println(zrow+"   " +zcol);
 
-           System.out.println("The Color is ");
+           System.out.println("The Color is "+Player.getCurrentPlayer().getColor());
            
 
              
@@ -70,7 +100,6 @@ public class Piece {
          }
      // }
     }
-
 
     public void draw(Graphics2D g) {
          
