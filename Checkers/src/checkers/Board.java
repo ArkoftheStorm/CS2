@@ -121,7 +121,11 @@ public class Board {
                 
     
     }
-
+    
+    public static void Reset(){
+        
+    }
+    
     public static int getNumRows() {
         return NUM_ROWS;
     }
