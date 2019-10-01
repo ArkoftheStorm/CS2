@@ -198,7 +198,8 @@ public class Checkers extends JFrame implements Runnable {
     public void reset() {
 
         Menu.Reset();
-
+        Board.Reset();
+        
         timeCount = 0;
        
     }
@@ -216,6 +217,7 @@ public class Checkers extends JFrame implements Runnable {
 //             explosion = Toolkit.getDefaultToolkit().getImage("./explody_boi.GIF");
             reset();
             if (Menu.menuShow) {
+                Board.Reset();
                 Player.Reset();
                 
             }
