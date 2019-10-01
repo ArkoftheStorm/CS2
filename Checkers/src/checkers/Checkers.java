@@ -3,6 +3,12 @@ package checkers;
 import static checkers.Menu.backToMenu;
 import java.awt.*;
 import java.awt.event.*;
+import java.io.File;
+import javax.sound.sampled.AudioFormat;
+import javax.sound.sampled.AudioInputStream;
+import javax.sound.sampled.AudioSystem;
+import javax.sound.sampled.DataLine;
+import javax.sound.sampled.SourceDataLine;
 import javax.swing.*;
 
 public class Checkers extends JFrame implements Runnable {
@@ -13,7 +19,8 @@ public class Checkers extends JFrame implements Runnable {
     Graphics2D g;
     Color brown = new Color(193, 154, 107);
     static boolean menu;
-
+    sound theme = null;
+    
     int timeCount;
 
     public static void main(String[] args) {
@@ -210,12 +217,16 @@ public class Checkers extends JFrame implements Runnable {
             }
             explosion = Toolkit.getDefaultToolkit().getImage("./explody_boi.GIF");
 //             explosion = Toolkit.getDefaultToolkit().getImage("./explody_boi.GIF");
+            theme = new sound("themeMusic.wav");
             reset();
             if (Menu.menuShow) {
                 Board.Reset();
                 Player.Reset();
                 
+         
             }
+                    if (theme.donePlaying)
+          theme = new sound("themeMusic.wav");
         }
 
 
@@ -237,5 +248,45 @@ public class Checkers extends JFrame implements Runnable {
         }
         relaxer = null;
     }
+    
+class sound implements Runnable {
+    Thread myThread;
+    File soundFile;
+    public boolean donePlaying = false;
+    sound(String _name)
+    {
+        soundFile = new File(_name);
+        myThread = new Thread(this);
+        myThread.start();
+    }
+    public void run()
+    {
+        try {
+        AudioInputStream ais = AudioSystem.getAudioInputStream(soundFile);
+        AudioFormat format = ais.getFormat();
+    //    System.out.println("Format: " + format);
+        DataLine.Info info = new DataLine.Info(SourceDataLine.class, format);
+        SourceDataLine source = (SourceDataLine) AudioSystem.getLine(info);
+        source.open(format);
+        source.start();
+        int read = 0;
+        byte[] audioData = new byte[16384];
+        while (read > -1){
+            read = ais.read(audioData,0,audioData.length);
+            if (read >= 0) {
+                source.write(audioData,0,read);
+            }
+        }
+        donePlaying = true;
 
+        source.drain();
+        source.close();
+        }
+        catch (Exception exc) {
+            System.out.println("error: " + exc.getMessage());
+            exc.printStackTrace();
+        }
+    }
+
+}
 }
