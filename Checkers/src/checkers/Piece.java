@@ -10,7 +10,9 @@ public class Piece {
     private Color color;
     private int row;
     private int col;
-    boolean yellow;
+    static boolean clickPiece;
+    static boolean clickPiece2;
+    
     Piece(Color _color, int _row, int _col) {
         for (int zrow = 0; zrow < Board.getNumRows(); zrow++) {
             for (int zcol = 0; zcol < Board.getNumColumns(); zcol++) {
@@ -25,7 +27,8 @@ public class Piece {
         row = _row;
         col = _col;
         color = _color;
-        yellow = false;
+        clickPiece = false;
+        clickPiece2 = false;
         
     }
 
@@ -34,33 +37,57 @@ public class Piece {
     }
 
     public static void Animate(int xpixel, int ypixel) {
-            if ((xpixel - Window.getX(0)) < 0 || (xpixel - Window.getX(0)) > Window.getWidth2()) {
+            
+        if ((xpixel - Window.getX(0)) < 0 || (xpixel - Window.getX(0)) > Window.getWidth2()) {
             return;
         }
         if ((ypixel - Window.getY(0)) < 0 || (ypixel - Window.getY(0)) > Window.getHeight2()) {
             return;
         }
+        
         int ydelta = Window.getHeight2() / Board.getNumRows();
         int xdelta = Window.getWidth2() /  Board.getNumColumns();
 
         int zcol = (xpixel-Window.getX(0))/xdelta;
         int zrow = (ypixel-Window.getY(0))/ydelta;
-        if(Menu.menuShow)
-            return;
-        int makepiece = 1;     
         
-     
-        if(makepiece == 1)
+        if(Menu.menuShow || Menu.helpShow)
+            return;
+        
+        for (int row=0;row<Board.getNumRows();row++)
         {
-            Board.selectpiece(xpixel, ypixel);
-            makepiece++;
-          System.out.println("make piece is   " +makepiece);  
+            for (int col=0;col<Board.getNumColumns();col++)
+            {
+                if(Board.getColor(zrow, zcol) == Player.GetCurrentPlayer().getColor())
+                {
+                    Board.selectpiece(zrow, zcol);
+                }
+                
+                
+            }
         }
-        if(makepiece ==2)
-        Piece.Addpiece(xpixel, ypixel);
-      /// Player.SwitchTurn();
-        if(makepiece == 2)
-       makepiece = 0; 
+        
+        
+        
+        
+//        int makepiece = 0;  
+//        
+//         Piece.Addpiece(zrow, zcol);
+//        makepiece++;
+//        
+//        if(makepiece == 1)
+//        {
+//            Board.selectpiece(xpixel, ypixel);
+//       
+//          System.out.println("make piece is   " +makepiece);  
+//        }
+//         makepiece++;
+//          System.out.println("make piece is   " +makepiece);  
+//        if(makepiece ==1)
+//       
+//      /// Player.SwitchTurn();
+//        if(makepiece == 2)
+//       makepiece = 0; 
     }
 
     public static void Addpiece(int xpixel, int ypixel){
@@ -104,7 +131,7 @@ public class Piece {
     public void draw(Graphics2D g) {
          
 //        if (row < 3 || 4 < row) {
-           if(yellow)
+           if(clickPiece)
            color = Color.YELLOW;
             if (Board.Pieces[row][col] != null) {
                 g.setColor(color);
@@ -114,6 +141,17 @@ public class Piece {
                         Board.getYdelta());
 
             }
+            else if(clickPiece2)
+           color = Color.RED;
+            if (Board.Pieces[row][col] != null) {
+                g.setColor(color);
+                g.fillOval(Window.getX(col * Board.getXdelta()),
+                        Window.getY(row * Board.getYdelta()),
+                        Board.getXdelta(),
+                        Board.getYdelta());
+
+            }
+          
           
             
             
@@ -127,6 +165,20 @@ public class Piece {
 //    }
     public int getRow() {
         return row;
+    }
+    public static void ClickPiece2T(){
+        clickPiece2 = true;
+    }
+    public static void ClickPiece2F(){
+        clickPiece2 = false;
+        
+    }
+    public static void ClickPieceT(){
+        clickPiece = true;
+    }
+    public static void ClickPieceF(){
+        clickPiece = false;
+        
     }
     public void switchColor(){
         if(color == Color.red)

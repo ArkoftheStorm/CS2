@@ -12,7 +12,7 @@ public class Board {
     private static int xdelta = Window.getWidth2() / NUM_COLUMNS;
     private static int ydelta = Window.getHeight2() / NUM_ROWS;
     private static Color board[][] = new Color[NUM_ROWS][NUM_COLUMNS];
-    static int piecemove =0;
+    static int piecemove = 0;
     public static Piece Pieces[][] = new Piece[NUM_ROWS][NUM_COLUMNS];
 
     Color color = null;
@@ -89,21 +89,36 @@ public class Board {
             return;
 
         int _col = (xPixel/xdelta)-1;
-        int _row= (yPixel/ydelta)-1;
+        int _row = (yPixel/ydelta)-1;
         System.out.println(_row+"   " +_col);
-               if(Board.getColor(_row, _col) != null && Board.getColor(_row, _col) == Color.BLACK)
-                {
+        
+               if(Board.getColor(_row, _col) != null && Board.getColor(_row, _col) != Color.BLACK)
+                  return;
+               
+               
                     if(piecemove == 0)
                     {
-                        if(Board.Pieces[_row][_col].getColor()== Player.GetCurrentPlayer().getColor())     
-                          Pieces[_row][_col].yellow = true;
-                             piecemove ++;
+                        if(Board.Pieces[_row][_col].getColor() == Player.GetCurrentPlayer().getColor())     
+                          Piece.ClickPieceT();
+                             piecemove = 1;
+                    
                     // Board.Pieces[r][c] = new Piece(Player.GetCurrentPlayer().getColor(),r,c);
 
                     }
+                    else if(piecemove == 1)
+                    {
+                        if(Board.Pieces[_row][_col].getColor() == Color.RED || Board.Pieces[_row][_col].getColor() == Color.BLUE)     
+                            Piece.ClickPieceF();
+                            Piece.ClickPiece2T();
+                      
+                            piecemove = 0;
+                    
+                    // Board.Pieces[r][c] = new Piece(Player.GetCurrentPlayer().getColor(),r,c);
 
+                    }
+                   // piecemove = 0;
 
-                }
+                
     
     }
 
