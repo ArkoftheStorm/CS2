@@ -149,8 +149,13 @@ public class Checkers extends JFrame implements Runnable {
         Menu.draw(g);
 
        
-    
-        g.drawImage(Checkers.explosion, 50, 50,200, 200, this);
+        if(Random.getExplode()){
+            drawExplosion();
+            Random.incExplodeTime();
+            if(Random.explodeTimeDone())
+                Random.doneExplode();
+        }
+                
         
 
         gOld.drawImage(image, 0, 0, null);
@@ -234,6 +239,14 @@ public class Checkers extends JFrame implements Runnable {
             relaxer.stop();
         }
         relaxer = null;
+    }
+    public void drawExplosion(){
+        g.drawImage(Checkers.explosion,
+                (Random.getBombCol()+1)*Board.getXdelta(),
+                Random.getBombRow()*Board.getYdelta(),
+                Board.getYdelta() * (Random.getBombBorder() * 2),
+                Board.getXdelta() * (Random.getBombBorder() * 2),
+                this);
     }
 
 }
