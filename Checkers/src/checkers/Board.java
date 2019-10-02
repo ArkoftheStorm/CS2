@@ -1,9 +1,8 @@
 
 package checkers;
 
-import java.awt.Color;
-import java.awt.Graphics2D;
-import java.awt.Image;
+import java.awt.*;
+
 
 public class Board {
 
@@ -72,7 +71,12 @@ public class Board {
             g.drawLine(Window.getX(0) + zi * Window.getWidth2() / NUM_COLUMNS, Window.getY(0),
                     Window.getX(0) + zi * Window.getWidth2() / NUM_COLUMNS, Window.getY(Window.getHeight2()));
         }
-        
+        g.setColor(Player.GetCurrentPlayer().getColor());
+        g.setFont (new Font("times new roman",Font.BOLD,20));
+        if(Player.GetCurrentPlayer() == Player.getPlayer(0))
+            g.drawString("Player One's Turn", Window.getX(0), Window.getY(0)-5);
+        else 
+            g.drawString("Player Two's Turn", Window.getX(0), Window.getY(0)-5);
 
    }
     public static void switchPiece(int xPixel, int yPixel){
@@ -80,6 +84,8 @@ public class Board {
             return;
         int _col = Math.round(xPixel/xdelta);
         int _row = Math.round(yPixel/ydelta);
+        if(_col >= NUM_COLUMNS || _col <= 0 || _row >= NUM_ROWS || _row <= 0)
+            return;
         if(Pieces[_row][_col] != null && _row < NUM_ROWS && _col < NUM_COLUMNS)
             Pieces[_row][_col].switchColor();
         Player.GetCurrentPlayer().decChangeCount();
@@ -104,6 +110,7 @@ public class Board {
                               Piece.piecemovesT();
                                  piecemove = 1;   
                     }
+
                     if(Piece.piecemoves())
                        movepiece(_row,_col);
                     else 
@@ -113,6 +120,7 @@ public class Board {
                     
                      if(piecemove ==1)
                          piecemove=0;
+
     
     }
      public static void movepiece(int xPixel, int yPixel){
@@ -128,7 +136,7 @@ public class Board {
             
     }
     public static void Reset(){
-        
+      
     }
     
     public static int getNumRows() {

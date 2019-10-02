@@ -208,7 +208,7 @@ public class Checkers extends JFrame implements Runnable {
 
 /////////////////////////////////////////////////////////////////////////
     public void reset() {
-
+        
         Menu.Reset();
         Board.Reset();
         
