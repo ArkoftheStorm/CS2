@@ -78,8 +78,8 @@ public class Board {
     public static void switchPiece(int xPixel, int yPixel){
         if(Player.GetCurrentPlayer().getChangeCount() <= 0)
             return;
-        int _col = (xPixel/xdelta) - 1;
-        int _row = (yPixel/ydelta);
+        int _col = Math.round(xPixel/xdelta);
+        int _row = Math.round(yPixel/ydelta);
         if(Pieces[_row][_col] != null && _row < NUM_ROWS && _col < NUM_COLUMNS)
             Pieces[_row][_col].switchColor();
         Player.GetCurrentPlayer().decChangeCount();
@@ -88,8 +88,8 @@ public class Board {
         if(Menu.menuShow)
             return;
 
-        int _col = (xPixel/xdelta)-1;
-        int _row = (yPixel/ydelta)-1;
+        int _col = Math.round(xPixel/xdelta)-1;
+        int _row = Math.round(yPixel/ydelta)-1;
         System.out.println(_row+"   " +_col);
         
                if(Board.getColor(_row, _col) != null && Board.getColor(_row, _col) != Color.BLACK)
@@ -100,8 +100,10 @@ public class Board {
                     {
                         if(_row < NUM_ROWS && _row > -1 && _col < NUM_COLUMNS && _col > -1)
                             if(Board.Pieces[_row][_col].getColor() == Player.GetCurrentPlayer().getColor())     
-                          Pieces[_row][_col].ClickPieceT();
-//                                 piecemove = 1;
+
+                              Board.Pieces[_row][_col].makeYellow();
+                                 piecemove = 1;
+
                     
                     // Board.Pieces[r][c] = new Piece(Player.GetCurrentPlayer().getColor(),r,c);
                             
