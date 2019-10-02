@@ -11,7 +11,7 @@ public class Piece {
     private int row;
     private int col;
      boolean clickPiece;
-    
+    static boolean piecemoves;
     
     Piece(Color _color, int _row, int _col) {
         for (int zrow = 0; zrow < Board.getNumRows(); zrow++) {
@@ -28,7 +28,7 @@ public class Piece {
         col = _col;
         color = _color;
         clickPiece = false;
-        
+        piecemoves = false;
         
     }
 
@@ -176,6 +176,20 @@ public class Piece {
         clickPiece = false;
         
     }
+    public static  void piecemovesT(){
+        piecemoves= true;
+    }
+     public static void piecemovesF(){
+        piecemoves= false;
+    }
+     public static boolean piecemoves(){
+         return(piecemoves);
+     }
+     
+     
+     
+     
+     
     public void switchColor(){
         if(color == Color.red)
             color = Color.blue;
