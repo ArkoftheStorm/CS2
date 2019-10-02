@@ -10,8 +10,8 @@ public class Piece {
     private Color color;
     private int row;
     private int col;
-    static boolean clickPiece;
-    static boolean clickPiece2;
+     boolean clickPiece;
+    
     
     Piece(Color _color, int _row, int _col) {
         for (int zrow = 0; zrow < Board.getNumRows(); zrow++) {
@@ -28,7 +28,7 @@ public class Piece {
         col = _col;
         color = _color;
         clickPiece = false;
-        clickPiece2 = false;
+        
         
     }
 
@@ -115,7 +115,7 @@ public class Piece {
           
           Board.Pieces[zrow][zcol] = new Piece(Player.getCurrentPlayer().getColor(),zrow,zcol);
 
-           System.out.println(zrow+"   " +zcol);
+//           System.out.println(zrow+"   " +zcol);
 
            System.out.println("The Color is "+Player.getCurrentPlayer().getColor());
            
@@ -141,7 +141,7 @@ public class Piece {
                         Board.getYdelta());
 
             }
-            else if(clickPiece2)
+            else 
            color = Color.RED;
             if (Board.Pieces[row][col] != null) {
                 g.setColor(color);
@@ -166,17 +166,10 @@ public class Piece {
     public int getRow() {
         return row;
     }
-    public static void ClickPiece2T(){
-        clickPiece2 = true;
-    }
-    public static void ClickPiece2F(){
-        clickPiece2 = false;
-        
-    }
-    public static void ClickPieceT(){
+    public void ClickPieceT(){
         clickPiece = true;
     }
-    public static void ClickPieceF(){
+    public void ClickPieceF(){
         clickPiece = false;
         
     }
