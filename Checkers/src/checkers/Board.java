@@ -106,12 +106,9 @@ public class Board {
                     {
                         if(_row < NUM_ROWS && _row > -1 && _col < NUM_COLUMNS && _col > -1)
                             if(Board.Pieces[_row][_col].getColor() == Player.GetCurrentPlayer().getColor())     
-
-                              Board.Pieces[_row][_col].makeYellow();
+                              Pieces[_row][_col].ClickPieceT();
+                
                                  piecemove = 1;
-
-                    
-                    // Board.Pieces[r][c] = new Piece(Player.GetCurrentPlayer().getColor(),r,c);
                             
                     }
                      Player.SwitchTurn();
