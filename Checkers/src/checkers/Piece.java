@@ -35,6 +35,9 @@ public class Piece {
     public Color getColor() {
         return (color);
     }
+    public Color makeYellow(){
+        return(Color.YELLOW);
+    }
 
     public static void Animate(int xpixel, int ypixel) {
             
