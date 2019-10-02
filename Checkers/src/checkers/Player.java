@@ -47,6 +47,9 @@ public class Player {
     public Color getColor(){
         return color;
     }
+    public Color makeYellow(){
+        return(Color.YELLOW);
+    }
     public static Player getPlayer(int p){
         return players[p];
     }

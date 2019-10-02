@@ -106,6 +106,13 @@ public class Board {
                             
                     }
                      Player.SwitchTurn();
+                     if(Menu.backToMenu == true){ 
+                         if(piecemove == 1)
+                         {
+                            Menu.backToMenu = false;
+                            piecemove = 0;
+                         }
+                     }
 //                    else if(piecemove == 1)
 //                    {
 //                        if(_row < NUM_ROWS && _row > -1 && _col < NUM_COLUMNS && _col > -1)
@@ -124,7 +131,7 @@ public class Board {
     }
     
     public static void Reset(){
-        
+      
     }
     
     public static int getNumRows() {

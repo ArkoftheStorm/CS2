@@ -45,7 +45,7 @@ public class Menu {
             if (xpixel > Window.getX(Window.getWidth2() + 10) && xpixel < Window.getX(Window.getWidth2() + 10) + Board.getXdelta() && ypixel > Window.getY(Window.getHeight2() / 2 - 3) && ypixel < Window.getY(Window.getHeight2() / 2 - 3) + Board.getYdelta()) {
                 System.out.println("Back To Menu = " + xpixel + ypixel);
                 Reset();
-               
+                backToMenu = true;
             }
         }
 
