@@ -100,24 +100,26 @@ public class Board {
                     {
                         if(_row < NUM_ROWS && _row > -1 && _col < NUM_COLUMNS && _col > -1)
                             if(Board.Pieces[_row][_col].getColor() == Player.GetCurrentPlayer().getColor())     
-                              Piece.ClickPieceT();
+
+                              Board.Pieces[_row][_col].makeYellow();
                                  piecemove = 1;
+
                     
                     // Board.Pieces[r][c] = new Piece(Player.GetCurrentPlayer().getColor(),r,c);
-
+                            
                     }
-                    else if(piecemove == 1)
-                    {
-                        if(_row < NUM_ROWS && _row > -1 && _col < NUM_COLUMNS && _col > -1)
-                            if(Board.Pieces[_row][_col].getColor() == Color.RED || Board.Pieces[_row][_col].getColor() == Color.BLUE)     
-                                Piece.ClickPieceF();
-                                Piece.ClickPiece2T();
-
-                                piecemove = 0;
-                    
-                    // Board.Pieces[r][c] = new Piece(Player.GetCurrentPlayer().getColor(),r,c);
-
-                    }
+                     Player.SwitchTurn();
+//                    else if(piecemove == 1)
+//                    {
+//                        if(_row < NUM_ROWS && _row > -1 && _col < NUM_COLUMNS && _col > -1)
+//                            if(Board.Pieces[_row][_col].getColor() == Color.RED || Board.Pieces[_row][_col].getColor() == Color.BLUE)     
+//                                Pieces[_row][_col].ClickPieceF();
+//
+//                                piecemove = 0;
+//                    
+//                    // Board.Pieces[r][c] = new Piece(Player.GetCurrentPlayer().getColor(),r,c);
+//
+//                    }
                    // piecemove = 0;
 
                 
