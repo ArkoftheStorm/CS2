@@ -263,14 +263,7 @@ public class Checkers extends JFrame implements Runnable {
         }
         relaxer = null;
     }
-    public void drawExplosion(){
-        g.drawImage(Checkers.explosion,
-                (Random.getBombCol()+1)*Board.getXdelta(),
-                Random.getBombRow()*Board.getYdelta(),
-                Board.getYdelta() * (Random.getBombBorder() * 2),
-                Board.getXdelta() * (Random.getBombBorder() * 2),
-                this);
-    }
+
     
 class sound implements Runnable {
     Thread myThread;
@@ -312,4 +305,13 @@ class sound implements Runnable {
     }
 
 }
+    public void drawExplosion(){
+        g.drawImage(Checkers.explosion,
+                (Random.getBombCol()+1)*Board.getXdelta(),
+                Random.getBombRow()*Board.getYdelta(),
+                Board.getYdelta() * (Random.getBombBorder() * 2),
+                Board.getXdelta() * (Random.getBombBorder() * 2),
+                this);
+    }
+    
 }
