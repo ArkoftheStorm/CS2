@@ -135,19 +135,10 @@ public class Piece {
          
 //        if (row < 3 || 4 < row) {
            if(clickPiece)
-           color = Color.YELLOW;
+                g.setColor(Color.YELLOW);
+           else
+               g.setColor(color);
             if (Board.Pieces[row][col] != null) {
-                g.setColor(color);
-                g.fillOval(Window.getX(col * Board.getXdelta()),
-                        Window.getY(row * Board.getYdelta()),
-                        Board.getXdelta(),
-                        Board.getYdelta());
-
-            }
-            else 
-           color = Color.RED;
-            if (Board.Pieces[row][col] != null) {
-                g.setColor(color);
                 g.fillOval(Window.getX(col * Board.getXdelta()),
                         Window.getY(row * Board.getYdelta()),
                         Board.getXdelta(),

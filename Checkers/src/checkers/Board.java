@@ -94,32 +94,30 @@ public class Board {
         if(Menu.menuShow)
             return;
 
-        int _col = Math.round(xPixel/xdelta)-1;
-        int _row = Math.round(yPixel/ydelta)-1;
-   
+        int _col = (xPixel/xdelta)-1;
+        int _row = (yPixel/ydelta)-1;
+          System.out.println(_row+"   " +_col);
         
                if(Board.getColor(_row, _col) != null && Board.getColor(_row, _col) != Color.BLACK)
                   return;
                
                    
-                    if(piecemove == 0)
-                    {
+                   
                         if(_row < NUM_ROWS && _row > -1 && _col < NUM_COLUMNS && _col > -1)
                             if(Board.Pieces[_row][_col].getColor() == Player.GetCurrentPlayer().getColor())     
                               Pieces[_row][_col].ClickPieceT();
                               Piece.piecemovesT();
-                                 piecemove = 1;   
-                    }
+ 
+                    
 
-                    if(Piece.piecemoves())
-                       movepiece(_row,_col);
-                    else 
-                      Piece.piecemovesF();
+//                    if(Piece.piecemoves())
+//                       movepiece(_row,_col);
+//                    else 
+//                      Piece.piecemovesF();
                     
-                   Player.SwitchTurn();
+                 
                     
-                     if(piecemove ==1)
-                         piecemove=0;
+                 
 
     
     }
@@ -127,13 +125,20 @@ public class Board {
                if(Menu.menuShow || Menu.helpShow)
             return;
 
-        int _col = (xPixel/xdelta);
-        int _row = (yPixel/ydelta);
-       if(Board.getColor(_row, _col) != null )
+        int _col = (xPixel/xdelta)-1 ;
+        int _row = (yPixel/ydelta)-1;
+       if(Board.getColor(_row, _col) != Color.BLACK)
                   return; 
-          System.out.println(_row+"   " +_col);
+     //     System.out.println(_row+"   " +_col);
     Board.Pieces[_row][_col] = new Piece(Player.getCurrentPlayer().getColor(),_row,_col);
-            
+    for(int r = 0; r<NUM_ROWS; r++){
+        for(int c = 0; c<NUM_COLUMNS; c++){
+            if(Board.Pieces[r][c] != null && Board.Pieces[r][c].clickPiece)
+                Board.Pieces[r][c].clickPiece = false;
+        }
+    }
+    Piece.piecemovesF();
+    Player.SwitchTurn();      
     }
     public static void Reset(){
       
