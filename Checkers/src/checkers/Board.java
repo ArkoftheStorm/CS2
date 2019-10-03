@@ -11,9 +11,12 @@ public class Board {
     private static int xdelta = Window.getWidth2() / NUM_COLUMNS;
     private static int ydelta = Window.getHeight2() / NUM_ROWS;
     private static Color board[][] = new Color[NUM_ROWS][NUM_COLUMNS];
-      static int piecemove = 0;
+   
+    static int piecemove = 0;
     public static Piece Pieces[][] = new Piece[NUM_ROWS][NUM_COLUMNS];
 
+    
+    
     Color color = null;
     public static void Draw(Graphics2D g) {
         xdelta = Window.getWidth2() / NUM_COLUMNS;
@@ -91,7 +94,7 @@ public class Board {
         Player.GetCurrentPlayer().decChangeCount();
     }
     public static void selectpiece(int xPixel, int yPixel){
-        if(Menu.menuShow)
+        if(Menu.menuShow || Menu.helpShow)
             return;
 
         int _col = (xPixel/xdelta)-1;
@@ -104,12 +107,22 @@ public class Board {
                    
                    
                         if(_row < NUM_ROWS && _row > -1 && _col < NUM_COLUMNS && _col > -1)
-                            if(Board.Pieces[_row][_col].getColor() == Player.GetCurrentPlayer().getColor())     
+                        {
+                            if(Board.Pieces[_row][_col].getColor() == Player.GetCurrentPlayer().getColor())  
+                            
+                                // Piece temp[][] = new Piece[_row][_col];
+                              //    temp[_row][_col] = new Piece(Player.getCurrentPlayer().getColor(),_row,_col);
+                            {
                               Pieces[_row][_col].ClickPieceT();
+                                  
+                            }
                               Piece.piecemovesT();
- 
-                    
-
+                               //Pieces[_row][_col].ClickPieceF();
+                           // temp[_row][_col] = null;  
+                           
+                            
+                          
+                        }
 //                    if(Piece.piecemoves())
 //                       movepiece(_row,_col);
 //                    else 
@@ -127,14 +140,24 @@ public class Board {
 
         int _col = (xPixel/xdelta)-1 ;
         int _row = (yPixel/ydelta)-1;
+        
        if(Board.getColor(_row, _col) != Color.BLACK)
                   return; 
+       
      //     System.out.println(_row+"   " +_col);
     Board.Pieces[_row][_col] = new Piece(Player.getCurrentPlayer().getColor(),_row,_col);
-    for(int r = 0; r<NUM_ROWS; r++){
-        for(int c = 0; c<NUM_COLUMNS; c++){
+    
+    for(int r = 0; r<NUM_ROWS; r++)
+    {
+        for(int c = 0; c<NUM_COLUMNS; c++)
+        {
             if(Board.Pieces[r][c] != null && Board.Pieces[r][c].clickPiece)
+            {
+//                Piece temp[][] = new Piece[NUM_ROWS][NUM_COLUMNS];
+//                temp[r][c] = new Piece(Player.getCurrentPlayer().getColor(),_row,_col);
                 Board.Pieces[r][c].clickPiece = false;
+  //               temp[_row][_col] = null;  
+            }
         }
     }
     Piece.piecemovesF();
