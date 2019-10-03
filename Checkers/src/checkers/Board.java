@@ -82,8 +82,8 @@ public class Board {
     public static void switchPiece(int xPixel, int yPixel){
         if(Player.GetCurrentPlayer().getChangeCount() <= 0)
             return;
-        int _col = Math.round(xPixel/xdelta);
-        int _row = Math.round(yPixel/ydelta);
+        int _col = (xPixel-Window.getX(0))/xdelta;
+        int _row = (yPixel-Window.getY(0))/ydelta;
         if(_col >= NUM_COLUMNS || _col <= 0 || _row >= NUM_ROWS || _row <= 0)
             return;
         if(Pieces[_row][_col] != null && _row < NUM_ROWS && _col < NUM_COLUMNS)
@@ -94,8 +94,8 @@ public class Board {
         if(Menu.menuShow)
             return;
 
-        int _col = (xPixel/xdelta)-1;
-        int _row = (yPixel/ydelta)-1;
+        int _col = (xPixel-Window.getX(0))/xdelta;
+        int _row = (yPixel-Window.getY(0))/ydelta;
           System.out.println(_row+"   " +_col);
         
                if(Board.getColor(_row, _col) != null && Board.getColor(_row, _col) != Color.BLACK)
@@ -104,7 +104,7 @@ public class Board {
                    
                    
                         if(_row < NUM_ROWS && _row > -1 && _col < NUM_COLUMNS && _col > -1)
-                            if(Board.Pieces[_row][_col].getColor() == Player.GetCurrentPlayer().getColor())     
+                            if(Board.Pieces[_row][_col] != null && Board.Pieces[_row][_col].getColor() == Player.GetCurrentPlayer().getColor())     
                               Pieces[_row][_col].ClickPieceT();
                               Piece.piecemovesT();
  
@@ -127,7 +127,7 @@ public class Board {
 
 
         int _col = (xPixel/xdelta)-1 ;
-        int _row = (yPixel/ydelta)-1;
+        int _row = (yPixel-Window.getY(0))/ydelta;
        if(Board.getColor(_row, _col) != Color.BLACK)
                   return; 
      //     System.out.println(_row+"   " +_col);

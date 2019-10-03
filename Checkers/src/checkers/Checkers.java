@@ -16,6 +16,9 @@ public class Checkers extends JFrame implements Runnable {
     boolean animateFirstTime = true;
     Image image;
     public static Image explosion;
+    public static Image bluePiece;
+    public static Image yellowPiece;
+    public static Image redPiece;
     Graphics2D g;
     Color brown = new Color(193, 154, 107);
     static boolean menu;
@@ -235,6 +238,9 @@ public class Checkers extends JFrame implements Runnable {
                 Window.ysize = getSize().height;
             }
             explosion = Toolkit.getDefaultToolkit().getImage("./explody_boi.GIF");
+            bluePiece = Toolkit.getDefaultToolkit().getImage("./blue_piece");
+            yellowPiece = Toolkit.getDefaultToolkit().getImage("./yellow_piece");
+            redPiece = Toolkit.getDefaultToolkit().getImage("./red_piece");
 //             explosion = Toolkit.getDefaultToolkit().getImage("./explody_boi.GIF");
             theme = new sound("themeMusic.wav");
             reset();
@@ -316,6 +322,9 @@ class sound implements Runnable {
                 Board.getYdelta() * (Random.getBombBorder() * 2),
                 Board.getXdelta() * (Random.getBombBorder() * 2),
                 this);
+    }
+    public void drawPieceImage(int row, int col){
+
     }
     
 }
