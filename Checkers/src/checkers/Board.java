@@ -124,15 +124,15 @@ public class Board {
     
     }
      public static void movepiece(int xPixel, int yPixel){
-               if(Menu.menuShow || Menu.helpShow)
+        if(Menu.menuShow || Menu.helpShow)
             return;
 
         int _col = (xPixel/xdelta);
         int _row = (yPixel/ydelta);
-       if(Board.getColor(_row, _col) != null )
-                  return; 
-          System.out.println(_row+"   " +_col);
-    Board.Pieces[_row][_col] = new Piece(Player.getCurrentPlayer().getColor(),_row,_col);
+        if(Board.getColor(_row, _col) != null )
+            return; 
+        System.out.println(_row+"   " +_col);
+        Board.Pieces[_row][_col] = new Piece(Player.getCurrentPlayer().getColor(),_row,_col);
             
     }
     public static void Reset(){

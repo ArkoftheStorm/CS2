@@ -40,7 +40,7 @@ public class Checkers extends JFrame implements Runnable {
                 
                 Menu.ClickButton(e.getX(), e.getY());
 
-                if(menu)
+                if(Menu.menuShow || Menu.helpShow)
                     return;
                 if (e.getX() > Window.getX(Window.getWidth2() + 10)
                         && e.getY() > Window.getY(0)
@@ -51,8 +51,8 @@ public class Checkers extends JFrame implements Runnable {
 
                 else {
                     Piece.Animate(e.getX(), e.getY());
-                    Board.selectpiece(e.getX(),e.getY());
                     Board.switchPiece(e.getX(), e.getY());
+                    Board.selectpiece(e.getX(),e.getY());
                     Board.movepiece(e.getX(), e.getY());
                     }
                  
