@@ -190,7 +190,7 @@ public class Board {
          {
             for(int c = 0; c<NUM_COLUMNS;c++)
                {
-                   if(Board.Pieces[r][c].getColor() == Color.BLUE && Board.Pieces[r][c].getColor() != Color.RED);
+                   if(Board.Pieces[r][c].getColor() == Color.BLUE && Board.Pieces[r][c].getColor() != Color.RED)
                    return(true);
 //                   else
 //                   return(false);
