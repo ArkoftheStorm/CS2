@@ -89,6 +89,7 @@ public class Board {
         if(Pieces[_row][_col] != null && _row < NUM_ROWS && _col < NUM_COLUMNS)
             Pieces[_row][_col].switchColor();
         Player.GetCurrentPlayer().decChangeCount();
+        Player.SwitchTurn();
     }
     public static void selectpiece(int xPixel, int yPixel){
         if(Menu.menuShow)
