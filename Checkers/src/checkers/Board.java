@@ -111,21 +111,9 @@ public class Board {
 
                               Pieces[_row][_col].ClickPieceT();
                               Piece.piecemovesT();
-
-
-                               //Pieces[_row][_col].ClickPieceF();
-                           // temp[_row][_col] = null;  
-                           
-                            
-                          
+                      
                         }
 
-
-//                    if(Piece.piecemoves())
-//                       movepiece(_row,_col);
-//                    else 
-//                      Piece.piecemovesF();
-                    
                  
                     
                  
@@ -137,7 +125,7 @@ public class Board {
             return;
 
 
-        int _col = (xPixel/xdelta)-1 ;
+        int _col = (xPixel-Window.getX(0))/xdelta ;
         int _row = (yPixel-Window.getY(0))/ydelta;
        if(Board.getColor(_row, _col) != Color.BLACK)
                   return; 
@@ -150,9 +138,17 @@ public class Board {
         }
     }
     Piece.piecemovesF();
+ if (Piece.piecemoves() == false)
+ {
+     Piece.deletepiece(_row, _col);
+ }
     Player.SwitchTurn();      
-
+ 
     }
+ 
+     
+     
+     
     public static void Reset(){
       
     }

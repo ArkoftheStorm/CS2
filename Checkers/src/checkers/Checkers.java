@@ -60,7 +60,7 @@ public class Checkers extends JFrame implements Runnable {
                     else
                         Board.selectpiece(e.getX(),e.getY());
                     Board.switchPiece(e.getX(), e.getY());
-
+           
                     }
                  
                  
