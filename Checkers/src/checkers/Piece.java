@@ -68,7 +68,7 @@ public class Piece {
             {
                 if(Board.getColor(zrow, zcol) == Player.GetCurrentPlayer().getColor())
                 {
-                    Board.selectpiece(zrow, zcol);
+                //    Board.selectpiece(zrow, zcol);
                 }
                 
                 
@@ -97,7 +97,35 @@ public class Piece {
 //        if(makepiece == 2)
 //       makepiece = 0; 
     }
+       public static void deletepiece(int xPixel, int yPixel){
+        if(Menu.menuShow || Menu.helpShow)
+            return;
 
+
+       int _col = (xPixel-Window.getX(0))/Board.getXdelta();
+       int _row = (yPixel-Window.getY(0))/Board.getYdelta();
+        
+//       if(Board.getColor(_row, _col) != Color.BLACK)
+//                  return; 
+         
+      for (int row=0;row<Board.getNumRows();row++)
+        {
+            for (int col=0;col<Board.getNumColumns();col++)
+            {
+                if(Piece.piecemoves() == false)
+                {
+//                    Board.Pieces[_row][_col] = null;
+                }
+                
+                
+            }
+        }
+        
+       
+       
+       
+
+    } 
     public static void Addpiece(int xpixel, int ypixel){
                if ((xpixel - Window.getX(0)) < 0 || (xpixel - Window.getX(0)) > Window.getWidth2()) {
             return;
