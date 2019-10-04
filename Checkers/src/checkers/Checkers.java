@@ -16,6 +16,9 @@ public class Checkers extends JFrame implements Runnable {
     boolean animateFirstTime = true;
     Image image;
     public static Image explosion;
+    public static Image bluePiece;
+    public static Image yellowPiece;
+    public static Image redPiece;
     Graphics2D g;
     Color brown = new Color(193, 154, 107);
     static boolean menu;
@@ -40,7 +43,7 @@ public class Checkers extends JFrame implements Runnable {
                 
                 Menu.ClickButton(e.getX(), e.getY());
 
-                if(menu)
+                if(Menu.menuShow || Menu.helpShow)
                     return;
                 if (e.getX() > Window.getX(Window.getWidth2() + 10)
                         && e.getY() > Window.getY(0)
@@ -51,11 +54,13 @@ public class Checkers extends JFrame implements Runnable {
 
                 else {
                     Piece.Animate(e.getX(), e.getY());
+
                     if(Piece.piecemoves)
                         Board.movepiece(e.getX(), e.getY());
                     else
                         Board.selectpiece(e.getX(),e.getY());
                     Board.switchPiece(e.getX(), e.getY());
+
                     }
                  
                  
@@ -233,6 +238,9 @@ public class Checkers extends JFrame implements Runnable {
                 Window.ysize = getSize().height;
             }
             explosion = Toolkit.getDefaultToolkit().getImage("./explody_boi.GIF");
+            bluePiece = Toolkit.getDefaultToolkit().getImage("./blue_piece");
+            yellowPiece = Toolkit.getDefaultToolkit().getImage("./yellow_piece");
+            redPiece = Toolkit.getDefaultToolkit().getImage("./red_piece");
 //             explosion = Toolkit.getDefaultToolkit().getImage("./explody_boi.GIF");
             theme = new sound("themeMusic.wav");
             reset();
@@ -265,14 +273,7 @@ public class Checkers extends JFrame implements Runnable {
         }
         relaxer = null;
     }
-    public void drawExplosion(){
-        g.drawImage(Checkers.explosion,
-                (Random.getBombCol()+1)*Board.getXdelta(),
-                Random.getBombRow()*Board.getYdelta(),
-                Board.getYdelta() * (Random.getBombBorder() * 2),
-                Board.getXdelta() * (Random.getBombBorder() * 2),
-                this);
-    }
+
     
 class sound implements Runnable {
     Thread myThread;
@@ -314,4 +315,16 @@ class sound implements Runnable {
     }
 
 }
+    public void drawExplosion(){
+        g.drawImage(Checkers.explosion,
+                (Random.getBombCol()+1)*Board.getXdelta(),
+                Random.getBombRow()*Board.getYdelta(),
+                Board.getYdelta() * (Random.getBombBorder() * 2),
+                Board.getXdelta() * (Random.getBombBorder() * 2),
+                this);
+    }
+    public void drawPieceImage(int row, int col){
+
+    }
+    
 }
