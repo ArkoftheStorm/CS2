@@ -10,20 +10,27 @@ public class Piece {
     private Color color;
     private int row;
     private int col;
-     boolean clickPiece;
+    boolean clickPiece;
     static boolean piecemoves;
+    private static int deleteRow;
+    private static int deleteCol;
     
     Piece(Color _color, int _row, int _col) {
         for (int zrow = 0; zrow < Board.getNumRows(); zrow++) {
             for (int zcol = 0; zcol < Board.getNumColumns(); zcol++) {
 
-                if (4 < zrow) {
-                } else if (zrow < 3) {
+                if (4 < zrow) 
+                {
+               //????
+                } 
+                else if (zrow < 3) 
+                {
                     color = Color.blue;
                 }
               
             }
         }
+        
         row = _row;
         col = _col;
         color = _color;
@@ -63,7 +70,7 @@ public class Piece {
             {
                 if(Board.getColor(zrow, zcol) == Player.GetCurrentPlayer().getColor())
                 {
-                    Board.selectpiece(zrow, zcol);
+                //    Board.selectpiece(zrow, zcol);
                 }
                 
                 
@@ -92,7 +99,35 @@ public class Piece {
 //        if(makepiece == 2)
 //       makepiece = 0; 
     }
+       public static void deletepiece(int xPixel, int yPixel){
+        if(Menu.menuShow || Menu.helpShow)
+            return;
 
+
+       int _col = (xPixel-Window.getX(0))/Board.getXdelta();
+       int _row = (yPixel-Window.getY(0))/Board.getYdelta();
+        
+//       if(Board.getColor(_row, _col) != Color.BLACK)
+//                  return; 
+         
+      for (int row=0;row<Board.getNumRows();row++)
+        {
+            for (int col=0;col<Board.getNumColumns();col++)
+            {
+                if(Piece.piecemoves() == false)
+                {
+                       Board.Pieces[deleteRow][deleteCol] = null;
+                }
+                
+                
+            }
+        }
+        
+       
+       
+       
+
+    } 
     public static void Addpiece(int xpixel, int ypixel){
                if ((xpixel - Window.getX(0)) < 0 || (xpixel - Window.getX(0)) > Window.getWidth2()) {
             return;
@@ -176,8 +211,16 @@ public class Piece {
      public static boolean piecemoves(){
          return(piecemoves);
      }
-     
-     
+     public static int getDeleteRow(){
+         return deleteRow;
+     }
+     public static int getDeleteCol(){
+         return deleteCol;
+     }
+     public static void setDelete(int row, int col){
+         deleteCol = col;
+         deleteRow = row;
+     }
      
      
      
