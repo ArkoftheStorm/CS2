@@ -19,8 +19,6 @@ public class Board {
     public static void Draw(Graphics2D g) {
         xdelta = Window.getWidth2() / NUM_COLUMNS;
         ydelta = Window.getHeight2() / NUM_ROWS;
-        int c = 0;
-        int r = 0;
         boolean nRow = false;
         Image explosion;
 
@@ -31,9 +29,8 @@ public class Board {
         
         Color prevColor = Color.red;
 
-        while (r < NUM_ROWS) {
-            c = 0;
-            while (c < NUM_COLUMNS) {
+        for (int r = 0; r < NUM_COLUMNS; r++) {
+            for (int c = 0; c < NUM_COLUMNS; c++) {
                 if (nRow) {
                     nRow = false;
                     if(prevColor == Color.black)
@@ -63,10 +60,10 @@ public class Board {
                 g.fillRect(Window.getX(c * xdelta), Window.getY(r * ydelta), xdelta, ydelta);
                 if(Pieces[r][c] != null)
                     Pieces[r][c].draw(g);
-                c++;
+//                c++;
             }
             nRow = true;
-            r++;
+//            r++;
         }
         g.setColor(Color.white);
         for (int zi = 1; zi < NUM_ROWS; zi++) {
