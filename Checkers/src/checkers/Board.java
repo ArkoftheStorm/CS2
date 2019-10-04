@@ -12,6 +12,7 @@ public class Board {
     private static int ydelta = Window.getHeight2() / NUM_ROWS;
     private static Color board[][] = new Color[NUM_ROWS][NUM_COLUMNS];
     static int piecemove = 0;
+    
     public static Piece Pieces[][] = new Piece[NUM_ROWS][NUM_COLUMNS];
     private static boolean winner1 = false;
     private static boolean winner2 = false;
@@ -32,10 +33,13 @@ public class Board {
         
         Color prevColor = Color.red;
 
-        while (r < NUM_ROWS) {
+        while (r < NUM_ROWS) 
+        {
             c = 0;
-            while (c < NUM_COLUMNS) {
-                if (nRow) {
+            while (c < NUM_COLUMNS) 
+            {
+                if (nRow)
+                {
                     nRow = false;
                     if(prevColor == Color.black)
                         if(r > 4 && Menu.menuShow)
@@ -129,12 +133,16 @@ public class Board {
                    
                    
                         if(_row < NUM_ROWS && _row > -1 && _col < NUM_COLUMNS && _col > -1)
+                        {
+                            
+int reasonWeCantClick0rowcol;
+reasonWeCantClick0rowcol = 0;
                             if(Board.Pieces[_row][_col] != null && Board.Pieces[_row][_col].getColor() == Player.GetCurrentPlayer().getColor() && Board.Pieces[_row][_col].getColor() == Player.GetCurrentPlayer().getColor()){     
                               Pieces[_row][_col].ClickPieceT();
                               Piece.piecemovesT();
-
                             }
-                    
+                        }
+                  
 
 
 
@@ -193,9 +201,9 @@ public class Board {
          {
             for(int c = 0; c<NUM_COLUMNS;c++)
                {
-                   if(Board.Pieces[r][c].getColor() == Color.RED)
-                        return(true);
-                   else
+//                   if(Board.Pieces[r][c].getColor() == Color.RED)
+//                        return(true);
+//                   else
                         return(false);
                }
          }
@@ -208,9 +216,9 @@ public class Board {
          {
             for(int c = 0; c<NUM_COLUMNS;c++)
                {
-                   if(Board.Pieces[r][c].getColor() == Color.BLUE)
-                        return(true);
-                   else
+//                   if(Board.Pieces[r][c].getColor() == Color.BLUE)
+//                        return(true);
+//                   else
                         return(false);
                }
          }

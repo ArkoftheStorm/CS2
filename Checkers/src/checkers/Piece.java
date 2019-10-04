@@ -19,11 +19,11 @@ public class Piece {
 
                 if (4 < zrow) 
                 {
-               //????
+                   color = Color.RED;
                 } 
                 else if (zrow < 3) 
                 {
-                    color = Color.blue;
+                   color = Color.blue;
                 }
               
             }
@@ -78,24 +78,7 @@ public class Piece {
         
         
         
-//        int makepiece = 0;  
-//        
-//         Piece.Addpiece(zrow, zcol);
-//        makepiece++;
-//        
-//        if(makepiece == 1)
-//        {
-//            Board.selectpiece(xpixel, ypixel);
-//       
-//          System.out.println("make piece is   " +makepiece);  
-//        }
-//         makepiece++;
-//          System.out.println("make piece is   " +makepiece);  
-//        if(makepiece ==1)
-//       
-//      /// Player.SwitchTurn();
-//        if(makepiece == 2)
-//       makepiece = 0; 
+
     }
        public static void deletepiece(int xPixel, int yPixel){
         if(Menu.menuShow || Menu.helpShow)
