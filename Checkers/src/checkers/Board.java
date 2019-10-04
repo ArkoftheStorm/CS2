@@ -90,10 +90,13 @@ public class Board {
         {
             g.setColor(Color.white);
             g.setFont (new Font("times new roman",Font.BOLD,50));
+        
             if(Player.GetCurrentPlayer() == Player.getPlayer(0))
                 g.drawString("Player 1 Wins!", Window.getX(0), Window.getY(0)+50); 
             else
                 g.drawString("Player 2 Wins!", Window.getX(0), Window.getY(0)+50); 
+            
+            Reset();  
         }
         
         
@@ -183,9 +186,9 @@ public class Board {
             for(int c = 0; c<NUM_COLUMNS;c++)
                {
                    if(Board.Pieces[r][c].getColor() == Color.BLUE && Board.Pieces[r][c].getColor() != Color.RED)
-                   return(true);
-//                   else
-//                   return(false);
+                        return(true);
+                   else
+                        return(false);
                }
          }
          return(false);
@@ -194,7 +197,8 @@ public class Board {
      
     public static void Reset(){
         winner = false;
-        
+        Menu.Reset();
+        Board.Reset();
         
     }
     
