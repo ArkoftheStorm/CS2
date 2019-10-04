@@ -12,6 +12,8 @@ public class Piece {
     private int col;
     boolean clickPiece;
     static boolean piecemoves;
+    private static int deleteRow;
+    private static int deleteCol;
     
     Piece(Color _color, int _row, int _col) {
         for (int zrow = 0; zrow < Board.getNumRows(); zrow++) {
@@ -97,7 +99,7 @@ public class Piece {
             {
                 if(Piece.piecemoves() == false)
                 {
-//                    Board.Pieces[_row][_col] = null;
+                       Board.Pieces[deleteRow][deleteCol] = null;
                 }
                 
                 
@@ -192,8 +194,16 @@ public class Piece {
      public static boolean piecemoves(){
          return(piecemoves);
      }
-     
-     
+     public static int getDeleteRow(){
+         return deleteRow;
+     }
+     public static int getDeleteCol(){
+         return deleteCol;
+     }
+     public static void setDelete(int row, int col){
+         deleteCol = col;
+         deleteRow = row;
+     }
      
      
      

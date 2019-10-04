@@ -122,7 +122,7 @@ public class Board {
     public static void selectpiece(int xPixel, int yPixel){
         if(Menu.menuShow)
             return;
-
+        
         int _col = (xPixel-Window.getX(0))/xdelta;
         int _row = (yPixel-Window.getY(0))/ydelta;
           System.out.println(_row+"   " +_col);
@@ -139,6 +139,7 @@ int reasonWeCantClick0rowcol;
 reasonWeCantClick0rowcol = 0;
                             if(Board.Pieces[_row][_col] != null && Board.Pieces[_row][_col].getColor() == Player.GetCurrentPlayer().getColor() && Board.Pieces[_row][_col].getColor() == Player.GetCurrentPlayer().getColor()){     
                               Pieces[_row][_col].ClickPieceT();
+                              Piece.setDelete(_row, _col);
                               Piece.piecemovesT();
                             }
                         }
