@@ -84,7 +84,7 @@ public class Board {
         else 
             g.drawString("Player Two's Turn", Window.getX(0), Window.getY(0)-5);
 
-        winner = true;
+    
         
         if(winner == true)
         {
@@ -190,8 +190,8 @@ public class Board {
          {
             for(int c = 0; c<NUM_COLUMNS;c++)
                {
-//                   if(Board.Pieces[r][c]);
-//                   return(true);
+                   if(Board.Pieces[r][c].getColor() == Color.BLUE && Board.Pieces[r][c].getColor() != Color.RED);
+                   return(true);
 //                   else
 //                   return(false);
                }

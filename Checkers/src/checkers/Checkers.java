@@ -40,7 +40,7 @@ public class Checkers extends JFrame implements Runnable {
                 if (e.BUTTON1 == e.getButton()) {
                 }
                 boolean menu = Menu.menuShow;
-                
+                Board.checkWin();
                 Menu.ClickButton(e.getX(), e.getY());
 
                 if(Menu.menuShow || Menu.helpShow)
