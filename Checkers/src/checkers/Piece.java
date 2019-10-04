@@ -212,8 +212,9 @@ public class Piece {
     public void switchColor(){
         if(color == Color.red)
             color = Color.blue;
-        else
+        else if (color == Color.blue)
             color = Color.red;
+        else{}
     }
 
 }

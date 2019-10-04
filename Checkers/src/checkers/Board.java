@@ -11,9 +11,10 @@ public class Board {
     private static int xdelta = Window.getWidth2() / NUM_COLUMNS;
     private static int ydelta = Window.getHeight2() / NUM_ROWS;
     private static Color board[][] = new Color[NUM_ROWS][NUM_COLUMNS];
-      static int piecemove = 0;
+    static int piecemove = 0;
     public static Piece Pieces[][] = new Piece[NUM_ROWS][NUM_COLUMNS];
-
+    private static boolean winner = false;
+    
     Color color = null;
     public static void Draw(Graphics2D g) {
         xdelta = Window.getWidth2() / NUM_COLUMNS;
@@ -23,6 +24,11 @@ public class Board {
         boolean nRow = false;
         Image explosion;
 
+        
+        
+        
+        
+        
         Color prevColor = Color.red;
 
         while (r < NUM_ROWS) {
@@ -78,6 +84,24 @@ public class Board {
         else 
             g.drawString("Player Two's Turn", Window.getX(0), Window.getY(0)-5);
 
+    
+        
+        if(winner == true)
+        {
+            g.setColor(Color.white);
+            g.setFont (new Font("times new roman",Font.BOLD,50));
+        
+            if(Player.GetCurrentPlayer() == Player.getPlayer(0))
+                g.drawString("Player 1 Wins!", Window.getX(0), Window.getY(0)+50); 
+            else
+                g.drawString("Player 2 Wins!", Window.getX(0), Window.getY(0)+50); 
+            
+            Reset();  
+        }
+        
+        
+        
+        
    }
     public static void switchPiece(int xPixel, int yPixel){
         if(Player.GetCurrentPlayer().getChangeCount() <= 0)
@@ -89,6 +113,7 @@ public class Board {
         if(Pieces[_row][_col] != null && _row < NUM_ROWS && _col < NUM_COLUMNS)
             Pieces[_row][_col].switchColor();
         Player.GetCurrentPlayer().decChangeCount();
+        Player.SwitchTurn();
     }
     public static void selectpiece(int xPixel, int yPixel){
         if(Menu.menuShow)
@@ -104,15 +129,20 @@ public class Board {
                    
                    
                         if(_row < NUM_ROWS && _row > -1 && _col < NUM_COLUMNS && _col > -1)
-
-
                             if(Board.Pieces[_row][_col] != null && Board.Pieces[_row][_col].getColor() == Player.GetCurrentPlayer().getColor() && Board.Pieces[_row][_col].getColor() == Player.GetCurrentPlayer().getColor()){     
-
-
                               Pieces[_row][_col].ClickPieceT();
                               Piece.piecemovesT();
-                      
-                        }
+
+                            }
+                    
+
+
+
+//                    if(Piece.piecemoves())
+//                       movepiece(_row,_col);
+//                    else 
+//                      Piece.piecemovesF();
+                    
 
                  
                     
@@ -145,12 +175,39 @@ public class Board {
     Player.SwitchTurn();      
  
     }
- 
+
      
-     
+     public static void checkWin() {
+         
+         if(winner)
+                 return;
+       
+         winner = checkWinWholeBoard();
+         
+     }
+     public static boolean checkWinWholeBoard(){
+        
+         
+         for(int r = 0; r<NUM_ROWS;r++)
+         {
+            for(int c = 0; c<NUM_COLUMNS;c++)
+               {
+                   if(Board.Pieces[r][c].getColor() == Color.BLUE && Board.Pieces[r][c].getColor() != Color.RED)
+                        return(true);
+                   else
+                        return(false);
+               }
+         }
+         return(false);
+     }
+    
+
      
     public static void Reset(){
-      
+        winner = false;
+        Menu.Reset();
+        Board.Reset();
+        
     }
     
     public static int getNumRows() {
