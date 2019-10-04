@@ -104,10 +104,10 @@ public class Board {
                    
                    
                         if(_row < NUM_ROWS && _row > -1 && _col < NUM_COLUMNS && _col > -1)
-                            if(Board.Pieces[_row][_col] != null && Board.Pieces[_row][_col].getColor() == Player.GetCurrentPlayer().getColor())     
+                            if(Board.Pieces[_row][_col] != null && Board.Pieces[_row][_col].getColor() == Player.GetCurrentPlayer().getColor() && Board.Pieces[_row][_col].getColor() == Player.GetCurrentPlayer().getColor()){     
                               Pieces[_row][_col].ClickPieceT();
                               Piece.piecemovesT();
- 
+                            }
                     
 
 //                    if(Piece.piecemoves())
