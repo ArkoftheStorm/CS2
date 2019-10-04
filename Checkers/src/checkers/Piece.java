@@ -10,20 +10,25 @@ public class Piece {
     private Color color;
     private int row;
     private int col;
-     boolean clickPiece;
+    boolean clickPiece;
     static boolean piecemoves;
     
     Piece(Color _color, int _row, int _col) {
         for (int zrow = 0; zrow < Board.getNumRows(); zrow++) {
             for (int zcol = 0; zcol < Board.getNumColumns(); zcol++) {
 
-                if (4 < zrow) {
-                } else if (zrow < 3) {
+                if (4 < zrow) 
+                {
+               //????
+                } 
+                else if (zrow < 3) 
+                {
                     color = Color.blue;
                 }
               
             }
         }
+        
         row = _row;
         col = _col;
         color = _color;

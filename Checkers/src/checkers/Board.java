@@ -13,7 +13,8 @@ public class Board {
     private static Color board[][] = new Color[NUM_ROWS][NUM_COLUMNS];
     static int piecemove = 0;
     public static Piece Pieces[][] = new Piece[NUM_ROWS][NUM_COLUMNS];
-    private static boolean winner = false;
+    private static boolean winner1 = false;
+    private static boolean winner2 = false;
     
     Color color = null;
     public static void Draw(Graphics2D g) {
@@ -86,18 +87,17 @@ public class Board {
 
     
         
-        if(winner == true)
-        {
+        
             g.setColor(Color.white);
             g.setFont (new Font("times new roman",Font.BOLD,50));
-        
-            if(Player.GetCurrentPlayer() == Player.getPlayer(0))
-                g.drawString("Player 1 Wins!", Window.getX(0), Window.getY(0)+50); 
-            else
-                g.drawString("Player 2 Wins!", Window.getX(0), Window.getY(0)+50); 
+            if(winner1 == true)
+                if(Player.GetCurrentPlayer() == Player.getPlayer(0))
+                    g.drawString("Player 1 Wins!", Window.getX(0), Window.getY(0)+50);
             
-            Reset();  
-        }
+            if(winner2 == true)
+                if(Player.GetCurrentPlayer() == Player.getPlayer(1))
+                    g.drawString("Player 2 Wins!", Window.getX(0), Window.getY(0)+50); 
+        
         
         
         
@@ -172,10 +172,11 @@ public class Board {
      
      public static void checkWin() {
          
-         if(winner)
+         if(winner1 || winner2)
                  return;
        
-         winner = checkWinWholeBoard();
+         winner1 = checkWinWholeBoard();
+         winner2 = checkWinWholeBoard2();
          
      }
      public static boolean checkWinWholeBoard(){
@@ -185,7 +186,22 @@ public class Board {
          {
             for(int c = 0; c<NUM_COLUMNS;c++)
                {
-                   if(Board.Pieces[r][c].getColor() == Color.BLUE && Board.Pieces[r][c].getColor() != Color.RED)
+                   if(Board.Pieces[r][c].getColor() == Color.RED)
+                        return(true);
+                   else
+                        return(false);
+               }
+         }
+         return(false);
+     }
+     public static boolean checkWinWholeBoard2(){
+        
+         
+         for(int r = 0; r<NUM_ROWS;r++)
+         {
+            for(int c = 0; c<NUM_COLUMNS;c++)
+               {
+                   if(Board.Pieces[r][c].getColor() == Color.BLUE)
                         return(true);
                    else
                         return(false);
@@ -196,9 +212,9 @@ public class Board {
     
      
     public static void Reset(){
-        winner = false;
-        Menu.Reset();
-        Board.Reset();
+        winner1 = false;
+        winner2 = false;
+        
         
     }
     
