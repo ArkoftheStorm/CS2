@@ -110,6 +110,8 @@ public class Board {
                             }
                     
 
+
+
 //                    if(Piece.piecemoves())
 //                       movepiece(_row,_col);
 //                    else 
