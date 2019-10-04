@@ -110,6 +110,7 @@ public class Board {
         if(Pieces[_row][_col] != null && _row < NUM_ROWS && _col < NUM_COLUMNS)
             Pieces[_row][_col].switchColor();
         Player.GetCurrentPlayer().decChangeCount();
+        Player.SwitchTurn();
     }
     public static void selectpiece(int xPixel, int yPixel){
         if(Menu.menuShow)
@@ -125,21 +126,12 @@ public class Board {
                    
                    
                         if(_row < NUM_ROWS && _row > -1 && _col < NUM_COLUMNS && _col > -1)
-
-
                             if(Board.Pieces[_row][_col] != null && Board.Pieces[_row][_col].getColor() == Player.GetCurrentPlayer().getColor() && Board.Pieces[_row][_col].getColor() == Player.GetCurrentPlayer().getColor()){     
-
-
                               Pieces[_row][_col].ClickPieceT();
                               Piece.piecemovesT();
+                            }
+                    
 
-
-                               //Pieces[_row][_col].ClickPieceF();
-                           // temp[_row][_col] = null;  
-                           
-                            
-                          
-                        }
 
 
 //                    if(Piece.piecemoves())
