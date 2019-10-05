@@ -43,6 +43,7 @@ public class Board {
                     else
                         if(r < 3 && Menu.menuShow)   
                             Pieces[r][c] = new Piece (Player.getPlayer(1).getColor(),r,c);
+                    board[r][c] = prevColor;
                 } 
                 else {
                     if (prevColor == Color.red) {
@@ -248,7 +249,7 @@ reasonWeCantClick0rowcol = 0;
     }
 
     public static Color getColor(int r, int c) {
-        if(r<NUM_ROWS && c<NUM_COLUMNS && c>0 && r>0)
+        if(r<NUM_ROWS && c<NUM_COLUMNS && c>=0 && r>=0)
             return board[r][c];
         return null;
     }
