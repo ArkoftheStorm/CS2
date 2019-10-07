@@ -127,10 +127,10 @@ public class Piece {
                         Board.getXdelta(),
                         Board.getYdelta());
                 g.setColor(Color.white);
-//                if(king){
+                if(king){
                     g.setFont (new Font("times new roman",Font.BOLD,24));
                     g.drawString("K", Window.getX(col * Board.getXdelta())+28, Window.getY(row * Board.getYdelta())+40);
-//                }
+                }
 
             }
 
