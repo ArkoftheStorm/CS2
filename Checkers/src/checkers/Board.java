@@ -12,6 +12,7 @@ public class Board {
     private static int ydelta = Window.getHeight2() / NUM_ROWS;
     private static Color board[][] = new Color[NUM_ROWS][NUM_COLUMNS];
     static int piecemove = 0;
+    
     public static Piece Pieces[][] = new Piece[NUM_ROWS][NUM_COLUMNS];
     private static boolean winner1 = false;
     private static boolean winner2 = false;
@@ -20,8 +21,6 @@ public class Board {
     public static void Draw(Graphics2D g) {
         xdelta = Window.getWidth2() / NUM_COLUMNS;
         ydelta = Window.getHeight2() / NUM_ROWS;
-        int c = 0;
-        int r = 0;
         boolean nRow = false;
         Image explosion;
 
@@ -32,10 +31,11 @@ public class Board {
         
         Color prevColor = Color.red;
 
-        while (r < NUM_ROWS) {
-            c = 0;
-            while (c < NUM_COLUMNS) {
+
+        for (int r = 0; r < NUM_COLUMNS; r++) {
+            for (int c = 0; c < NUM_COLUMNS; c++) {
                 if (nRow) {
+
                     nRow = false;
                     if(prevColor == Color.black)
                         if(r > 4 && Menu.menuShow)
@@ -43,6 +43,7 @@ public class Board {
                     else
                         if(r < 3 && Menu.menuShow)   
                             Pieces[r][c] = new Piece (Player.getPlayer(1).getColor(),r,c);
+                    board[r][c] = prevColor;
                 } 
                 else {
                     if (prevColor == Color.red) {
@@ -64,10 +65,10 @@ public class Board {
                 g.fillRect(Window.getX(c * xdelta), Window.getY(r * ydelta), xdelta, ydelta);
                 if(Pieces[r][c] != null)
                     Pieces[r][c].draw(g);
-                c++;
+//                c++;
             }
             nRow = true;
-            r++;
+//            r++;
         }
         g.setColor(Color.white);
         for (int zi = 1; zi < NUM_ROWS; zi++) {
@@ -129,13 +130,15 @@ public class Board {
                    
                    
                         if(_row < NUM_ROWS && _row > -1 && _col < NUM_COLUMNS && _col > -1)
+                        {
+                            
                             if(Board.Pieces[_row][_col] != null && Board.Pieces[_row][_col].getColor() == Player.GetCurrentPlayer().getColor() && Board.Pieces[_row][_col].getColor() == Player.GetCurrentPlayer().getColor()){     
                               Pieces[_row][_col].ClickPieceT();
                               Piece.setDelete(_row, _col);
                               Piece.piecemovesT();
-
                             }
-                    
+                        }
+                  
 
 
 
@@ -194,9 +197,9 @@ public class Board {
          {
             for(int c = 0; c<NUM_COLUMNS;c++)
                {
-                   if(Board.Pieces[r][c].getColor() == Color.RED)
-                        return(true);
-                   else
+//                   if(Board.Pieces[r][c].getColor() == Color.RED)
+//                        return(true);
+//                   else
                         return(false);
                }
          }
@@ -209,9 +212,9 @@ public class Board {
          {
             for(int c = 0; c<NUM_COLUMNS;c++)
                {
-                   if(Board.Pieces[r][c].getColor() == Color.BLUE)
-                        return(true);
-                   else
+//                   if(Board.Pieces[r][c].getColor() == Color.BLUE)
+//                        return(true);
+//                   else
                         return(false);
                }
          }
@@ -244,7 +247,7 @@ public class Board {
     }
 
     public static Color getColor(int r, int c) {
-        if(r<NUM_ROWS && c<NUM_COLUMNS && c>0 && r>0)
+        if(r<NUM_ROWS && c<NUM_COLUMNS && c>=0 && r>=0)
             return board[r][c];
         return null;
     }

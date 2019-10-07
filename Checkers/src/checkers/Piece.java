@@ -21,11 +21,11 @@ public class Piece {
 
                 if (4 < zrow) 
                 {
-               //????
+                   color = Color.RED;
                 } 
                 else if (zrow < 3) 
                 {
-                    color = Color.blue;
+                   color = Color.blue;
                 }
               
             }
@@ -46,37 +46,8 @@ public class Piece {
         return(Color.YELLOW);
     }
 
-//    public static void Animate(int xpixel, int ypixel) {
-//            
-//        if ((xpixel - Window.getX(0)) < 0 || (xpixel - Window.getX(0)) > Window.getWidth2()) {
-//            return;
-//        }
-//        if ((ypixel - Window.getY(0)) < 0 || (ypixel - Window.getY(0)) > Window.getHeight2()) {
-//            return;
-//        }
-//        
-//        int ydelta = Window.getHeight2() / Board.getNumRows();
-//        int xdelta = Window.getWidth2() /  Board.getNumColumns();
-//
-//        int zcol = (xpixel-Window.getX(0))/xdelta;
-//        int zrow = (ypixel-Window.getY(0))/ydelta;
-//        
-//        if(Menu.menuShow || Menu.helpShow)
-//            return;
-//        
-//        for (int row=0;row<Board.getNumRows();row++)
-//        {
-//            for (int col=0;col<Board.getNumColumns();col++)
-//            {
-//                if(Board.getColor(zrow, zcol) == Player.GetCurrentPlayer().getColor())
-//                {
-//                 //  Board.selectpiece(zrow, zcol);
-//                }
-//                
-//                
-//            }
-//        }
-//    }
+
+    
        public static void deletepiece(int xPixel, int yPixel){
         if(Menu.menuShow || Menu.helpShow)
             return;
@@ -100,9 +71,7 @@ public class Piece {
             }
         }
         
-       
-       
-       
+     
 
     } 
     public static void Addpiece(int xpixel, int ypixel){
