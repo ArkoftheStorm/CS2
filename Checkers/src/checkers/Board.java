@@ -171,13 +171,13 @@ public class Board {
         if(Board.getColor(_row, _col) != Color.BLACK)
             return; 
      //     System.out.println(_row+"   " +_col);
-        if(Player.GetCurrentPlayer().getColor() == Color.blue && _row < Piece.getDeleteRow() && !Board.Pieces[Piece.getDeleteRow()][Piece.getDeleteCol()].king)
+        else if(Player.GetCurrentPlayer().getColor() == Color.blue && _row < Piece.getDeleteRow() && !Board.Pieces[Piece.getDeleteRow()][Piece.getDeleteCol()].king)
             return;
         else if(Player.GetCurrentPlayer().getColor() == Color.red && _row > Piece.getDeleteRow() && !Board.Pieces[Piece.getDeleteRow()][Piece.getDeleteCol()].king)
             return;
-        if(_row == Piece.getDeleteRow() && _col == Piece.getDeleteCol())
+        else if(_row == Piece.getDeleteRow() && _col == Piece.getDeleteCol())
             return;
-        if(_row > Piece.getDeleteRow() + 1 ||
+        else if(_row > Piece.getDeleteRow() + 1 ||
                 _row < Piece.getDeleteRow() - 1 ||
                 _col > Piece.getDeleteCol() + 1 ||
                 _col < Piece.getDeleteCol() - 1)
@@ -216,14 +216,14 @@ public class Board {
             {
                for(int c = 0; c<NUM_COLUMNS;c++)
                   {
-                     if(Board.getColor(cX, cY) == Color.RED)
-                        {
-                           return(false);    
-                        }
-                     if(Board.Pieces[r][c].getColor() != Color.RED)
-                        {
-                           winNum = 0;
-                        }
+//                     if(Board.getColor(cX, cY) == Color.RED)
+//                        {
+//                           return(false);    
+//                        }
+//                     if(Board.Pieces[r][c].getColor() != Color.RED)
+//                        {
+//                           winNum = 0;
+//                        }
                   }
 
             }
