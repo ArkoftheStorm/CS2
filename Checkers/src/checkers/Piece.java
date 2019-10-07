@@ -48,6 +48,7 @@ public class Piece {
         return(Color.YELLOW);
     }
 
+
     
        public static void deletepiece(int xPixel, int yPixel){
         if(Menu.menuShow || Menu.helpShow)
@@ -57,8 +58,7 @@ public class Piece {
        int _col = (xPixel-Window.getX(0))/Board.getXdelta();
        int _row = (yPixel-Window.getY(0))/Board.getYdelta();
         
-//       if(Board.getColor(_row, _col) != Color.BLACK)
-//                  return; 
+
          
       for (int row=0;row<Board.getNumRows();row++)
         {

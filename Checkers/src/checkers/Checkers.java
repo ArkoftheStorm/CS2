@@ -54,6 +54,8 @@ public class Checkers extends JFrame implements Runnable {
 
                 else {
 
+
+
                     if(Piece.piecemoves)
                         Board.movepiece(e.getX(), e.getY());
                     else
