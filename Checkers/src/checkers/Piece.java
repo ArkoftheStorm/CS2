@@ -14,6 +14,7 @@ public class Piece {
     static boolean piecemoves;
     private static int deleteRow;
     private static int deleteCol;
+    boolean king;
     
     Piece(Color _color, int _row, int _col) {
         for (int zrow = 0; zrow < Board.getNumRows(); zrow++) {
@@ -36,6 +37,7 @@ public class Piece {
         color = _color;
         clickPiece = false;
         piecemoves = false;
+        king = false;
         
     }
 
@@ -126,7 +128,7 @@ public class Piece {
                         Board.getYdelta());
 
             }
-          
+
           
             
             
@@ -134,12 +136,21 @@ public class Piece {
 //        }
 
     }
+    public void checkKing(){
+        if(Player.GetCurrentPlayer().getColor() == Color.blue && row == 7)
+            king = true;
+        else if(Player.GetCurrentPlayer().getColor() == Color.red && row == 0)
+            king = true;
+    }
 
 //    public static Piece getPiece(int r, int c) {
 //        return Pieces[r][c];
 //    }
     public int getRow() {
         return row;
+    }
+    public int getCol() {
+        return col;
     }
     public void ClickPieceT(){
         clickPiece = true;
