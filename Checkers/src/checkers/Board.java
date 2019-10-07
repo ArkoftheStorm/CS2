@@ -128,7 +128,8 @@ public class Board {
         
         int _col = (xPixel-Window.getX(0))/xdelta;
         int _row = (yPixel-Window.getY(0))/ydelta;
-        
+        if(Board.Pieces[_row][_col] != null)
+            Board.Pieces[_row][_col].checkKing();
           System.out.println(_row+"   " +_col);
         
                if(Board.getColor(_row, _col) != null && Board.getColor(_row, _col) != Color.BLACK)
@@ -171,17 +172,18 @@ public class Board {
         if(Board.getColor(_row, _col) != Color.BLACK)
             return; 
      //     System.out.println(_row+"   " +_col);
-        if(Player.GetCurrentPlayer().getColor() == Color.blue && _row < Piece.getDeleteRow() && !Board.Pieces[Piece.getDeleteRow()][Piece.getDeleteCol()].king)
+        else if(Player.GetCurrentPlayer().getColor() == Color.blue && _row < Piece.getDeleteRow() && !Board.Pieces[Piece.getDeleteRow()][Piece.getDeleteCol()].king)
             return;
         else if(Player.GetCurrentPlayer().getColor() == Color.red && _row > Piece.getDeleteRow() && !Board.Pieces[Piece.getDeleteRow()][Piece.getDeleteCol()].king)
             return;
-        if(_row == Piece.getDeleteRow() && _col == Piece.getDeleteCol())
+        else if(_row == Piece.getDeleteRow() && _col == Piece.getDeleteCol())
             return;
-        if(_row > Piece.getDeleteRow() + 1 ||
+        else if(_row > Piece.getDeleteRow() + 1 ||
                 _row < Piece.getDeleteRow() - 1 ||
                 _col > Piece.getDeleteCol() + 1 ||
                 _col < Piece.getDeleteCol() - 1)
             return;
+
         Board.Pieces[_row][_col] = new Piece(Player.getCurrentPlayer().getColor(),_row,_col);
         for(int r = 0; r<NUM_ROWS; r++){
             for(int c = 0; c<NUM_COLUMNS; c++){
@@ -189,6 +191,8 @@ public class Board {
                     Board.Pieces[r][c].clickPiece = false;
             }
         }
+        if(Board.Pieces[Piece.getDeleteRow()][Piece.getDeleteCol()].king)
+            Board.Pieces[_row][_col].king = true;
     Piece.piecemovesF();
  if (Piece.piecemoves() == false)
  {

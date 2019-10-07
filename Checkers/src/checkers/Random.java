@@ -35,7 +35,7 @@ public class Random {
             
         }
         else{
-            g.drawString("Dice", Window.getX(Window.getWidth2() + 25), Window.getY(0)+40);
+            g.drawString("Random", Window.getX(Window.getWidth2() + 10), Window.getY(0)+40);
         }
     }
     public static void Roll(Graphics2D g) {
