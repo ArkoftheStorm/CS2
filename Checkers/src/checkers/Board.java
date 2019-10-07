@@ -43,6 +43,7 @@ public class Board {
                     else
                         if(r < 3 && Menu.menuShow)   
                             Pieces[r][c] = new Piece (Player.getPlayer(1).getColor(),r,c);
+                    board[r][c] = prevColor;
                 } 
                 else {
                     if (prevColor == Color.red) {
@@ -131,8 +132,6 @@ public class Board {
                         if(_row < NUM_ROWS && _row > -1 && _col < NUM_COLUMNS && _col > -1)
                         {
                             
-int reasonWeCantClick0rowcol;
-reasonWeCantClick0rowcol = 0;
                             if(Board.Pieces[_row][_col] != null && Board.Pieces[_row][_col].getColor() == Player.GetCurrentPlayer().getColor() && Board.Pieces[_row][_col].getColor() == Player.GetCurrentPlayer().getColor()){     
                               Pieces[_row][_col].ClickPieceT();
                               Piece.setDelete(_row, _col);
@@ -248,7 +247,7 @@ reasonWeCantClick0rowcol = 0;
     }
 
     public static Color getColor(int r, int c) {
-        if(r<NUM_ROWS && c<NUM_COLUMNS && c>0 && r>0)
+        if(r<NUM_ROWS && c<NUM_COLUMNS && c>=0 && r>=0)
             return board[r][c];
         return null;
     }
