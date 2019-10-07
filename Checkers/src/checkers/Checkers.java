@@ -24,7 +24,6 @@ public class Checkers extends JFrame implements Runnable {
     static boolean menu;
     sound theme = null;
     
-    int timeCount;
 
     public static void main(String[] args) {
         Checkers frame = new Checkers();
@@ -224,9 +223,7 @@ public class Checkers extends JFrame implements Runnable {
     public void reset() {
         
         Menu.Reset();
-        Board.Reset();
         
-        timeCount = 0;
        
     }
 /////////////////////////////////////////////////////////////////////////
@@ -257,7 +254,6 @@ public class Checkers extends JFrame implements Runnable {
         }
 
 
-            timeCount++;
     }
 
 ////////////////////////////////////////////////////////////////////////////
