@@ -210,45 +210,27 @@ public class Board {
                   return; 
      //     System.out.println(_row+"   " +_col);
    
-//    for(int r = 0; r<NUM_ROWS; r++){
+  
+            if( Board.Pieces[_row][_col]!= null && Player.GetCurrentPlayer().getColor() != Board.Pieces[_row][_col].getColor())
+            {       
+           if (Board.Pieces[_row-1][_col+1] ==null)
+               Board.Pieces[_row][_col]=Board.Pieces[_row-1][_col+1];
+            }
+            
+            
+        
+  
+    
+// for(int r = 0; r<NUM_ROWS; r++){
 //        for(int c = 0; c<NUM_COLUMNS; c++){
-//            if( Board.Pieces[r+1][c+1]!= null && Player.GetCurrentPlayer().getColor() != Board.Pieces[r+1][c+1].getColor())
-//            {       
-//            Board.Pieces[r][c]=Board.Pieces[r+2][c+2];
-//            if( Board.Pieces[r-1][c-1] != null)
-//            {
-//            Board.Pieces[r][c]=Board.Pieces[r-1][c-1];
-//            Board.Pieces[r][c] = null;
-//            }
-//            }
-//              if( Board.Pieces[r+1][c-1]!= null && Player.GetCurrentPlayer().getColor() != Board.Pieces[r+1][c+1].getColor())
-//              {
-//           
-//            Board.Pieces[r]  [c]=Board.Pieces[r+2][c+2];
-//              }
-//              if( Board.Pieces[r-1][c+1]!= null && Player.GetCurrentPlayer().getColor() != Board.Pieces[r+1][c+1].getColor())
-//              {
-//            Board.Pieces[r]  [c]=Board.Pieces[r+2][c+2];
-//              }
-//              if( Board.Pieces[r-1][c-1]!= null && Player.GetCurrentPlayer().getColor() != Board.Pieces[r+1][c+1].getColor())
-//              {
-//            Board.Pieces[r]  [c]=Board.Pieces[r+2][c+2];
-//              }
-//            
+//        
+//       if( Board.Pieces[_row-2][_col-2]!= null && Player.GetCurrentPlayer().getColor() != Board.Pieces[_row-1][_col+1].getColor())
+//       {          
+//       System.out.println(_row+"   " +_col);    
+//       }    
 //            
 //        }
-//  
-//    }
- for(int r = 0; r<NUM_ROWS; r++){
-        for(int c = 0; c<NUM_COLUMNS; c++){
-        
-       if( Board.Pieces[_row-2][_col-2]!= null && Player.GetCurrentPlayer().getColor() != Board.Pieces[_row-1][_col+1].getColor())
-       {          
-       System.out.println(_row+"   " +_col);    
-       }    
-            
-        }
- }
+// }
     Player.SwitchTurn();      
  
     }
