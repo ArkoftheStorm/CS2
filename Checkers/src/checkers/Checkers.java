@@ -252,13 +252,11 @@ public class Checkers extends JFrame implements Runnable {
             if (Menu.menuShow) {
                 Board.Reset();
                 Player.Reset();
-                
-         
             }
-                    if (theme.donePlaying)
-          theme = new sound("themeMusic.wav");
+                
         }
-
+            if (theme.donePlaying)
+                theme = new sound("themeMusic.wav");
 
     }
 
