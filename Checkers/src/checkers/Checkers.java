@@ -31,6 +31,7 @@ public class Checkers extends JFrame implements Runnable {
         frame.setSize(Window.WINDOW_WIDTH, Window.WINDOW_HEIGHT);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setVisible(true);
+        frame.setResizable(false);
     }
 
     public Checkers() {
