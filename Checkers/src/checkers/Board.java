@@ -40,9 +40,13 @@ public class Board {
                     if(prevColor == Color.black)
                         if(r > 4 && Menu.menuShow)
                             Pieces[r][c] = new Piece (Player.getPlayer(0).getColor(),r,c);
+                        else if (Menu.menuShow && c != 0)
+                            Pieces[r][c] = null;
                     else
                         if(r < 3 && Menu.menuShow)   
                             Pieces[r][c] = new Piece (Player.getPlayer(1).getColor(),r,c);
+                        else if (Menu.menuShow)
+                            Pieces[r][c] = null;
                     board[r][c] = prevColor;
                 } 
                 else {
@@ -51,8 +55,10 @@ public class Board {
                         board[r][c] = prevColor;
                         if(r < 3 && Menu.menuShow)
                             Pieces[r][c] = new Piece (Player.getPlayer(1).getColor(),r,c);
-                         else  if(r > 4 && Menu.menuShow)
+                        else  if(r > 4 && Menu.menuShow)
                             Pieces[r][c] = new Piece (Player.getPlayer(0).getColor(),r,c);
+                        else if (Menu.menuShow)
+                            Pieces[r][c] = null;
                     }
                     else if(prevColor == Color.black){
                         prevColor = Color.red;
@@ -122,7 +128,10 @@ public class Board {
         
         int _col = (xPixel-Window.getX(0))/xdelta;
         int _row = (yPixel-Window.getY(0))/ydelta;
-         /// System.out.println(_row+"   " +_col);
+
+        
+          System.out.println(_row+"   " +_col);
+
         
                if(Board.getColor(_row, _col) != null && Board.getColor(_row, _col) != Color.BLACK)
                   return;
@@ -161,16 +170,27 @@ public class Board {
 
         int _col = (xPixel-Window.getX(0))/xdelta ;
         int _row = (yPixel-Window.getY(0))/ydelta;
-       if(Board.getColor(_row, _col) != Color.BLACK)
-                  return; 
+        if(Board.getColor(_row, _col) != Color.BLACK)
+            return; 
      //     System.out.println(_row+"   " +_col);
-    Board.Pieces[_row][_col] = new Piece(Player.getCurrentPlayer().getColor(),_row,_col);
-    for(int r = 0; r<NUM_ROWS; r++){
-        for(int c = 0; c<NUM_COLUMNS; c++){
-            if(Board.Pieces[r][c] != null && Board.Pieces[r][c].clickPiece)
-                Board.Pieces[r][c].clickPiece = false;
+        if(Player.GetCurrentPlayer().getColor() == Color.blue && _row < Piece.getDeleteRow() && !Board.Pieces[Piece.getDeleteRow()][Piece.getDeleteCol()].king)
+            return;
+        else if(Player.GetCurrentPlayer().getColor() == Color.red && _row > Piece.getDeleteRow() && !Board.Pieces[Piece.getDeleteRow()][Piece.getDeleteCol()].king)
+            return;
+        if(_row == Piece.getDeleteRow() && _col == Piece.getDeleteCol())
+            return;
+        if(_row > Piece.getDeleteRow() + 1 ||
+                _row < Piece.getDeleteRow() - 1 ||
+                _col > Piece.getDeleteCol() + 1 ||
+                _col < Piece.getDeleteCol() - 1)
+            return;
+        Board.Pieces[_row][_col] = new Piece(Player.getCurrentPlayer().getColor(),_row,_col);
+        for(int r = 0; r<NUM_ROWS; r++){
+            for(int c = 0; c<NUM_COLUMNS; c++){
+                if(Board.Pieces[r][c] != null && Board.Pieces[r][c].clickPiece)
+                    Board.Pieces[r][c].clickPiece = false;
+            }
         }
-    }
     Piece.piecemovesF();
  if (Piece.piecemoves() == false)
  {
