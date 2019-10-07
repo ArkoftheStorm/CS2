@@ -128,9 +128,11 @@ public class Board {
         
         int _col = (xPixel-Window.getX(0))/xdelta;
         int _row = (yPixel-Window.getY(0))/ydelta;
+
         if(Board.Pieces[_row][_col] != null)
             Board.Pieces[_row][_col].checkKing();
           System.out.println(_row+"   " +_col);
+
         
                if(Board.getColor(_row, _col) != null && Board.getColor(_row, _col) != Color.BLACK)
                   return;
@@ -201,7 +203,59 @@ public class Board {
     Player.SwitchTurn();      
  
     }
+ public static void jumppiece(int xPixel, int yPixel){
+        if(Menu.menuShow || Menu.helpShow)
+            return;
 
+
+        int _col = (xPixel-Window.getX(0))/xdelta ;
+        int _row = (yPixel-Window.getY(0))/ydelta;
+       if(Board.getColor(_row, _col) != Color.BLACK)
+                  return; 
+     //     System.out.println(_row+"   " +_col);
+   
+//    for(int r = 0; r<NUM_ROWS; r++){
+//        for(int c = 0; c<NUM_COLUMNS; c++){
+//            if( Board.Pieces[r+1][c+1]!= null && Player.GetCurrentPlayer().getColor() != Board.Pieces[r+1][c+1].getColor())
+//            {       
+//            Board.Pieces[r][c]=Board.Pieces[r+2][c+2];
+//            if( Board.Pieces[r-1][c-1] != null)
+//            {
+//            Board.Pieces[r][c]=Board.Pieces[r-1][c-1];
+//            Board.Pieces[r][c] = null;
+//            }
+//            }
+//              if( Board.Pieces[r+1][c-1]!= null && Player.GetCurrentPlayer().getColor() != Board.Pieces[r+1][c+1].getColor())
+//              {
+//           
+//            Board.Pieces[r]  [c]=Board.Pieces[r+2][c+2];
+//              }
+//              if( Board.Pieces[r-1][c+1]!= null && Player.GetCurrentPlayer().getColor() != Board.Pieces[r+1][c+1].getColor())
+//              {
+//            Board.Pieces[r]  [c]=Board.Pieces[r+2][c+2];
+//              }
+//              if( Board.Pieces[r-1][c-1]!= null && Player.GetCurrentPlayer().getColor() != Board.Pieces[r+1][c+1].getColor())
+//              {
+//            Board.Pieces[r]  [c]=Board.Pieces[r+2][c+2];
+//              }
+//            
+//            
+//        }
+//  
+//    }
+ for(int r = 0; r<NUM_ROWS; r++){
+        for(int c = 0; c<NUM_COLUMNS; c++){
+        
+       if( Board.Pieces[_row-2][_col-2]!= null && Player.GetCurrentPlayer().getColor() != Board.Pieces[_row-1][_col+1].getColor())
+       {          
+       System.out.println(_row+"   " +_col);    
+       }    
+            
+        }
+ }
+    Player.SwitchTurn();      
+ 
+    }
      
      public static void checkWin() {
          
