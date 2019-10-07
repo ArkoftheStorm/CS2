@@ -46,59 +46,37 @@ public class Piece {
         return(Color.YELLOW);
     }
 
-    public static void Animate(int xpixel, int ypixel) {
-            
-        if ((xpixel - Window.getX(0)) < 0 || (xpixel - Window.getX(0)) > Window.getWidth2()) {
-            return;
-        }
-        if ((ypixel - Window.getY(0)) < 0 || (ypixel - Window.getY(0)) > Window.getHeight2()) {
-            return;
-        }
-        
-        int ydelta = Window.getHeight2() / Board.getNumRows();
-        int xdelta = Window.getWidth2() /  Board.getNumColumns();
-
-        int zcol = (xpixel-Window.getX(0))/xdelta;
-        int zrow = (ypixel-Window.getY(0))/ydelta;
-        
-        if(Menu.menuShow || Menu.helpShow)
-            return;
-        
-        for (int row=0;row<Board.getNumRows();row++)
-        {
-            for (int col=0;col<Board.getNumColumns();col++)
-            {
-                if(Board.getColor(zrow, zcol) == Player.GetCurrentPlayer().getColor())
-                {
-                //    Board.selectpiece(zrow, zcol);
-                }
-                
-                
-            }
-        }
-        
-        
-        
-        
-//        int makepiece = 0;  
-//        
-//         Piece.Addpiece(zrow, zcol);
-//        makepiece++;
-//        
-//        if(makepiece == 1)
-//        {
-//            Board.selectpiece(xpixel, ypixel);
-//       
-//          System.out.println("make piece is   " +makepiece);  
+//    public static void Animate(int xpixel, int ypixel) {
+//            
+//        if ((xpixel - Window.getX(0)) < 0 || (xpixel - Window.getX(0)) > Window.getWidth2()) {
+//            return;
 //        }
-//         makepiece++;
-//          System.out.println("make piece is   " +makepiece);  
-//        if(makepiece ==1)
-//       
-//      /// Player.SwitchTurn();
-//        if(makepiece == 2)
-//       makepiece = 0; 
-    }
+//        if ((ypixel - Window.getY(0)) < 0 || (ypixel - Window.getY(0)) > Window.getHeight2()) {
+//            return;
+//        }
+//        
+//        int ydelta = Window.getHeight2() / Board.getNumRows();
+//        int xdelta = Window.getWidth2() /  Board.getNumColumns();
+//
+//        int zcol = (xpixel-Window.getX(0))/xdelta;
+//        int zrow = (ypixel-Window.getY(0))/ydelta;
+//        
+//        if(Menu.menuShow || Menu.helpShow)
+//            return;
+//        
+//        for (int row=0;row<Board.getNumRows();row++)
+//        {
+//            for (int col=0;col<Board.getNumColumns();col++)
+//            {
+//                if(Board.getColor(zrow, zcol) == Player.GetCurrentPlayer().getColor())
+//                {
+//                 //  Board.selectpiece(zrow, zcol);
+//                }
+//                
+//                
+//            }
+//        }
+//    }
        public static void deletepiece(int xPixel, int yPixel){
         if(Menu.menuShow || Menu.helpShow)
             return;
@@ -107,8 +85,7 @@ public class Piece {
        int _col = (xPixel-Window.getX(0))/Board.getXdelta();
        int _row = (yPixel-Window.getY(0))/Board.getYdelta();
         
-//       if(Board.getColor(_row, _col) != Color.BLACK)
-//                  return; 
+
          
       for (int row=0;row<Board.getNumRows();row++)
         {
