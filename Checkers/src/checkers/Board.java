@@ -212,31 +212,37 @@ public class Board {
     }
 
      
-     public static void checkWin() {
+     public static void checkWin(int clickX, int clickY) {
          
          if(winner1 || winner2)
                  return;
        
-         winner1 = checkWinWholeBoard();
-         winner2 = checkWinWholeBoard2();
+         winner1 = checkWinWholeBoard(clickX,clickY);
+         winner2 = checkWinWholeBoard2(clickX,clickY);
          
      }
-     public static boolean checkWinWholeBoard(){
+     public static boolean checkWinWholeBoard(int cX, int cY){
         
-         
-         for(int r = 0; r<NUM_ROWS;r++)
-         {
-            for(int c = 0; c<NUM_COLUMNS;c++)
-               {
-//                   if(Board.Pieces[r][c].getColor() == Color.RED)
-//                        return(true);
-//                   else
-                        return(false);
-               }
-         }
-         return(false);
-     }
-     public static boolean checkWinWholeBoard2(){
+            int winNum = 0;
+
+            for(int r = 0; r<NUM_ROWS;r++)
+            {
+               for(int c = 0; c<NUM_COLUMNS;c++)
+                  {
+//                     if(Board.getColor(cX, cY) == Color.RED)
+//                        {
+//                           return(false);    
+//                        }
+//                     if(Board.Pieces[r][c].getColor() != Color.RED)
+//                        {
+//                           winNum = 0;
+//                        }
+                  }
+
+            }
+            return(false);
+        }
+     public static boolean checkWinWholeBoard2(int clickX, int clickY){
         
          
          for(int r = 0; r<NUM_ROWS;r++)

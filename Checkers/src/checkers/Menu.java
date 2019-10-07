@@ -109,7 +109,7 @@ public class Menu {
             g.drawString("CHECKERS", Window.getWidth2() / 5 - 15, Window.getHeight2() / 4);
             g.setFont(new Font("Segoe UI Semibold", Font.BOLD, 20));
             g.drawString("Made By: Caden Y, Luke H, and Joshua H ", Window.getWidth2() / 8 - 50, Window.getHeight2() + 50);
-            g.drawString("(Don't Change Screen Size)", Window.getWidth2() / 8 + 475, Window.getHeight2() + 50);
+            
         }
         if (helpShow == true) {
 //HOW TO PLAY MENU

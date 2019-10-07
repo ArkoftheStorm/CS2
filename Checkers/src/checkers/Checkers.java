@@ -24,7 +24,6 @@ public class Checkers extends JFrame implements Runnable {
     static boolean menu;
     sound theme = null;
     
-    int timeCount;
 
     public static void main(String[] args) {
         Checkers frame = new Checkers();
@@ -41,7 +40,7 @@ public class Checkers extends JFrame implements Runnable {
                 if (e.BUTTON1 == e.getButton()) {
                 
                 boolean menu = Menu.menuShow;
-                Board.checkWin();
+                Board.checkWin(e.getX(), e.getY());
                 Menu.ClickButton(e.getX(), e.getY());
 
                 if(Menu.menuShow || Menu.helpShow)
@@ -64,9 +63,11 @@ public class Checkers extends JFrame implements Runnable {
                     else
                     {
                         Board.selectpiece(e.getX(),e.getY());
+
                     Board.switchPiece(e.getX(), e.getY());
                     
                     }
+
                     }
                  
                 }
@@ -228,9 +229,7 @@ public class Checkers extends JFrame implements Runnable {
     public void reset() {
         
         Menu.Reset();
-        Board.Reset();
         
-        timeCount = 0;
        
     }
 /////////////////////////////////////////////////////////////////////////
@@ -261,7 +260,6 @@ public class Checkers extends JFrame implements Runnable {
         }
 
 
-            timeCount++;
     }
 
 ////////////////////////////////////////////////////////////////////////////
