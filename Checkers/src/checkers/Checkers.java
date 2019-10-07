@@ -38,7 +38,7 @@ public class Checkers extends JFrame implements Runnable {
             public void mousePressed(MouseEvent e) {
 
                 if (e.BUTTON1 == e.getButton()) {
-                }
+                
                 boolean menu = Menu.menuShow;
                 Board.checkWin();
                 Menu.ClickButton(e.getX(), e.getY());
@@ -62,7 +62,7 @@ public class Checkers extends JFrame implements Runnable {
            
                     }
                  
-                 
+                }
                 
                
 

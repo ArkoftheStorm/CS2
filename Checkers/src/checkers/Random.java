@@ -18,21 +18,24 @@ public class Random {
         g.setFont (new Font("times new roman",Font.BOLD,18));
         g.drawString("P1 Changes: " + Player.getPlayer(0).getChangeCount(), Window.getWidth2()/64, Window.getY(Window.getHeight2())+18);
         g.drawString("P2 Changes: " + Player.getPlayer(1).getChangeCount(), Window.getWidth2(), Window.getY(Window.getHeight2())+18);
+        g.setColor(Color.black);
         if(roll != -1){
-            g.setColor(Color.black);
             g.setFont (new Font("times new roman",Font.BOLD,20));
             if(roll == 0){
-                g.drawString("Switch", Window.getX(Window.getWidth2() + 10), Window.getY(0)+20);
-                g.drawString("  a   ", Window.getX(Window.getWidth2() + 10), Window.getY(0)+40);
-                g.drawString("Piece", Window.getX(Window.getWidth2() + 10), Window.getY(0)+60);
+                g.drawString("Switch", Window.getX(Window.getWidth2() + 20), Window.getY(0)+20);
+                g.drawString("  a   ", Window.getX(Window.getWidth2() + 30), Window.getY(0)+40);
+                g.drawString("Piece", Window.getX(Window.getWidth2() + 20), Window.getY(0)+60);
             }
             else if(roll == 1){
-                g.drawString("Extra", Window.getX(Window.getWidth2() + 10), Window.getY(0)+20);
-                g.drawString("Turn", Window.getX(Window.getWidth2() + 10), Window.getY(0)+60);
+                g.drawString("Extra", Window.getX(Window.getWidth2() + 20), Window.getY(0)+20);
+                g.drawString("Turn", Window.getX(Window.getWidth2() + 20), Window.getY(0)+60);
             }
             else
                 g.drawString("Explode!", Window.getX(Window.getWidth2() + 10), Window.getY(0)+40);
             
+        }
+        else{
+            g.drawString("Dice", Window.getX(Window.getWidth2() + 25), Window.getY(0)+40);
         }
     }
     public static void Roll(Graphics2D g) {
@@ -57,7 +60,7 @@ public class Random {
                 }
             }
             explodeTime = 0;
-            explode = true;
+            explode = true  ;
         }
         
     }
