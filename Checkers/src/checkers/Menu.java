@@ -130,8 +130,8 @@ public class Menu {
             g.drawString("Player 2 goes second. They are the top. ", Window.getWidth2() / 5 - 44, Window.getHeight2() / 4 + 70);
             g.drawString("Step 3: Click on the space where you want to move (Diagonal). ", Window.getWidth2() / 5 - 44, Window.getHeight2() / 4 + 100);
             g.drawString("Step 4: If there is a piece at a spot you can move to, ", Window.getWidth2() / 5 - 44, Window.getHeight2() / 4 + 130);
-            g.drawString("and there is a empty spot diagonal to them in the way that you are ", Window.getWidth2() / 5 - 44, Window.getHeight2() / 4 + 160);
-            g.drawString("moving, you can hop over them. This eliminates thier piece. ", Window.getWidth2() / 5 - 44, Window.getHeight2() / 4 + 190);
+            g.drawString("and there is a empty spot diagonal to them in the way that you", Window.getWidth2() / 5 - 44, Window.getHeight2() / 4 + 160);
+            g.drawString("are moving, you can hop over them. This eliminates thier piece. ", Window.getWidth2() / 5 - 44, Window.getHeight2() / 4 + 190);
             g.drawString("Step 5: Get one of your pieces to the end to make it a king. ", Window.getWidth2() / 5 - 44, Window.getHeight2() / 4 + 220);
             g.drawString("Kings can move in all directions (Diagonal). ", Window.getWidth2() / 5 - 44, Window.getHeight2() / 4 + 250);
             g.drawString("When the yellow button is pressed, you use a power. ", Window.getWidth2() / 5 - 44, Window.getHeight2() / 4 + 280);
