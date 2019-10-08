@@ -24,7 +24,7 @@ public class Menu {
         helpShow = false;
         backToMenu = false;
         menuGone = false;
-        
+        Player.Reset();
         
     }
     

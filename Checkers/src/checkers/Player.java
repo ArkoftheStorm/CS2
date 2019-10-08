@@ -18,6 +18,7 @@ public class Player {
             players[1] = new Player(0);
             
         }
+        
         currentTurn = players[0];
         players[0].changeCount = 0;
         players[1].changeCount = 0;
@@ -25,6 +26,7 @@ public class Player {
         players[1].color = Color.blue;
         player1Win = false;
         player2Win = false;
+        
     }
 
     public static Player GetCurrentPlayer() {
