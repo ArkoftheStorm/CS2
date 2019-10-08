@@ -177,13 +177,16 @@ public class Board {
         } else if (Player.GetCurrentPlayer().getColor() == Color.red && _row > Piece.getDeleteRow() && !Board.Pieces[Piece.getDeleteRow()][Piece.getDeleteCol()].king) {
             return;
         } else if (_row == Piece.getDeleteRow() && _col == Piece.getDeleteCol()) {
+            Board.Pieces[_row][_col].ClickPieceF();
+            Board.Pieces[_row][_col].piecemovesF();
             return;
         } else if (_row > Piece.getDeleteRow() + 1
                 || _row < Piece.getDeleteRow() - 1
                 || _col > Piece.getDeleteCol() + 1
                 || _col < Piece.getDeleteCol() - 1) {
             return;
-        } else if (Board.Pieces[_row][_col] != null && Player.GetCurrentPlayer().getColor() != Board.Pieces[_row][_col].getColor()) {
+        } 
+        else if (Board.Pieces[_row][_col] != null && Player.GetCurrentPlayer().getColor() != Board.Pieces[_row][_col].getColor()) {
             int tempDelRow = _row;
             int tempDelCol = _col;
             if (_row == Piece.getDeleteRow() + 1 && _col == Piece.getDeleteCol() - 1 && Board.Pieces[_row + 1][_col - 1] == null) {
@@ -206,20 +209,18 @@ public class Board {
                 _row -= 1;
                 _col -= 1;
            }
+            if(Board.Pieces[_row][_col] != null)
+                return;
             Piece.piecemovesF();
             Piece.deletepiece(tempDelRow, tempDelCol);
             Piece.piecemovesT();
              
         }
+        
         Board.Pieces[_row][_col] = new Piece(Player.getCurrentPlayer().getColor(), _row, _col);
         for (int r = 0; r < NUM_ROWS; r++) {
             for (int c = 0; c < NUM_COLUMNS; c++) {
                 if (Board.Pieces[r][c] != null && Board.Pieces[r][c].clickPiece) {
-
-        
-
-
-
                     Board.Pieces[r][c].clickPiece = false;
                 }
             }
