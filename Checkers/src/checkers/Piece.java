@@ -50,14 +50,15 @@ public class Piece {
 
 
     
-       public static void deletepiece(int xPixel, int yPixel){
+       public static void deletepiece(int _row, int _col){
         if(Menu.menuShow || Menu.helpShow)
             return;
 
 
-       int _col = (xPixel-Window.getX(0))/Board.getXdelta();
-       int _row = (yPixel-Window.getY(0))/Board.getYdelta();
-        
+//       int _col = (xPixel-Window.getX(0))/Board.getXdelta();
+//       int _row = (yPixel-Window.getY(0))/Board.getYdelta();
+//        deleteRow = _row;
+//        deleteCol = _col
 
          
       for (int row=0;row<Board.getNumRows();row++)
@@ -66,7 +67,8 @@ public class Piece {
             {
                 if(Piece.piecemoves() == false)
                 {
-                       Board.Pieces[deleteRow][deleteCol] = null;
+                       Board.Pieces[_row][_col] = null;
+                       
                 }
                 
                 
