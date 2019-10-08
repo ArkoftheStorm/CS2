@@ -56,12 +56,18 @@ public class Checkers extends JFrame implements Runnable {
 
 
 
-                    if(Piece.piecemoves)
+                    if(Piece.piecemoves){
                         Board.movepiece(e.getX(), e.getY());
+                      
+                    }
                     else
+                    {
                         Board.selectpiece(e.getX(),e.getY());
-                        Board.switchPiece(e.getX(), e.getY());
-           
+
+                    Board.switchPiece(e.getX(), e.getY());
+                    
+                    }
+
                     }
                  
                 }
@@ -246,13 +252,11 @@ public class Checkers extends JFrame implements Runnable {
             if (Menu.menuShow || Menu.helpShow) {
                 Board.Reset();
                 Player.Reset();
-                
-         
             }
-                    if (theme.donePlaying)
-          theme = new sound("themeMusic.wav");
+                
         }
-
+            if (theme.donePlaying)
+                theme = new sound("themeMusic.wav");
 
     }
 

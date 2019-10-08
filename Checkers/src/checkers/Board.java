@@ -185,7 +185,13 @@ public class Board {
                 _col > Piece.getDeleteCol() + 1 ||
                 _col < Piece.getDeleteCol() - 1)
             return;
-
+        else if ( Board.Pieces[_row][_col]!= null && Player.GetCurrentPlayer().getColor() != Board.Pieces[_row][_col].getColor())
+            {       
+           if (Board.Pieces[_row+1][_col-1] ==null)
+                _row += 1;
+                _col -= 1;
+                
+            }
         Board.Pieces[_row][_col] = new Piece(Player.getCurrentPlayer().getColor(),_row,_col);
         for(int r = 0; r<NUM_ROWS; r++){
             for(int c = 0; c<NUM_COLUMNS; c++){
@@ -200,44 +206,11 @@ public class Board {
  {
      Piece.deletepiece(_row, _col);
  }
+
     Player.SwitchTurn();      
  
     }
- public static void jumppiece(int xPixel, int yPixel){
-        if(Menu.menuShow || Menu.helpShow)
-            return;
 
-
-        int _col = (xPixel-Window.getX(0))/xdelta ;
-        int _row = (yPixel-Window.getY(0))/ydelta;
-       if(Board.getColor(_row, _col) != Color.BLACK)
-                  return; 
-     //     System.out.println(_row+"   " +_col);
-   
-  
-            if( Board.Pieces[_row][_col]!= null && Player.GetCurrentPlayer().getColor() != Board.Pieces[_row][_col].getColor())
-            {       
-           if (Board.Pieces[_row-1][_col+1] ==null)
-               Board.Pieces[_row][_col]=Board.Pieces[_row-1][_col+1];
-            }
-            
-            
-        
-  
-    
-// for(int r = 0; r<NUM_ROWS; r++){
-//        for(int c = 0; c<NUM_COLUMNS; c++){
-//        
-//       if( Board.Pieces[_row-2][_col-2]!= null && Player.GetCurrentPlayer().getColor() != Board.Pieces[_row-1][_col+1].getColor())
-//       {          
-//       System.out.println(_row+"   " +_col);    
-//       }    
-//            
-//        }
-// }
-    Player.SwitchTurn();      
- 
-    }
      
      public static void checkWin(int clickX, int clickY) {
          
