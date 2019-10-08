@@ -185,6 +185,7 @@ public class Board {
                 _row += 1;
                 _col += 1;
             }
+
             else if (_row == Piece.getDeleteRow() - 1 && _col == Piece.getDeleteCol() +1 &&Board.Pieces[_row-1][_col+1] ==null)
            {
                 _row -= 1;
@@ -204,6 +205,10 @@ public class Board {
         for (int r = 0; r < NUM_ROWS; r++) {
             for (int c = 0; c < NUM_COLUMNS; c++) {
                 if (Board.Pieces[r][c] != null && Board.Pieces[r][c].clickPiece) {
+
+        
+
+
                     Board.Pieces[r][c].clickPiece = false;
                 }
             }

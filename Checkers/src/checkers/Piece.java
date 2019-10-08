@@ -144,9 +144,9 @@ public class Piece {
 
     }
     public void checkKing(){
-        if(Player.GetCurrentPlayer().getColor() == Color.blue && row == 7)
+        if(Player.GetCurrentPlayer().getColor() == Color.blue && row == 7 && color == Color.blue)
             king = true;
-        else if(Player.GetCurrentPlayer().getColor() == Color.red && row == 0)
+        else if(Player.GetCurrentPlayer().getColor() == Color.red && row == 0 && color == Color.red)
             king = true;
     }
 
