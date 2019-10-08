@@ -178,13 +178,13 @@ public class Board {
             if (Board.Pieces[_row + 1][_col - 1] == null) {
                 _row += 1;
             }
-            _col -= 1;
 
-        }
-        Board.Pieces[_row][_col] = new Piece(Player.getCurrentPlayer().getColor(), _row, _col);
-        for (int r = 0; r < NUM_ROWS; r++) {
-            for (int c = 0; c < NUM_COLUMNS; c++) {
-                if (Board.Pieces[r][c] != null && Board.Pieces[r][c].clickPiece) {
+        
+        Board.Pieces[_row][_col] = new Piece(Player.getCurrentPlayer().getColor(),_row,_col);
+        for(int r = 0; r<NUM_ROWS; r++){
+            for(int c = 0; c<NUM_COLUMNS; c++){
+                if(Board.Pieces[r][c] != null && Board.Pieces[r][c].clickPiece)
+
                     Board.Pieces[r][c].clickPiece = false;
                 }
             }
