@@ -40,7 +40,7 @@ public class Checkers extends JFrame implements Runnable {
                 if (e.BUTTON1 == e.getButton()) {
                 
                 boolean menu = Menu.menuShow;
-                Board.checkWin(e.getX(), e.getY());
+                
                 Menu.ClickButton(e.getX(), e.getY());
 
                 if(Menu.menuShow || Menu.helpShow)
@@ -257,7 +257,7 @@ public class Checkers extends JFrame implements Runnable {
         }
             if (theme.donePlaying)
                 theme = new sound("themeMusic.wav");
-
+            Board.checkWin();
     }
 
 ////////////////////////////////////////////////////////////////////////////

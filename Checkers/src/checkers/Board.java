@@ -95,18 +95,12 @@ public class Board {
         g.setFont(new Font("times new roman", Font.BOLD, 50));
 
         if (winRed == true) {
-
-            if (Player.GetCurrentPlayer() == Player.getPlayer(0)) {
                 g.drawString("Player 1 Wins!", Window.getX(0), Window.getY(0) + 50);
-            }
         }
 
 
         if (winBlu == true) {
-
-            if (Player.GetCurrentPlayer() == Player.getPlayer(1)) {
                 g.drawString("Player 2 Wins!", Window.getX(0), Window.getY(0) + 50);
-            }
         }
 
     }
@@ -239,61 +233,83 @@ public class Board {
 
     }
 
-    public static void checkWin(int clickX, int clickY) {
+    public static void checkWin() {
 
 
         if (winRed == true|| winBlu == true || Menu.menuShow == true|| Menu.helpShow == true) {
             return;
         }
 
-        ifWin = checkWinWholeBoard();
+        ifWin = checkWinner();
         
-        if(ifWin == 1)
+        if(ifWin == 0)
         {
             winRed = true;
         }
-        else if(ifWin == 2)
+        else if(ifWin == 1)
         {
             winBlu = true;
         }
     }
 
-    public static int checkWinWholeBoard() {
-
-        int winNum = 0;
+//    public static int checkWinWholeBoard() {
+//
+//        int winNum = 0;
+//        for (int r = 0; r < NUM_ROWS; r++) {
+//            for (int c = 0; c < NUM_COLUMNS; c++) {
+//                     if(Board.getColor(r, c) == Color.RED)
+//                        {
+//                      //     winNum = 0;   
+//                           return(0);
+//                        }
+//                     else
+//                        {
+//                            if(Board.Pieces[r][c] == null){}
+//                            else if(Player.GetCurrentPlayer().getColor() != Board.Pieces[r][c].getColor())
+//                               return(0);
+//                           else if(Player.GetCurrentPlayer().getColor() == Color.blue)
+//                               winNum = 2;
+//                           else if(Player.GetCurrentPlayer().getColor() == Color.red)
+//                               winNum = 1;
+//                        }
+//            }
+//
+//        }
+//        
+//        if(winNum == 2){
+//            return(2);
+//        }
+//        else if(winNum == 1){
+//            return(1);
+//        }
+//        else{
+//            return(0);
+//        }
+//        
+//    }
+    public static int checkWinner(){
+        int winner = -1;
         for (int r = 0; r < NUM_ROWS; r++) {
             for (int c = 0; c < NUM_COLUMNS; c++) {
-                     if(Board.getColor(r, c) == Color.RED)
-                        {
-                      //     winNum = 0;   
-                           return(0);
-                        }
-                     else
-                        {
-                            if(Board.Pieces[r][c] == null){}
-                            else if(Player.GetCurrentPlayer().getColor() != Board.Pieces[r][c].getColor())
-                               return(0);
-                           else if(Player.GetCurrentPlayer().getColor() == Color.blue)
-                               winNum = 2;
-                           else if(Player.GetCurrentPlayer().getColor() == Color.red)
-                               winNum = 1;
-                        }
+                if(Board.Pieces[r][c] == null){}
+                else if(Board.Pieces[r][c].getColor() != Player.getPlayer(0).getColor())
+                    return -1;
+                else
+                    winner = 0;
             }
-
         }
-        
-        if(winNum == 2){
-        return(2);
+        for (int r = 0; r < NUM_ROWS; r++) {
+            for (int c = 0; c < NUM_COLUMNS; c++) {
+                if(Board.Pieces[r][c] == null){}
+                else if(Board.Pieces[r][c].getColor() != Player.getPlayer(1).getColor())
+                    return -1;
+                else
+                    winner = 1;
+            }
         }
-        else if(winNum == 1){
-        return(1);
-        }
-        else{
-        return(0);
-        }
-        
+            
+        return winner;
     }
-
    
 
     public static void Reset() {
