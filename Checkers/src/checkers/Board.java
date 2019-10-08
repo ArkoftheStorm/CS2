@@ -192,6 +192,7 @@ public class Board {
                 _col -= 1;
                 
             }
+        
         Board.Pieces[_row][_col] = new Piece(Player.getCurrentPlayer().getColor(),_row,_col);
         for(int r = 0; r<NUM_ROWS; r++){
             for(int c = 0; c<NUM_COLUMNS; c++){
