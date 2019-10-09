@@ -9,8 +9,6 @@ public class Player {
     private boolean extraTurn;
     private int changeCount;
     private Color color;
-    private static boolean player1Win;
-    private static boolean player2Win;
     public static void Reset() {
 
         if (players[0] == null) {
@@ -24,8 +22,6 @@ public class Player {
         players[1].changeCount = 0;
         players[0].color = Color.red;
         players[1].color = Color.blue;
-        player1Win = false;
-        player2Win = false;
         
     }
 
@@ -74,21 +70,10 @@ public class Player {
     public void decChangeCount(){
         changeCount--;
     }
-    public static Player playerWin(){
-       
-        if(player1Win == true)
-        return(players[0]);
-        else if(player2Win == true)
-        return(players[1]);
-        else
-        return(null);    
-    }
     public static void reset(){
         currentTurn = players[0];
         players[0].changeCount = 0;
         players[1].changeCount = 0;
-        player1Win = false;
-        player2Win = false;
     }
 
 }

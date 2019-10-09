@@ -249,15 +249,17 @@ public class Checkers extends JFrame implements Runnable {
 //             explosion = Toolkit.getDefaultToolkit().getImage("./explody_boi.GIF");
             theme = new sound("themeMusic.wav");
             reset();
+
+                
+        }
             if (Menu.menuShow || Menu.helpShow) {
                 Board.Reset();
                 Player.Reset();
             }
-                
-        }
             if (theme.donePlaying)
                 theme = new sound("themeMusic.wav");
-            Board.checkWin();
+            Board.checkWinner();
+            Board.kingCheck();
     }
 
 ////////////////////////////////////////////////////////////////////////////
