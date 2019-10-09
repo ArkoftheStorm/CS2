@@ -124,23 +124,24 @@ public class Menu {
             g.setFont(new Font("Segoe UI Semibold", Font.BOLD, 100));
             g.drawString("HOW TO PLAY", Window.getWidth2() / 5 - 50, Window.getHeight2() / 4 - 30);
 
-            g.setFont(new Font("Segoe UI Semibold", Font.BOLD, 25));
-            g.drawString("Step 1: Decide who is player 1 and who is player 2. ", Window.getWidth2() / 5 - 44, Window.getHeight2() / 4 + 10);
-            g.drawString("Step 2: Player 1 goes first. They are the bottom. ", Window.getWidth2() / 5 - 44, Window.getHeight2() / 4 + 40);
-            g.drawString("Player 2 goes second. They are the top. ", Window.getWidth2() / 5 - 44, Window.getHeight2() / 4 + 70);
-            g.drawString("Step 3: Click on the space where you want to move (Diagonal). ", Window.getWidth2() / 5 - 44, Window.getHeight2() / 4 + 100);
-            g.drawString("Step 4: If there is a piece at a spot you can move to, ", Window.getWidth2() / 5 - 44, Window.getHeight2() / 4 + 130);
-            g.drawString("and there is a empty spot diagonal to them in the way that you", Window.getWidth2() / 5 - 44, Window.getHeight2() / 4 + 160);
-            g.drawString("are moving, you can hop over them. This eliminates thier piece. ", Window.getWidth2() / 5 - 44, Window.getHeight2() / 4 + 190);
-            g.drawString("Step 5: Get one of your pieces to the end to make it a king. ", Window.getWidth2() / 5 - 44, Window.getHeight2() / 4 + 220);
-            g.drawString("Kings can move in all directions (Diagonal). ", Window.getWidth2() / 5 - 44, Window.getHeight2() / 4 + 250);
-            g.drawString("When the yellow button is pressed, you use a power. ", Window.getWidth2() / 5 - 44, Window.getHeight2() / 4 + 280);
-            g.drawString("There are three powers. One gives you an extra turn,", Window.getWidth2() / 5 - 44, Window.getHeight2() / 4 + 310);
-            g.drawString("The second one lets you blow up some pieces, and the", Window.getWidth2() / 5 - 44, Window.getHeight2() / 4 + 340);
-            g.drawString("third one lets you change the color of a piece.", Window.getWidth2() / 5 - 44, Window.getHeight2() / 4 + 370);
+            g.setFont(new Font("Segoe UI Semibold", Font.BOLD, 22));
+            g.drawString("Step 1: Decide who is player 1 and who is player 2. ", Window.getWidth2() / 5 - 44, Window.getHeight2() / 4 + 5);
+            g.drawString("Step 2: Player 1 goes first. They are the bottom. ", Window.getWidth2() / 5 - 44, Window.getHeight2() / 4 + 35);
+            g.drawString("Player 2 goes second. They are the top. ", Window.getWidth2() / 5 - 44, Window.getHeight2() / 4 + 65);
+            g.drawString("Step 3: Click on the space where you want to move (Diagonal). ", Window.getWidth2() / 5 - 44, Window.getHeight2() / 4 + 95);
+            g.drawString("Step 4: If there is a piece at a spot you can move to, ", Window.getWidth2() / 5 - 44, Window.getHeight2() / 4 + 125);
+            g.drawString("and there is a empty spot diagonal to them in the way that you", Window.getWidth2() / 5 - 44, Window.getHeight2() / 4 + 155);
+            g.drawString("are moving, you can hop over them. This eliminates thier piece. ", Window.getWidth2() / 5 - 44, Window.getHeight2() / 4 + 185);
+            g.drawString("Step 5: Get one of your pieces to the end to make it a king. ", Window.getWidth2() / 5 - 44, Window.getHeight2() / 4 + 215);
+            g.drawString("Kings can move in all directions (Diagonal). ", Window.getWidth2() / 5 - 44, Window.getHeight2() / 4 + 245);
+            g.drawString("When the yellow button is pressed, you use a power. ", Window.getWidth2() / 5 - 44, Window.getHeight2() / 4 + 275);
+            g.drawString("There are three powers. One gives you an extra turn,", Window.getWidth2() / 5 - 44, Window.getHeight2() / 4 + 305);
+            g.drawString("The second one lets you blow up some pieces, and the", Window.getWidth2() / 5 - 44, Window.getHeight2() / 4 + 335);
+            g.drawString("third one lets you change the color of a piece.", Window.getWidth2() / 5 - 44, Window.getHeight2() / 4 + 365);
+            g.drawString("Click a piece to de-select it. You can select a different one.", Window.getWidth2() / 5 - 44, Window.getHeight2() / 4 + 390);
 
             g.setFont(new Font("Segoe UI Semibold", Font.BOLD, 30));
-            g.drawString("How to Win: Eliminate all of the enemy pieces! ", Window.getWidth2() / 5 - 44, Window.getHeight2() / 4 + 410);
+            g.drawString("How to Win: Eliminate all of the enemy pieces! ", Window.getWidth2() / 5 - 44, Window.getHeight2() / 4 + 415);
 
 //"BACK" BUTTON
             g.setColor(Color.red);
