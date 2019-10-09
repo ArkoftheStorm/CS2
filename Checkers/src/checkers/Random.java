@@ -15,7 +15,6 @@ public class Random {
             return;
         g.setColor(Color.yellow);
         g.fillRect(Window.getX(Window.getWidth2() + 10), Window.getY(0), Board.getXdelta(), Board.getYdelta());
-        g.drawImage(Checkers.yee,Window.getX(Window.getWidth2() + 10), Window.getY(0), Board.getXdelta(), Board.getYdelta(),null);
         g.setFont (new Font("times new roman",Font.BOLD,18));
         g.drawString("P1 Changes: " + Player.getPlayer(0).getChangeCount(), Window.getWidth2()/64, Window.getY(Window.getHeight2())+18);
         g.drawString("P2 Changes: " + Player.getPlayer(1).getChangeCount(), Window.getWidth2(), Window.getY(Window.getHeight2())+18);
