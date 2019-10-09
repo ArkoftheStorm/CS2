@@ -42,7 +42,6 @@ public class Random {
         if(Board.getWinBlu() || Board.getWinRed())
             return;
         roll = (int)(Math.random()*3);
-        Player.SwitchTurn();
         if(roll == 0){
             Player.GetCurrentPlayer().incChangeCount();
         }
@@ -63,6 +62,7 @@ public class Random {
             }
             explodeTime = 0;
             explode = true  ;
+        Player.SwitchTurn();
         }
         
     }

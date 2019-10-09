@@ -74,19 +74,7 @@ public class Checkers extends JFrame implements Runnable {
             }
         });
 
-//    addMouseMotionListener(new MouseMotionAdapter() {
-//      public void mouseDragged(MouseEvent e) {
-//
-//        repaint();
-//      }
-//    });
-//
-//    addMouseMotionListener(new MouseMotionAdapter() {
-//      public void mouseMoved(MouseEvent e) {
-//
-//        repaint();
-//      }
-//    });
+
         addKeyListener(new KeyAdapter() {
 
             public void keyPressed(KeyEvent e) {
@@ -156,7 +144,7 @@ public class Checkers extends JFrame implements Runnable {
         g.setColor(Color.red);
         g.drawPolyline(x, y, 5);
 
-//      System.out.println("checker time");
+
 //  draw methods/classes
         if (animateFirstTime) {
             gOld.drawImage(image, 0, 0, null);
@@ -175,26 +163,15 @@ public class Checkers extends JFrame implements Runnable {
             }
         }
 
+//        if(Menu.helpShow == true){
+//            if(Menu.yeeYES = true){
+                g.drawImage(yee, 50, 50,Color.RED,null);
+//            }
+//        }
         gOld.drawImage(image, 0, 0, null);
     }
 
-//    public static void drawPiece(Graphics2D g) {
-//        
-//        for (int zrow = 0; zrow < Board.getNumRows(); zrow++) {
-//            for (int zcol = 0; zcol < Board.getNumColumns(); zcol++) {
-//                if (Player.GetCurrentPlayer().getColor() == Color.RED) {
-//                    g.drawImage(redPiece, Window.getX(col * Board.getXdelta()), Window.getY(row * Board.getYdelta()), Board.getXdelta(), Board.getYdelta(), this);
-//                } else if (Player.GetCurrentPlayer().getColor() == Color.BLUE) {
-//                    g.drawImage(redPiece, Window.getX(col * Board.getXdelta()), Window.getY(row * Board.getYdelta()), Board.getXdelta(), Board.getYdelta(), this);
-//                }
-//
-//                if () {
-//                    g.drawImage(redPiece, Window.getX(col * Board.getXdelta()), Window.getY(row * Board.getYdelta()), Board.getXdelta(), Board.getYdelta(), this);
-//                }
-//
-//            }
-//        }
-//    }
+
 
     public void drawImage(Image image, int xpos, int ypos, double rot, double xscale,
             double yscale) {
