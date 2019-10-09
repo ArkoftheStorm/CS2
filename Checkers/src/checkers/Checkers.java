@@ -15,6 +15,7 @@ public class Checkers extends JFrame implements Runnable {
 
     boolean animateFirstTime = true;
     Image image;
+    public static Image yee;
     public static Image explosion;
     public static Image bluePiece;
     public static Image yellowPiece;
@@ -246,6 +247,7 @@ public class Checkers extends JFrame implements Runnable {
             bluePiece = Toolkit.getDefaultToolkit().getImage("./blue_piece");
             yellowPiece = Toolkit.getDefaultToolkit().getImage("./yellow_piece");
             redPiece = Toolkit.getDefaultToolkit().getImage("./red_piece");
+            yee = Toolkit.getDefaultToolkit().getImage("./jeffery-yee");
 //             explosion = Toolkit.getDefaultToolkit().getImage("./explody_boi.GIF");
             theme = new sound("themeMusic.wav");
             reset();
