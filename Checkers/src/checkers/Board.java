@@ -102,7 +102,7 @@ public class Board {
         }
 
 
-        if (winBlu == true) {
+        else if (winBlu == true) {
 
             if (Player.GetCurrentPlayer() == Player.getPlayer(1)) {
                 g.drawString("Player 2 Wins!", Window.getX(0), Window.getY(0) + 50);
