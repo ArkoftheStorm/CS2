@@ -185,7 +185,8 @@ public class Board {
                 || _col < Piece.getDeleteCol() - 1) {
             return;
         } 
-
+        else if(_row > NUM_ROWS|| _row < 0 || _col > NUM_COLUMNS|| _col < 0 || _row + 1 > NUM_ROWS|| _row - 1< 0 || _col + 1> NUM_COLUMNS|| _col - 1 < 0)
+            return;
         else if (Board.Pieces[_row][_col] != null && Player.GetCurrentPlayer().getColor() != Board.Pieces[_row][_col].getColor()) {
             int tempDelRow = _row;
             int tempDelCol = _col;
@@ -204,7 +205,7 @@ public class Board {
                 _row -= 1;
                 _col += 1;
            }
-            else if (_row == Piece.getDeleteRow() - 1 && _col == Piece.getDeleteCol() -1 &&Board.Pieces[_row-1][_col-1] ==null)
+            else if (_row == Piece.getDeleteRow() - 1 && _col == Piece.getDeleteCol() -1 && Board.Pieces[_row-1][_col-1] ==null)
            {
                 _row -= 1;
                 _col -= 1;
@@ -218,6 +219,8 @@ public class Board {
         }
         if(Board.Pieces[_row][_col] != null && Board.Pieces[_row][_col].getColor() == Player.GetCurrentPlayer().getColor())
             return;
+//        else if(_row > NUM_ROWS|| _row < 0 || _col > NUM_COLUMNS|| _col < 0)
+//            return;
         Board.Pieces[_row][_col] = new Piece(Player.getCurrentPlayer().getColor(), _row, _col);
         for (int r = 0; r < NUM_ROWS; r++) {
             for (int c = 0; c < NUM_COLUMNS; c++) {
