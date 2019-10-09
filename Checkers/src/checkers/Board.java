@@ -15,7 +15,6 @@ public class Board {
 
     private static boolean winRed = false;
     private static boolean winBlu = false;
-    private static int ifWin = 0;
 
 
     Color color = null;
@@ -109,6 +108,8 @@ public class Board {
         if (Player.GetCurrentPlayer().getChangeCount() <= 0) {
             return;
         }
+        if(Board.getWinBlu() || Board.getWinRed())
+            return;
         int _col = (xPixel - Window.getX(0)) / xdelta;
         int _row = (yPixel - Window.getY(0)) / ydelta;
         if (_col >= NUM_COLUMNS || _col <= 0 || _row >= NUM_ROWS || _row <= 0) {
@@ -125,7 +126,8 @@ public class Board {
         if (Menu.menuShow) {
             return;
         }
-
+        if(Board.getWinBlu() || Board.getWinRed())
+            return;
 
         int _col = (xPixel - Window.getX(0)) / xdelta;
         int _row = (yPixel - Window.getY(0)) / ydelta;
@@ -159,7 +161,8 @@ public class Board {
         if (Menu.menuShow || Menu.helpShow) {
             return;
         }
-
+        if(Board.getWinBlu() || Board.getWinRed())
+            return;
         int _col = (xPixel - Window.getX(0)) / xdelta;
         int _row = (yPixel - Window.getY(0)) / ydelta;
         if (Board.getColor(_row, _col) != Color.BLACK) {
@@ -233,82 +236,39 @@ public class Board {
 
     }
 
-    public static void checkWin() {
-
-
-        if (winRed == true|| winBlu == true || Menu.menuShow == true|| Menu.helpShow == true) {
-            return;
-        }
-
-        ifWin = checkWinner();
-        
-        if(ifWin == 0)
-        {
-            winRed = true;
-        }
-        else if(ifWin == 1)
-        {
-            winBlu = true;
-        }
-    }
-
-//    public static int checkWinWholeBoard() {
-//
-//        int winNum = 0;
-//        for (int r = 0; r < NUM_ROWS; r++) {
-//            for (int c = 0; c < NUM_COLUMNS; c++) {
-//                     if(Board.getColor(r, c) == Color.RED)
-//                        {
-//                      //     winNum = 0;   
-//                           return(0);
-//                        }
-//                     else
-//                        {
-//                            if(Board.Pieces[r][c] == null){}
-//                            else if(Player.GetCurrentPlayer().getColor() != Board.Pieces[r][c].getColor())
-//                               return(0);
-//                           else if(Player.GetCurrentPlayer().getColor() == Color.blue)
-//                               winNum = 2;
-//                           else if(Player.GetCurrentPlayer().getColor() == Color.red)
-//                               winNum = 1;
-//                        }
+    public static void checkWinner(){
+        int win = -1;
+//        for (int r = 0; r < NUM_ROWS; r++){ 
+//            for (int c = 0; c < NUM_COLUMNS; c++){ 
+//                if(Board.Pieces[r][c] != null && Board.Pieces[r][c].getColor() == Color.red)
+//                    Board.Pieces[r][c] = null;
 //            }
-//
 //        }
-//        
-//        if(winNum == 2){
-//            return(2);
-//        }
-//        else if(winNum == 1){
-//            return(1);
-//        }
-//        else{
-//            return(0);
-//        }
-//        
-//    }
-    public static int checkWinner(){
-        int winner = -1;
-        for (int r = 0; r < NUM_ROWS; r++) {
-            for (int c = 0; c < NUM_COLUMNS; c++) {
+        for (int r = 0; r < NUM_ROWS && win != 0; r++) {
+            for (int c = 0; c < NUM_COLUMNS && win != 0; c++) {
                 if(Board.Pieces[r][c] == null){}
                 else if(Board.Pieces[r][c].getColor() != Player.getPlayer(0).getColor())
-                    return -1;
-                else
-                    winner = 0;
+                    win = 0;
+                else if(Board.Pieces[r][c].getColor() == Player.getPlayer(0).getColor())
+                    win = 1;
             }
         }
-        for (int r = 0; r < NUM_ROWS; r++) {
-            for (int c = 0; c < NUM_COLUMNS; c++) {
-                if(Board.Pieces[r][c] == null){}
-                else if(Board.Pieces[r][c].getColor() != Player.getPlayer(1).getColor())
-                    return -1;
-                else
-                    winner = 1;
+        if(win == 0){
+            win = -1;
+            for (int r = 0; r < NUM_ROWS && win != 0; r++) {
+                for (int c = 0; c < NUM_COLUMNS && win != 0; c++) {
+                    if(Board.Pieces[r][c] == null){}
+                    else if(Board.Pieces[r][c].getColor() != Player.getPlayer(1).getColor())
+                        win = 0;
+                    else if(Board.Pieces[r][c].getColor() == Player.getPlayer(1).getColor())
+                        win = 2;
+                }
             }
         }
-            
-        return winner;
+        if(win == 1)
+            winRed = true;
+        else if(win == 2)
+            winBlu = true;
     }
    
 
@@ -316,7 +276,6 @@ public class Board {
         
         winBlu = false;
         winRed = false;
-        ifWin = 0;
 
     }
 
@@ -341,6 +300,12 @@ public class Board {
             return board[r][c];
         }
         return null;
+    }
+    public static boolean getWinBlu(){
+        return winBlu;
+    }
+    public static boolean getWinRed(){
+        return winRed;
     }
 
 }

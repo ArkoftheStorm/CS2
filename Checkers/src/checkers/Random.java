@@ -39,6 +39,8 @@ public class Random {
         }
     }
     public static void Roll(Graphics2D g) {
+        if(Board.getWinBlu() || Board.getWinRed())
+            return;
         roll = (int)(Math.random()*3);
         Player.SwitchTurn();
         if(roll == 0){
