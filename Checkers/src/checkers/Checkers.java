@@ -15,6 +15,7 @@ public class Checkers extends JFrame implements Runnable {
 
     boolean animateFirstTime = true;
     Image image;
+    public static Image yee;
     public static Image explosion;
     public static Image bluePiece;
     public static Image yellowPiece;
@@ -23,7 +24,6 @@ public class Checkers extends JFrame implements Runnable {
     Color brown = new Color(193, 154, 107);
     static boolean menu;
     sound theme = null;
-    
 
     public static void main(String[] args) {
         Checkers frame = new Checkers();
@@ -38,46 +38,34 @@ public class Checkers extends JFrame implements Runnable {
             public void mousePressed(MouseEvent e) {
 
                 if (e.BUTTON1 == e.getButton()) {
-                
-                boolean menu = Menu.menuShow;
-                
-                Menu.ClickButton(e.getX(), e.getY());
 
-                if(Menu.menuShow || Menu.helpShow)
-                    return;
-                if (e.getX() > Window.getX(Window.getWidth2() + 10)
-                        && e.getY() > Window.getY(0)
-                        && e.getX() < Window.getX(Window.getWidth2() + 10) + Board.getXdelta()
-                        && e.getY() < Window.getY(0) + Board.getYdelta()) {
-                    Random.Roll(g);
+                    boolean menu = Menu.menuShow;
+
+                    Menu.ClickButton(e.getX(), e.getY());
+
+                    if (Menu.menuShow || Menu.helpShow) {
+                        return;
+                    }
+                    if (e.getX() > Window.getX(Window.getWidth2() + 10)
+                            && e.getY() > Window.getY(0)
+                            && e.getX() < Window.getX(Window.getWidth2() + 10) + Board.getXdelta()
+                            && e.getY() < Window.getY(0) + Board.getYdelta()) {
+                        Random.Roll(g);
+                    } else {
+
+                        if (Piece.piecemoves) {
+                            Board.movepiece(e.getX(), e.getY());
+
+                        } else {
+                            Board.selectpiece(e.getX(), e.getY());
+
+                            Board.switchPiece(e.getX(), e.getY());
+
+                        }
+
+                    }
+
                 }
-
-                else {
-
-
-
-                    if(Piece.piecemoves){
-                        Board.movepiece(e.getX(), e.getY());
-                      
-                    }
-                    else
-                    {
-                        Board.selectpiece(e.getX(),e.getY());
-
-                    Board.switchPiece(e.getX(), e.getY());
-                    
-                    }
-
-                    }
-                 
-                }
-                
-               
-
-
-
-                
-
 
                 if (e.BUTTON3 == e.getButton()) {
 
@@ -146,7 +134,7 @@ public class Checkers extends JFrame implements Runnable {
             g.setRenderingHint(RenderingHints.KEY_ANTIALIASING,
                     RenderingHints.VALUE_ANTIALIAS_ON);
         }
-            if (explosion == null || Window.xsize != getSize().width || Window.ysize != getSize().height) {
+        if (explosion == null || Window.xsize != getSize().width || Window.ysize != getSize().height) {
             Window.xsize = getSize().width;
             Window.ysize = getSize().height;
             image = createImage(Window.xsize, Window.ysize);
@@ -179,18 +167,34 @@ public class Checkers extends JFrame implements Runnable {
         Random.Draw(g);
         Menu.draw(g);
 
-       
-        if(Random.getExplode()){
+        if (Random.getExplode()) {
             drawExplosion();
             Random.incExplodeTime();
-            if(Random.explodeTimeDone())
+            if (Random.explodeTimeDone()) {
                 Random.doneExplode();
+            }
         }
-                
-        
 
         gOld.drawImage(image, 0, 0, null);
     }
+
+//    public static void drawPiece(Graphics2D g) {
+//        
+//        for (int zrow = 0; zrow < Board.getNumRows(); zrow++) {
+//            for (int zcol = 0; zcol < Board.getNumColumns(); zcol++) {
+//                if (Player.GetCurrentPlayer().getColor() == Color.RED) {
+//                    g.drawImage(redPiece, Window.getX(col * Board.getXdelta()), Window.getY(row * Board.getYdelta()), Board.getXdelta(), Board.getYdelta(), this);
+//                } else if (Player.GetCurrentPlayer().getColor() == Color.BLUE) {
+//                    g.drawImage(redPiece, Window.getX(col * Board.getXdelta()), Window.getY(row * Board.getYdelta()), Board.getXdelta(), Board.getYdelta(), this);
+//                }
+//
+//                if () {
+//                    g.drawImage(redPiece, Window.getX(col * Board.getXdelta()), Window.getY(row * Board.getYdelta()), Board.getXdelta(), Board.getYdelta(), this);
+//                }
+//
+//            }
+//        }
+//    }
 
     public void drawImage(Image image, int xpos, int ypos, double rot, double xscale,
             double yscale) {
@@ -227,10 +231,9 @@ public class Checkers extends JFrame implements Runnable {
 
 /////////////////////////////////////////////////////////////////////////
     public void reset() {
-        
+
         Menu.Reset();
-        
-       
+
     }
 /////////////////////////////////////////////////////////////////////////
 
@@ -246,20 +249,21 @@ public class Checkers extends JFrame implements Runnable {
             bluePiece = Toolkit.getDefaultToolkit().getImage("./blue_piece");
             yellowPiece = Toolkit.getDefaultToolkit().getImage("./yellow_piece");
             redPiece = Toolkit.getDefaultToolkit().getImage("./red_piece");
+            yee = Toolkit.getDefaultToolkit().getImage("./jeffery-yee");
 //             explosion = Toolkit.getDefaultToolkit().getImage("./explody_boi.GIF");
             theme = new sound("themeMusic.wav");
             reset();
 
-                
         }
-            if (Menu.menuShow || Menu.helpShow) {
-                Board.Reset();
-                Player.Reset();
-            }
-            if (theme.donePlaying)
-                theme = new sound("themeMusic.wav");
-            Board.checkWinner();
-            Board.kingCheck();
+        if (Menu.menuShow || Menu.helpShow) {
+            Board.Reset();
+            Player.Reset();
+        }
+        if (theme.donePlaying) {
+            theme = new sound("themeMusic.wav");
+        }
+        Board.checkWinner();
+        Board.kingCheck();
     }
 
 ////////////////////////////////////////////////////////////////////////////
@@ -278,57 +282,58 @@ public class Checkers extends JFrame implements Runnable {
         relaxer = null;
     }
 
-    
-class sound implements Runnable {
-    Thread myThread;
-    File soundFile;
-    public boolean donePlaying = false;
-    sound(String _name)
-    {
-        soundFile = new File(_name);
-        myThread = new Thread(this);
-        myThread.start();
-    }
-    public void run()
-    {
-        try {
-        AudioInputStream ais = AudioSystem.getAudioInputStream(soundFile);
-        AudioFormat format = ais.getFormat();
-    //    System.out.println("Format: " + format);
-        DataLine.Info info = new DataLine.Info(SourceDataLine.class, format);
-        SourceDataLine source = (SourceDataLine) AudioSystem.getLine(info);
-        source.open(format);
-        source.start();
-        int read = 0;
-        byte[] audioData = new byte[16384];
-        while (read > -1){
-            read = ais.read(audioData,0,audioData.length);
-            if (read >= 0) {
-                source.write(audioData,0,read);
+    class sound implements Runnable {
+
+        Thread myThread;
+        File soundFile;
+        public boolean donePlaying = false;
+
+        sound(String _name) {
+            soundFile = new File(_name);
+            myThread = new Thread(this);
+            myThread.start();
+        }
+
+        public void run() {
+            try {
+                AudioInputStream ais = AudioSystem.getAudioInputStream(soundFile);
+                AudioFormat format = ais.getFormat();
+                //    System.out.println("Format: " + format);
+                DataLine.Info info = new DataLine.Info(SourceDataLine.class, format);
+                SourceDataLine source = (SourceDataLine) AudioSystem.getLine(info);
+                source.open(format);
+                source.start();
+                int read = 0;
+                byte[] audioData = new byte[16384];
+                while (read > -1) {
+                    read = ais.read(audioData, 0, audioData.length);
+                    if (read >= 0) {
+                        source.write(audioData, 0, read);
+                    }
+                }
+                donePlaying = true;
+
+                source.drain();
+                source.close();
+            } catch (Exception exc) {
+                System.out.println("error: " + exc.getMessage());
+                exc.printStackTrace();
             }
         }
-        donePlaying = true;
-   
-        source.drain();
-        source.close();
-        }
-        catch (Exception exc) {
-            System.out.println("error: " + exc.getMessage());
-            exc.printStackTrace();
-        }
+
     }
 
-}
-    public void drawExplosion(){
+    public void drawExplosion() {
         g.drawImage(Checkers.explosion,
-                (Random.getBombCol()+1)*Board.getXdelta(),
-                Random.getBombRow()*Board.getYdelta(),
+                (Random.getBombCol() + 1) * Board.getXdelta(),
+                Random.getBombRow() * Board.getYdelta(),
                 Board.getYdelta() * (Random.getBombBorder() * 2),
                 Board.getXdelta() * (Random.getBombBorder() * 2),
                 this);
     }
-    public void drawPieceImage(int row, int col){
+
+    public void drawPieceImage(int row, int col) {
 
     }
-    
+
 }
