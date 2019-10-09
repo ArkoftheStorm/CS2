@@ -165,7 +165,7 @@ public class Checkers extends JFrame implements Runnable {
 
 //        if(Menu.helpShow == true){
 //            if(Menu.yeeYES = true){
-                g.drawImage(yee, 50, 50,Color.RED,null);
+//                g.drawImage(yee, 50, 50,Color.RED,null);
 //            }
 //        }
         gOld.drawImage(image, 0, 0, null);

@@ -189,7 +189,7 @@ public class Board {
         } 
         else if(_row > NUM_ROWS|| _row < 0 || _col > NUM_COLUMNS|| _col < 0)
             return;
-        } else if (Board.Pieces[_row][_col] != null && Player.GetCurrentPlayer().getColor() != Board.Pieces[_row][_col].getColor()) {
+         else if (Board.Pieces[_row][_col] != null && Player.GetCurrentPlayer().getColor() != Board.Pieces[_row][_col].getColor()) {
             int tempDelRow = _row;
             int tempDelCol = _col;
             if( _row + 1 > NUM_ROWS|| _row - 1< 0 || _col + 1> NUM_COLUMNS|| _col - 1 < 0)
@@ -235,13 +235,12 @@ public class Board {
         if (Piece.piecemoves() == false) {
 
             Piece.deletepiece(Piece.getDeleteRow(), Piece.getDeleteCol());
-
+        
         }
 
-        Player.SwitchTurn();
-
+       Player.SwitchTurn();
+    
     }
-
     public static void checkWinner() {
         int win = -1;
         
@@ -323,3 +322,4 @@ public class Board {
         }
     }
 }
+
