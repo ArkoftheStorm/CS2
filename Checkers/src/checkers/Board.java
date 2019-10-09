@@ -307,5 +307,10 @@ public class Board {
     public static boolean getWinRed(){
         return winRed;
     }
-
+    public static void kingCheck(){
+        for (int r = 0; r < NUM_ROWS; r++) 
+            for (int c = 0; c < NUM_COLUMNS; c++) 
+                if(Board.Pieces[r][c] != null)
+                    Board.Pieces[r][c].checkKing();
+    }
 }

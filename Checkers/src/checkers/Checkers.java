@@ -259,6 +259,7 @@ public class Checkers extends JFrame implements Runnable {
             if (theme.donePlaying)
                 theme = new sound("themeMusic.wav");
             Board.checkWinner();
+            Board.kingCheck();
     }
 
 ////////////////////////////////////////////////////////////////////////////
