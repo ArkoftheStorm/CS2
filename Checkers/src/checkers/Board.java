@@ -185,6 +185,7 @@ public class Board {
                 || _col < Piece.getDeleteCol() - 1) {
             return;
         } 
+
         else if (Board.Pieces[_row][_col] != null && Player.GetCurrentPlayer().getColor() != Board.Pieces[_row][_col].getColor()) {
             int tempDelRow = _row;
             int tempDelCol = _col;
@@ -215,7 +216,8 @@ public class Board {
             Piece.piecemovesT();
              
         }
-        
+        if(Board.Pieces[_row][_col] != null && Board.Pieces[_row][_col].getColor() == Player.GetCurrentPlayer().getColor())
+            return;
         Board.Pieces[_row][_col] = new Piece(Player.getCurrentPlayer().getColor(), _row, _col);
         for (int r = 0; r < NUM_ROWS; r++) {
             for (int c = 0; c < NUM_COLUMNS; c++) {
