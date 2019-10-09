@@ -14,9 +14,11 @@ public class Menu {
     static boolean helpShow = false;
     static boolean backToMenu;
     static boolean menuGone = false;
-
+    static boolean yeeYES = false;
+    public static Image yee;
+    
     Menu() {
-
+        yee = Checkers.yee;
     }
 
     public static void Reset() {
@@ -24,6 +26,7 @@ public class Menu {
         helpShow = false;
         backToMenu = false;
         menuGone = false;
+        yeeYES = false;
         Player.Reset();
         
     }
@@ -39,6 +42,7 @@ public class Menu {
                 System.out.println("Help = " + xpixel + ypixel);
                 menuShow = false;
                 helpShow = true;
+                yeeYES = true;
             }
         }
         if (menuShow == false) {
@@ -55,6 +59,7 @@ public class Menu {
 
                 helpShow = false;
                 menuShow = true;
+                yeeYES = false;
             }
         }
     }
@@ -77,10 +82,11 @@ public class Menu {
         }
 
         if (menuShow == true) {
-
+           
+            
             g.setColor(menuColor);
             g.fillRect(0, 0, Window.xsize, Window.ysize);
-
+            
 //"PLAY" BUTTON        
             g.setColor(Color.red);
             g.fillRect(Window.getWidth2() / 3 - 3, Window.getHeight2() / 2 - 3, 406, 57);
