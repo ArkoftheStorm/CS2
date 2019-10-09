@@ -98,7 +98,9 @@ public class Board {
         }
 
 
+
         if (winBlu == true) {
+
                 g.drawString("Player 2 Wins!", Window.getX(0), Window.getY(0) + 50);
         }
 
