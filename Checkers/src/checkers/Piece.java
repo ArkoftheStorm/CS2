@@ -4,6 +4,7 @@ package checkers;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.Graphics2D;
+import java.awt.Image;
 
 public class Piece {
 
@@ -128,6 +129,11 @@ public class Piece {
                         Window.getY(row * Board.getYdelta()),
                         Board.getXdelta(),
                         Board.getYdelta());
+//                  Checkers.drawPiece(g);
+
+
+
+
                 g.setColor(Color.white);
                 if(king){
                     g.setFont (new Font("times new roman",Font.BOLD,24));
@@ -196,5 +202,6 @@ public class Piece {
         else{}
     }
 
+  
 }
 
